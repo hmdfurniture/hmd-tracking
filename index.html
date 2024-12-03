@@ -4,21 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMD Tracking</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>HMD Tracking</h1>
-        <p>Introduza o código para pesquisar o documento:</p>
-        <input type="text" id="searchInput" placeholder="Código do documento">
-        <button id="searchButton">Pesquisar</button>
-        <p id="resultMessage"></p>
-    </div>
-    <div class="admin-section">
-        <a href="#" id="adminAccess">Administração</a>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js"></script>
-    <script src="script.js"></script>
+    <h1>HMD Tracking</h1>
+    <p>Digite o código do PDF:</p>
+    <input type="text" id="codigo" placeholder="Ex: 12345">
+    <button onclick="procurarPDF()">Procurar</button>
+
+    <script>
+        function procurarPDF() {
+            const codigo = document.getElementById('codigo').value.trim();
+            if (codigo === "") {
+                alert("Por favor, insira um código.");
+                return;
+            }
+
+            // Link base do Google Drive
+            const baseUrl = "https://drive.google.com/uc?id=";
+
+            // Construir o link do PDF
+            const pdfUrl = baseUrl + codigo;
+
+            // Verificar se o PDF existe (opcional)
+            fetch(pdfUrl, { method: "HEAD" })
+                .then(response => {
+                    if (response.ok) {
+                        // Abrir o PDF
+                        window.open(pdfUrl, "_blank");
+                    } else {
+                        alert("PDF não encontrado. Verifique o código.");
+                    }
+                })
+                .catch(() => alert("Erro ao procurar o PDF."));
+        }
+    </script>
 </body>
 </html>
