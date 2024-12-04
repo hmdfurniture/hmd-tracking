@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300vh;
+    height: 100vh;
     margin: 0;
     flex-direction: column;
     color: #000000; /* Cor preta para o texto */
@@ -31,7 +31,7 @@ input {
     font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 750px;
+    width: 550px;
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2); /* Fundo cinza muito claro, quase translúcido */
     transition: all 0.3s ease;
