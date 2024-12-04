@@ -15,7 +15,17 @@ body {
 h1 {
     font-size: 86px;
     color: #000000; /* Cor vibrante para o título */
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Ajuste de espaçamento */
+}
+
+/* Estilo para a imagem */
+.logo {
+    width: 200px; /* Largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 20px 0; /* Espaçamento acima e abaixo */
+    display: block; /* Garante que a imagem seja tratada como bloco */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto;
 }
 
 /* Estilo para o parágrafo */
