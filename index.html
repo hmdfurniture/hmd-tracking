@@ -2,21 +2,21 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=3.0">
     <title>HMD Tracking</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>HMD Tracking</h1>
-    <p>Digite o código do PDF:</p>
+    <p>Type your code:</p>
     <input type="text" id="codigo" placeholder="Ex: 12345">
-    <button onclick="procurarPDF()">Procurar</button>
+    <button onclick="procurarPDF()">search</button>
 
     <script>
         function procurarPDF() {
             const codigo = document.getElementById('codigo').value.trim();
             if (codigo === "") {
-                alert("Por favor, insira um código.");
+                alert("Please enter a code.");
                 return;
             }
 
@@ -30,7 +30,7 @@
                         // Abrir o PDF
                         window.open(pdfUrl, "_blank");
                     } else {
-                        alert("PDF não encontrado. Verifique o código.");
+                        alert("   not found!!!   please check the code. ");
                     }
                 })
                 .catch(() => alert("Erro ao procurar o PDF."));
