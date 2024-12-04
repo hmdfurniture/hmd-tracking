@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 300vh;
     margin: 0;
     flex-direction: column;
     color: #000000; /* Cor preta para o texto */
@@ -31,7 +31,7 @@ input {
     font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 450px;
+    width: 750px;
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2); /* Fundo cinza muito claro, quase translúcido */
     transition: all 0.3s ease;
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-    background-color: #ccc; /* Cor mais escura no hover */
+    background-color: #555; /* Cor mais escura no hover */
 }
 
 /* Adiciona espaçamento e ajusta a posição de todos os elementos */
