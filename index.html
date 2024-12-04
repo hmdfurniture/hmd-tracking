@@ -4,22 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMD Tracking</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>HMD Tracking</h1>
@@ -35,13 +20,10 @@
                 return;
             }
 
-            // Link base do Google Drive
-            const baseUrl = "https://drive.google.com/uc?id=";
+            // Caminho relativo à pasta pdfs
+            const pdfUrl = `pdfs/${codigo}.pdf`;
 
-            // Construir o link do PDF
-            const pdfUrl = baseUrl + codigo;
-
-            // Verificar se o PDF existe (opcional)
+            // Verificar se o PDF existe
             fetch(pdfUrl, { method: "HEAD" })
                 .then(response => {
                     if (response.ok) {
