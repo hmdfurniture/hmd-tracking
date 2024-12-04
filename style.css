@@ -68,6 +68,17 @@ button:hover {
     background-color: #555; /* Cor mais escura no hover */
 }
 
+/* Estilo para o contêiner do PDF */
+.pdf-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px; /* Define um tamanho máximo para evitar layouts muito grandes */
+    height: 600px;
+    overflow: hidden;
+    border: 1px solid #ccc; /* Borda leve para destacar o PDF */
+    border-radius: 4px;
+}
+
 /* Adiciona espaçamento e ajusta a posição de todos os elementos */
 .container {
     text-align: center;
