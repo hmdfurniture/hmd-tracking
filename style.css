@@ -13,14 +13,14 @@ body {
 
 /* Estilo para o título */
 h1 {
-    font-size: 66px;
+    font-size: 46px;
     color: #000000; /* Cor vibrante para o título */
     margin-bottom: 20px; /* Ajuste de espaçamento */
 }
 
 /* Estilo para a imagem */
 .logo {
-    width: 500px; /* Largura da imagem */
+    width: 1500px; /* Largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 20px 0; /* Espaçamento acima e abaixo */
     display: block; /* Garante que a imagem seja tratada como bloco */
