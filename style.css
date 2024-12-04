@@ -20,7 +20,7 @@ h1 {
 
 /* Estilo para a imagem */
 .logo {
-    width: 700px /* Largura da imagem */
+    width: 700px; /* Largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 20px 0; /* Espaçamento acima e abaixo */
     display: block; /* Garante que a imagem seja tratada como bloco */
@@ -82,4 +82,34 @@ button:hover {
 /* Adiciona espaçamento e ajusta a posição de todos os elementos */
 .container {
     text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Ajusta o tamanho da imagem logo para telas menores */
+    .logo {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Ajusta o tamanho do título para telas menores */
+    h1 {
+        font-size: 28px;
+    }
+
+    /* Ajusta o tamanho do input */
+    input {
+        width: 100%;
+    }
+
+    /* Ajusta o tamanho do botão */
+    button {
+        width: 100%;
+    }
+
+    /* Ajusta o contêiner do PDF */
+    .pdf-container {
+        width: 100%;
+        height: 400px;
+    }
 }
