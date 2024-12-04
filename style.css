@@ -14,8 +14,8 @@ body {
 /* Estilo para o título */
 h1 {
     font-size: 36px;
-    color: #4CAF50; /* Cor vibrante para o título */
-    margin-bottom: 20px;
+    color: #000000; /* Cor vibrante para o título */
+    margin-bottom: 40px;
 }
 
 /* Estilo para o parágrafo */
@@ -31,14 +31,14 @@ input {
     font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 250px;
+    width: 450px;
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2); /* Fundo cinza muito claro, quase translúcido */
     transition: all 0.3s ease;
 }
 
 input:focus {
-    border-color: #4CAF50; /* Cor de borda ao focar */
+    border-color: #ccc; /* Cor de borda ao focar */
     outline: none;
 }
 
@@ -47,15 +47,15 @@ button {
     padding: 12px 20px;
     font-size: 18px;
     color: white;
-    background-color: #4CAF50; /* Cor de fundo vibrante */
-    border: none;
+    background-color: #ffffff; /* Cor de fundo vibrante */
+    border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049; /* Cor mais escura no hover */
+    background-color: #ccc; /* Cor mais escura no hover */
 }
 
 /* Adiciona espaçamento e ajusta a posição de todos os elementos */
