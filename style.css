@@ -20,7 +20,7 @@ h1 {
 
 /* Estilo para a imagem */
 .logo {
-    width: auto; /* Largura da imagem */
+    width: 700px /* Largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin: 20px 0; /* Espaçamento acima e abaixo */
     display: block; /* Garante que a imagem seja tratada como bloco */
