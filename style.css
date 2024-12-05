@@ -6,7 +6,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Para garantir que padding e border sejam contados no total da largura/altura */
-    width: 100%; /* Garante que o corpo ocupe toda a largura da tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
 }
 
 /* Estilo para o contêiner principal */
@@ -14,10 +17,11 @@ body {
     text-align: center;
     padding: 5vw 2vw; /* Padding responsivo, ajustando com base na largura da tela */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Organiza os itens de cima para baixo */
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
+    width: 100%; /* A largura é 100% para ocupar toda a largura disponível, mas com padding */
+    max-width: 800px; /* Limita a largura máxima para 800px */
 }
 
 /* Estilo para a imagem do logo */
@@ -56,8 +60,9 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 90%; /* O botão ocupará 90% da largura da tela */
+    width: 90%; /* O botão ocupará 90% da largura da tela em dispositivos móveis */
     max-width: 550px; /* Limita a largura máxima para 550px */
+    margin-top: 2vw; /* Adiciona um pequeno espaço entre o botão e o campo de pesquisa */
 }
 
 button:hover {
@@ -108,4 +113,24 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Responsividade para telas pequenas */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 5vw 2vw; /* Ajuste do padding em telas pequenas */
+    }
+
+    input {
+        font-size: 5vw; /* Ajuste do tamanho da fonte */
+        width: 90%;
+        max-width: 550px; /* Limita a largura do input */
+    }
+
+    button {
+        font-size: 5vw; /* Ajuste do tamanho da fonte */
+        width: 90%; /* O botão ocupará 90% da largura da tela */
+        max-width: 550px; /* Limita a largura do botão */
+    }
 }
