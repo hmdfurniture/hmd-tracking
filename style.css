@@ -17,24 +17,31 @@ body {
     text-align: center;
     padding: 5vw 2vw; /* Padding responsivo, ajustando com base na largura da tela */
     display: flex;
-    flex-direction: column; /* Organiza os itens de cima para baixo */
+    flex-direction: column; /* Organiza os itens de cima para baixo em telas menores */
     align-items: center;
     justify-content: center;
     width: 100%; /* A largura é 100% para ocupar toda a largura disponível, mas com padding */
     max-width: 800px; /* Limita a largura máxima para 800px */
 }
 
-/* Estilo para a imagem do logo */
-.logo {
-    width: 700px; /* Logo com largura fixa de 700px */
-    height: auto;
-    margin: 5vw 0; /* Margin responsivo para que o logo não grude no topo ou no fundo */
+/* Estilo para o logo e título */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centraliza logo e título horizontalmente */
+    align-items: center; /* Alinha logo e título verticalmente */
+    margin-bottom: 3vw; /* Espaçamento abaixo do logo e título */
 }
 
-/* Estilo para o título */
+.logo {
+    width: 60%; /* Logo ajusta-se para 60% da largura da tela */
+    max-width: 700px; /* Limita a largura do logo a 700px */
+    height: auto;
+    margin-right: 2vw; /* Espaçamento à direita do logo */
+}
+
 h1 {
     font-size: 36px; /* Tamanho fixo do título */
-    margin-bottom: 3vw; /* Espaçamento inferior ajustado */
+    margin: 0; /* Remove a margem padrão do título */
 }
 
 /* Estilo para o input (caixa de pesquisa) */
@@ -67,9 +74,13 @@ button {
 /* Estilo para o botão de pesquisa em desktop, ao lado da caixa de pesquisa */
 @media screen and (min-width: 769px) {
     .container {
-        flex-direction: row; /* Em desktops, o botão ficará ao lado do input */
+        flex-direction: column; /* Mantém os itens organizados verticalmente */
         justify-content: center;
         align-items: center;
+    }
+
+    .logo-container {
+        flex-direction: row; /* Organiza o logo e o título na mesma linha em desktops */
     }
 
     input {
@@ -136,5 +147,18 @@ button {
         font-size: 5vw; /* Ajuste do tamanho da fonte */
         width: 90%; /* O botão ocupará 90% da largura da tela */
         max-width: 550px; /* Limita a largura do botão */
+    }
+
+    .logo-container {
+        flex-direction: row; /* No mobile também, o logo e o texto estarão na mesma linha */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo {
+        width: 80%; /* Em dispositivos móveis, o logo ocupará 80% da largura */
+        max-width: 600px; /* Limita a largura máxima do logo em telas pequenas */
+        margin-right: 0; /* Remove a margem à direita */
     }
 }
