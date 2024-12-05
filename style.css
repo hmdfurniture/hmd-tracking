@@ -27,6 +27,7 @@ body {
 /* Contêiner do logo e título (lado a lado) */
 .logo-container {
     display: flex;
+    flex-direction: row; /* Organiza os itens de cima para baixo em telas menores */
     justify-content: flex-start; /* Alinha o logo e o título à esquerda */
     align-items: center; /* Alinha o logo e o título verticalmente */
     margin-bottom: 3vw; /* Espaçamento abaixo do logo e título */
