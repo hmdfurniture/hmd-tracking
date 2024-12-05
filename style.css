@@ -26,15 +26,14 @@ body {
 
 /* Estilo para a imagem do logo */
 .logo {
-    width: 90%; /* O logo vai ocupar 90% da largura da tela */
-    max-width: 700px; /* Limita a largura máxima para 700px */
+    width: 700px; /* Logo com largura fixa de 700px */
     height: auto;
     margin: 5vw 0; /* Margin responsivo para que o logo não grude no topo ou no fundo */
 }
 
 /* Estilo para o título */
 h1 {
-    font-size: 6vw; /* O tamanho do título será proporcional à largura da tela */
+    font-size: 36px; /* Tamanho fixo do título */
     margin-bottom: 3vw; /* Espaçamento inferior ajustado */
 }
 
@@ -42,7 +41,7 @@ h1 {
 input {
     padding: 12px;
     margin: 2vw 0; /* Ajuste do espaço entre o campo de pesquisa e o botão */
-    font-size: 4vw; /* Tamanho da fonte proporcional à tela */
+    font-size: 18px; /* Tamanho fixo da fonte */
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
     width: 90%; /* O input vai ocupar 90% da largura da tela */
@@ -54,7 +53,7 @@ input {
 /* Estilo para o botão */
 button {
     padding: 12px 20px;
-    font-size: 4vw; /* Tamanho da fonte proporcional à tela */
+    font-size: 18px; /* Tamanho fixo da fonte */
     color: white;
     background-color: #555;
     border: 1px solid #ccc;
@@ -65,8 +64,23 @@ button {
     margin-top: 2vw; /* Adiciona um pequeno espaço entre o botão e o campo de pesquisa */
 }
 
-button:hover {
-    background-color: #444;
+/* Estilo para o botão de pesquisa em desktop, ao lado da caixa de pesquisa */
+@media screen and (min-width: 769px) {
+    .container {
+        flex-direction: row; /* Em desktops, o botão ficará ao lado do input */
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: auto; /* Ajuste para não ocupar toda a largura em desktops */
+        margin-right: 2vw; /* Adiciona espaço entre o input e o botão */
+    }
+
+    button {
+        width: auto; /* Ajuste a largura para o botão em desktops */
+        margin-top: 0; /* Remove o margin-top para manter o botão alinhado ao input */
+    }
 }
 
 /* Estilo para o overlay que exibe o PDF */
@@ -103,16 +117,6 @@ button:hover {
 .pdf-overlay iframe {
     max-width: 100%;
     max-height: 100%;
-}
-
-/* Estilo para links de texto (caso existam) */
-a {
-    color: #555;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 /* Responsividade para telas pequenas */
