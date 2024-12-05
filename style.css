@@ -51,7 +51,7 @@ h1 {
 /* Estilo para a caixa de pesquisa e o botão */
 .search-container {
     display: flex;
-    flex-direction: column; /* Organiza a caixa de pesquisa e o botão verticalmente */
+    flex-direction: row; /* Organiza a caixa de pesquisa e o botão verticalmente */
     align-items: center; /* Centraliza ambos */
     width: 100%;
 }
