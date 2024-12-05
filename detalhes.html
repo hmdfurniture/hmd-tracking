@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes - HMD Tracking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Logo HMD" class="logo">
+            <h1>Tracking - Detalhes</h1>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="codigo" placeholder="Ex: 12345">
+            <button onclick="carregarConteudo()">Buscar</button>
+        </div>
+
+        <!-- Aqui vamos exibir o conteúdo -->
+        <div id="conteudo">
+            <!-- O conteúdo será carregado dinamicamente aqui -->
+        </div>
+    </div>
+
+    <script>
+        function carregarConteudo() {
+            const codigo = document.getElementById('codigo').value.trim();
+
+            if (codigo === "") {
+                alert("Por favor, insira um código.");
+                return;
+            }
+
+            // Caminho para a pasta de conteúdo com o código inserido
+            const conteudoUrl = `conteudo/${codigo}/`;
+
+            // Tenta carregar os arquivos de conteúdo (exemplo: imagem, texto)
+            fetch(conteudoUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Conteúdo não encontrado.");
+                    }
+                    return response.text(); // ou response.json(), dependendo do tipo de conteúdo
+                })
+                .then(data => {
+                    // Aqui você pode definir como será estruturado o conteúdo dinâmico.
+                    // Vamos por exemplo adicionar uma imagem e um texto como exemplo:
+
+                    const conteudoDiv = document.getElementById('conteudo');
+                    conteudoDiv.innerHTML = `
+                        <h2>Conteúdo para o código ${codigo}</h2>
+                        <img src="${conteudoUrl}imagem.jpg" alt="Imagem do Código ${codigo}" class="conteudo-imagem">
+                        <p>${data}</p>
+                    `;
+                })
+                .catch(error => {
+                    alert("Erro ao carregar o conteúdo: " + error.message);
+                });
+        }
+    </script>
+</body>
+</html>
 
