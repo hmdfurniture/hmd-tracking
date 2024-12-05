@@ -9,13 +9,13 @@
 <body>
     <div class="container">
         <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-        <h1>tracking</h1>
+        <h1>Tracking</h1>
         <input type="text" id="codigo" placeholder="Ex: 12345">
-        <button onclick="procurarPDF()">Search</button>
+        <button onclick="procurarDetalhes()">Buscar</button>
     </div>
 
     <script>
-        function procurarPDF() {
+        function procurarDetalhes() {
             const codigo = document.getElementById('codigo').value.trim();
 
             if (codigo === "") {
@@ -23,21 +23,8 @@
                 return;
             }
 
-            const pdfUrl = `pdfs/${codigo}.pdf`;
-
-            // Verificar se o PDF existe, através de uma requisição HEAD
-            fetch(pdfUrl, { method: "HEAD" })
-                .then(response => {
-                    if (response.ok) {
-                        // Abre o PDF na janela/aba padrão do navegador
-                        window.open(pdfUrl, '_blank');
-                    } else {
-                        alert("PDF não encontrado!");
-                    }
-                })
-                .catch(() => {
-                    alert("Erro ao tentar abrir o PDF.");
-                });
+            // Redireciona para a página 'detalhes.html' com o código na URL
+            window.location.href = `detalhes.html?codigo=${codigo}`;
         }
     </script>
 </body>
