@@ -5,38 +5,44 @@ body {
     color: #000000; /* Cor preta para o texto */
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Para garantir que padding e border sejam contados no total da largura/altura */
+    width: 100%; /* Garante que o corpo ocupe toda a largura da tela */
 }
 
 /* Estilo para o contêiner principal */
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 5vw 2vw; /* Padding responsivo, ajustando com base na largura da tela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
 }
 
 /* Estilo para a imagem do logo */
 .logo {
-    width: 700px;
+    width: 90%; /* O logo vai ocupar 90% da largura da tela */
+    max-width: 700px; /* Limita a largura máxima para 700px */
     height: auto;
-    margin: 20px 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 5vw 0; /* Margin responsivo para que o logo não grude no topo ou no fundo */
 }
 
 /* Estilo para o título */
 h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 6vw; /* O tamanho do título será proporcional à largura da tela */
+    margin-bottom: 3vw; /* Espaçamento inferior ajustado */
 }
 
-/* Estilo para o input */
+/* Estilo para o input (caixa de pesquisa) */
 input {
     padding: 12px;
-    margin: 10px;
-    font-size: 18px;
+    margin: 2vw 0; /* Ajuste do espaço entre o campo de pesquisa e o botão */
+    font-size: 4vw; /* Tamanho da fonte proporcional à tela */
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
-    width: 550px;
+    width: 90%; /* O input vai ocupar 90% da largura da tela */
+    max-width: 550px; /* Limita a largura máxima para 550px */
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2);
 }
@@ -44,12 +50,14 @@ input {
 /* Estilo para o botão */
 button {
     padding: 12px 20px;
-    font-size: 18px;
+    font-size: 4vw; /* Tamanho da fonte proporcional à tela */
     color: white;
     background-color: #555;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
+    width: 90%; /* O botão ocupará 90% da largura da tela */
+    max-width: 550px; /* Limita a largura máxima para 550px */
 }
 
 button:hover {
@@ -86,8 +94,18 @@ button:hover {
     color: red;
 }
 
-/* Estilo para o iframe do PDF */
+/* Estilo para o iframe do PDF (caso volte a ser necessário) */
 .pdf-overlay iframe {
     max-width: 100%;
     max-height: 100%;
+}
+
+/* Estilo para links de texto (caso existam) */
+a {
+    color: #555;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
