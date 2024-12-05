@@ -8,47 +8,69 @@
 </head>
 <body>
     <div class="container">
-        <!-- Adicionando a imagem logo -->
         <img src="images/logo.jpg" alt="Logo HMD" class="logo">
         <h1>HMD Tracking</h1>
         <input type="text" id="codigo" placeholder="Ex: 12345">
         <button onclick="procurarPDF()">Search</button>
-        
-        <!-- Espaço para exibir o PDF -->
-        <div id="pdfViewer" class="pdf-container"></div>
+    </div>
+
+    <!-- Espaço para exibir o PDF -->
+    <div id="pdfViewer" class="pdf-overlay">
+        <button id="closeBtn" onclick="fecharPDF()">X</button>
+        <iframe id="pdfIframe" src="" style="border: none;"></iframe>
     </div>
 
     <script>
         function procurarPDF() {
             const codigo = document.getElementById('codigo').value.trim();
             const pdfViewer = document.getElementById('pdfViewer');
-            pdfViewer.innerHTML = ""; // Limpa qualquer conteúdo anterior
-
+            const pdfIframe = document.getElementById('pdfIframe');
+            pdfViewer.style.display = "none"; // Ocultar o overlay inicialmente
             if (codigo === "") {
-                pdfViewer.innerHTML = "<p style='color: red;'>Please enter a code.</p>";
-                setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
+                alert("Por favor insira um código.");
                 return;
             }
 
-            // Caminho relativo à pasta pdfs
             const pdfUrl = `pdfs/${codigo}.pdf`;
-
-            // Verificar se o PDF existe
             fetch(pdfUrl, { method: "HEAD" })
                 .then(response => {
                     if (response.ok) {
-                        // Exibe o PDF em um iframe
-                        pdfViewer.innerHTML = `<iframe src="${pdfUrl}" width="100%" height="600px" style="border: none;"></iframe>`;
+                        // Exibe o PDF no iframe
+                        pdfIframe.src = pdfUrl;
+                        ajustarTamanhoPDF(); // Ajusta o tamanho do PDF ao abrir
+                        pdfViewer.style.display = "flex"; // Exibe o overlay quando o PDF é encontrado
                     } else {
-                        pdfViewer.innerHTML = "<p style='color: red;'>Not found! Please enter a valid code.</p>";
-                        setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
+                        alert("PDF não encontrado!");
                     }
                 })
                 .catch(() => {
-                    pdfViewer.innerHTML = "<p style='color: red;'>Error, try again in a few minutes.</p>";
-                    setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
+                    alert("Erro ao tentar abrir o PDF.");
                 });
         }
+
+        function fecharPDF() {
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfIframe = document.getElementById('pdfIframe');
+            pdfIframe.src = ""; // Limpar o PDF
+            pdfViewer.style.display = "none"; // Esconde o overlay
+        }
+
+        // Função para ajustar o tamanho do PDF
+        function ajustarTamanhoPDF() {
+            const pdfIframe = document.getElementById('pdfIframe');
+            const screenHeight = window.innerHeight; // Altura da tela
+            const aspectRatio = 794 / 1123; // Proporção A4
+
+            // Define a altura do iframe para preencher a tela
+            const iframeHeight = screenHeight;
+            const iframeWidth = iframeHeight * aspectRatio; // Calcula a largura proporcional
+
+            pdfIframe.style.height = iframeHeight + 'px';
+            pdfIframe.style.width = iframeWidth + 'px';
+        }
+
+        // Ajusta o tamanho do PDF ao redimensionar a tela
+        window.addEventListener('resize', ajustarTamanhoPDF);
     </script>
 </body>
 </html>
