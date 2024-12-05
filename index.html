@@ -6,14 +6,6 @@
     <title>HMD Tracking</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body><!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMD Tracking</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
     <div class="container">
         <!-- Adicionando a imagem logo -->
@@ -34,6 +26,7 @@
 
             if (codigo === "") {
                 pdfViewer.innerHTML = "<p style='color: red;'>Please enter a code.</p>";
+                setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
                 return;
             }
 
@@ -48,53 +41,12 @@
                         pdfViewer.innerHTML = `<iframe src="${pdfUrl}" width="100%" height="600px" style="border: none;"></iframe>`;
                     } else {
                         pdfViewer.innerHTML = "<p style='color: red;'>Not found! Please enter a valid code.</p>";
+                        setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
                     }
                 })
                 .catch(() => {
                     pdfViewer.innerHTML = "<p style='color: red;'>Error, try again in a few minutes.</p>";
-                });
-        }
-    </script>
-</body>
-</html>
-
-    <div class="container">
-        <!-- Adicionando a imagem logo -->
-        <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-        <h1>HMD Tracking</h1>
-        <input type="text" id="codigo" placeholder="Ex: 12345">
-        <button onclick="procurarPDF()">Search</button>
-        
-        <!-- Espaço para exibir o PDF -->
-        <div id="pdfViewer" class="pdf-container"></div>
-    </div>
-
-    <script>
-        function procurarPDF() {
-            const codigo = document.getElementById('codigo').value.trim();
-            const pdfViewer = document.getElementById('pdfViewer');
-            pdfViewer.innerHTML = ""; // Limpa qualquer conteúdo anterior
-
-            if (codigo === "") {
-                pdfViewer.innerHTML = "<p style='color: red;'>Please enter a code.</p>";
-                return;
-            }
-
-            // Caminho relativo à pasta pdfs
-            const pdfUrl = `pdfs/${codigo}.pdf`;
-
-            // Verificar se o PDF existe
-            fetch(pdfUrl, { method: "HEAD" })
-                .then(response => {
-                    if (response.ok) {
-                        // Exibe o PDF em um iframe
-                        pdfViewer.innerHTML = `<iframe src="${pdfUrl}" width="100%" height="600px" style="border: none;"></iframe>`;
-                    } else {
-                        pdfViewer.innerHTML = "<p style='color: red;'>Not found! Please enter a valid code.</p>";
-                    }
-                })
-                .catch(() => {
-                    pdfViewer.innerHTML = "<p style='color: red;'>Error, try again in a few minutes.</p>";
+                    setTimeout(() => { pdfViewer.innerHTML = ""; }, 3000);  // Limpa a mensagem após 3 segundos
                 });
         }
     </script>
