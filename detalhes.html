@@ -12,54 +12,40 @@
             <img src="images/logo.jpg" alt="Logo HMD" class="logo">
             <h1>Tracking - Detalhes</h1>
         </div>
-        
-        <div class="search-container">
-            <input type="text" id="codigo" placeholder="Ex: 12345">
-            <button onclick="carregarConteudo()">Buscar</button>
-        </div>
 
-        <!-- Aqui vamos exibir o conteúdo -->
         <div id="conteudo">
             <!-- O conteúdo será carregado dinamicamente aqui -->
         </div>
     </div>
 
     <script>
-        function carregarConteudo() {
-            const codigo = document.getElementById('codigo').value.trim();
+        function obterCodigoDaURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('codigo');
+        }
 
-            if (codigo === "") {
-                alert("Por favor, insira um código.");
+        function carregarConteudo() {
+            const codigo = obterCodigoDaURL();
+
+            if (!codigo) {
+                alert("Código não encontrado.");
                 return;
             }
 
-            // Caminho para a pasta de conteúdo com o código inserido
+            // Caminho para a pasta de conteúdo
             const conteudoUrl = `conteudo/${codigo}/`;
 
-            // Tenta carregar os arquivos de conteúdo (exemplo: imagem, texto)
-            fetch(conteudoUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Conteúdo não encontrado.");
-                    }
-                    return response.text(); // ou response.json(), dependendo do tipo de conteúdo
-                })
-                .then(data => {
-                    // Aqui você pode definir como será estruturado o conteúdo dinâmico.
-                    // Vamos por exemplo adicionar uma imagem e um texto como exemplo:
-
-                    const conteudoDiv = document.getElementById('conteudo');
-                    conteudoDiv.innerHTML = `
-                        <h2>Conteúdo para o código ${codigo}</h2>
-                        <img src="${conteudoUrl}imagem.jpg" alt="Imagem do Código ${codigo}" class="conteudo-imagem">
-                        <p>${data}</p>
-                    `;
-                })
-                .catch(error => {
-                    alert("Erro ao carregar o conteúdo: " + error.message);
-                });
+            // Carregar o conteúdo (exemplo: imagem e texto)
+            const conteudoDiv = document.getElementById('conteudo');
+            conteudoDiv.innerHTML = `
+                <h2>Conteúdo para o código ${codigo}</h2>
+                <img src="${conteudoUrl}imagem.jpg" alt="Imagem do Código ${codigo}" class="conteudo-imagem">
+                <p>Descrição ou conteúdo relacionado ao código ${codigo} estará aqui.</p>
+            `;
         }
+
+        // Chama a função para carregar o conteúdo quando a página carregar
+        window.onload = carregarConteudo;
     </script>
 </body>
 </html>
-
