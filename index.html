@@ -14,31 +14,23 @@
         <button onclick="procurarPDF()">Search</button>
     </div>
 
-    <!-- Espaço para exibir o PDF -->
-    <div id="pdfViewer" class="pdf-overlay">
-        <button id="closeBtn" onclick="fecharPDF()">X</button>
-        <iframe id="pdfIframe" src="" style="border: none;"></iframe>
-    </div>
-
     <script>
         function procurarPDF() {
             const codigo = document.getElementById('codigo').value.trim();
-            const pdfViewer = document.getElementById('pdfViewer');
-            const pdfIframe = document.getElementById('pdfIframe');
-            pdfViewer.style.display = "none"; // Ocultar o overlay inicialmente
+
             if (codigo === "") {
                 alert("Por favor insira um código.");
                 return;
             }
 
             const pdfUrl = `pdfs/${codigo}.pdf`;
+
+            // Verificar se o PDF existe, através de uma requisição HEAD
             fetch(pdfUrl, { method: "HEAD" })
                 .then(response => {
                     if (response.ok) {
-                        // Exibe o PDF no iframe
-                        pdfIframe.src = pdfUrl;
-                        ajustarTamanhoPDF(); // Ajusta o tamanho do PDF ao abrir
-                        pdfViewer.style.display = "flex"; // Exibe o overlay quando o PDF é encontrado
+                        // Abre o PDF na janela/aba padrão do navegador
+                        window.open(pdfUrl, '_blank');
                     } else {
                         alert("PDF não encontrado!");
                     }
@@ -47,30 +39,6 @@
                     alert("Erro ao tentar abrir o PDF.");
                 });
         }
-
-        function fecharPDF() {
-            const pdfViewer = document.getElementById('pdfViewer');
-            const pdfIframe = document.getElementById('pdfIframe');
-            pdfIframe.src = ""; // Limpar o PDF
-            pdfViewer.style.display = "none"; // Esconde o overlay
-        }
-
-        // Função para ajustar o tamanho do PDF
-        function ajustarTamanhoPDF() {
-            const pdfIframe = document.getElementById('pdfIframe');
-            const screenHeight = window.innerHeight; // Altura da tela
-            const aspectRatio = 794 / 1123; // Proporção A4
-
-            // Define a altura do iframe para preencher a tela
-            const iframeHeight = screenHeight;
-            const iframeWidth = iframeHeight * aspectRatio; // Calcula a largura proporcional
-
-            pdfIframe.style.height = iframeHeight + 'px';
-            pdfIframe.style.width = iframeWidth + 'px';
-        }
-
-        // Ajusta o tamanho do PDF ao redimensionar a tela
-        window.addEventListener('resize', ajustarTamanhoPDF);
     </script>
 </body>
 </html>
