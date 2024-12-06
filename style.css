@@ -17,54 +17,55 @@ body {
     text-align: center;
     padding: 5vw 2vw; /* Padding responsivo, ajustando com base na largura da tela */
     display: flex;
-    flex-direction: column; /* Organiza os itens de cima para baixo em telas menores */
+    flex-direction: column; /* Organiza os itens de cima para baixo */
     align-items: center;
     justify-content: center;
-    width: 100%; /* A largura é 100% para ocupar toda a largura disponível, mas com padding */
+    width: 100%; /* O contêiner ocupa toda a largura disponível */
     max-width: 800px; /* Limita a largura máxima para 800px */
 }
 
-/* Contêiner do logo e título (lado a lado) */
+/* Contêiner do logo e título */
 .logo-container {
     display: flex;
-    flex-direction: row; /* Organiza os itens de cima para baixo em telas menores */
-    justify-content: flex-start; /* Alinha o logo e o título à esquerda */
-    align-items: center; /* Alinha o logo e o título verticalmente */
-    margin-bottom: 3vw; /* Espaçamento abaixo do logo e título */
-    width: 100%; /* Garante que o contêiner ocupe 100% da largura */
+    flex-direction: row; /* Logo e título lado a lado */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    align-items: center; /* Alinha verticalmente */
+    margin-bottom: 3vw; /* Espaço abaixo do logo e título */
+    width: 100%; /* Garante que o contêiner ocupe toda a largura */
 }
 
 /* Estilo para o logo */
 .logo {
-    width: 60%; /* Logo ajusta-se para 60% da largura da tela */
-    max-width: 700px; /* Limita a largura do logo a 700px */
-    height: auto;
-    margin-right: 2vw; /* Espaçamento à direita do logo */
+    width: 60%; /* Logo ocupa 60% da largura da tela */
+    max-width: 700px; /* Limita a largura máxima do logo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 2vw; /* Espaço entre o logo e o título */
 }
 
 /* Estilo para o título */
 h1 {
-    font-size: 36px; /* Tamanho fixo do título */
-    margin: 0; /* Remove a margem padrão do título */
+    font-size: 36px; /* Tamanho do título */
+    margin: 0; /* Remove margem padrão */
 }
 
-/* Estilo para a caixa de pesquisa e o botão */
+/* Contêiner da pesquisa e do botão */
 .search-container {
     display: flex;
-    flex-direction: row; /* Organiza a caixa de pesquisa e o botão verticalmente */
-    align-items: center; /* Centraliza ambos */
-    width: 100%;
+    flex-direction: row; /* Em telas grandes, os itens ficam lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa toda a largura disponível */
+    margin-top: 3vw; /* Espaço acima do contêiner */
 }
 
-/* Estilo para o input (caixa de pesquisa) */
+/* Estilo para a caixa de pesquisa */
 input {
     padding: 12px;
-    margin: 2vw 0; /* Ajuste do espaço entre o campo de pesquisa e o botão */
-    font-size: 18px; /* Tamanho fixo da fonte */
+    margin: 2vw 0; /* Espaço acima e abaixo do input */
+    font-size: 18px; /* Tamanho da fonte */
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
-    width: 90%; /* O input vai ocupar 90% da largura da tela */
-    max-width: 550px; /* Limita a largura máxima para 550px */
+    width: 90%; /* Ocupa 90% da largura da tela */
+    max-width: 550px; /* Limita a largura máxima */
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2);
 }
@@ -72,88 +73,87 @@ input {
 /* Estilo para o botão */
 button {
     padding: 12px 20px;
-    font-size: 18px; /* Tamanho fixo da fonte */
+    font-size: 18px;
     color: white;
     background-color: #555;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 90%; /* O botão ocupará 90% da largura da tela em dispositivos móveis */
-    max-width: 550px; /* Limita a largura máxima para 550px */
-    margin-top: 2vw; /* Adiciona um pequeno espaço entre o botão e o campo de pesquisa */
+    width: 90%; /* O botão ocupa 90% da largura da tela */
+    max-width: 550px; /* Limita a largura máxima */
+    margin-top: 2vw; /* Espaço acima do botão */
 }
 
-/* Estilo para o botão de pesquisa em desktop, ao lado da caixa de pesquisa */
+/* Estilo para telas grandes (largura maior que 768px) */
 @media screen and (min-width: 769px) {
     .container {
-        flex-direction: column; /* Mantém os itens organizados verticalmente */
+        flex-direction: column; /* Organização vertical */
         justify-content: center;
         align-items: center;
     }
 
     .logo-container {
-        flex-direction: row; /* Logo e título ficam lado a lado */
-        justify-content: flex-start; /* Garante que o título fique ao lado esquerdo do logo */
-        margin-bottom: 2vw; /* Pequeno espaço abaixo do logo e título */
+        flex-direction: row; /* Logo e título lado a lado */
+        justify-content: flex-start; /* Alinha à esquerda */
+        margin-bottom: 2vw; /* Espaço abaixo do logo e título */
     }
 
     .logo {
-        width: auto; /* Ajusta o logo para se adaptar ao espaço disponível */
-        margin-right: 2vw; /* Garante que o título fique separado do logo */
+        width: auto; /* Ajusta ao espaço disponível */
+        margin-right: 2vw; /* Espaço entre logo e título */
     }
 
     .search-container {
-        width: auto; /* Ajuste para o contêiner de pesquisa */
-        margin-top: 3vw; /* Espaço entre o logo/título e a pesquisa */
-        flex-direction: row; /* Em telas grandes, a pesquisa e o botão ficam lado a lado */
+        width: auto; /* Ajuste do contêiner de pesquisa */
+        flex-direction: row; /* Pesquisa e botão lado a lado */
     }
 
     input {
-        width: auto; /* Ajuste para não ocupar toda a largura em desktops */
-        margin-right: 2vw; /* Adiciona espaço entre o input e o botão */
+        width: auto; /* Ajuste para não ocupar toda a largura */
+        margin-right: 2vw; /* Espaço entre o input e o botão */
     }
 
     button {
-        width: auto; /* Ajuste a largura para o botão em desktops */
-        margin-top: 0; /* Remove o margin-top para manter o botão alinhado ao input */
+        width: auto; /* Ajuste a largura do botão */
+        margin-top: 0; /* Remove margem superior */
     }
 }
 
-/* Responsividade para telas pequenas */
+/* Estilo para telas pequenas (largura menor que 768px) */
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
-        padding: 5vw 2vw; /* Ajuste do padding em telas pequenas */
+        padding: 5vw 2vw; /* Ajusta o padding */
     }
 
     .search-container {
-        width: 100%; /* Garante que a pesquisa ocupe toda a largura disponível */
-        margin-top: 3vw; /* Espaçamento entre o logo/título e a pesquisa */
-        flex-direction: column; /* Organiza a caixa de pesquisa e o botão verticalmente */
+        width: 100%; /* O contêiner ocupa toda a largura */
+        flex-direction: column; /* Itens organizados verticalmente */
+        margin-top: 3vw; /* Espaço acima do contêiner */
     }
 
     input {
-        font-size: 5vw; /* Ajuste do tamanho da fonte */
-        width: 90%;
-        max-width: 550px; /* Limita a largura do input */
+        font-size: 5vw; /* Fonte responsiva */
+        width: 90%; /* Ocupa 90% da largura */
+        max-width: 550px; /* Limita a largura máxima */
     }
 
     button {
-        font-size: 5vw; /* Ajuste do tamanho da fonte */
-        width: 90%; /* O botão ocupará 90% da largura da tela */
-        max-width: 550px; /* Limita a largura do botão */
+        font-size: 5vw; /* Fonte responsiva */
+        width: 90%; /* O botão ocupa 90% da largura */
+        max-width: 550px; /* Limita a largura máxima */
     }
 
     .logo-container {
-        flex-direction: row; /* No mobile também, o logo e o título estarão na mesma linha */
+        flex-direction: row; /* Logo e título na mesma linha */
         justify-content: flex-start;
         align-items: center;
         width: 100%;
     }
 
     .logo {
-        width: 80%; /* Em dispositivos móveis, o logo ocupará 80% da largura */
-        max-width: 600px; /* Limita a largura máxima do logo em telas pequenas */
-        margin-right: 0; /* Remove a margem à direita */
+        width: 80%; /* Logo ocupa 80% da largura */
+        max-width: 600px; /* Limita a largura máxima */
+        margin-right: 0; /* Remove margem à direita */
     }
 }
