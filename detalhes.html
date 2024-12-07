@@ -28,7 +28,7 @@
             const codigo = obterCodigoDaURL();
 
             if (!codigo) {
-                alert("Código não encontrado.");
+                alert("Code not found. Please check the URL.");
                 return;
             }
 
@@ -41,11 +41,11 @@
 
             // Carregar os cinco arquivos
             Promise.all([
-                fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.reject("Arquivo FLDados.txt não encontrado")),
-                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado")),
-                fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT3Dados.txt não encontrado")),
-                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.reject("Arquivo FTDados.txt não encontrado")),
-                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.reject("Arquivo SZADRS_Dados.txt não encontrado"))
+                fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt not found.")),
+                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt not found.")),
+                fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt not found.")),
+                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt not found.")),
+                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt not found."))
             ])
             .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
                 const dados1 = processarConteudoFL(dadosFL);
@@ -56,7 +56,7 @@
                 exibirDados(dados1, dados2, dados3, dados4, dados5);
             })
             .catch(error => {
-                alert(error);
+                alert("An error occurred while loading the content.");
                 console.error(error);
             });
         }
@@ -85,7 +85,95 @@
             return dados;
         }
 
-        // As outras funções de processamento seguem a mesma lógica...
+        // Processar conteúdo de FT2Dados.txt
+        function processarConteudoFT2(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('m3:')) {
+                    dados.m3 = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Zona Expedição:')) {
+                    dados.zonaExpedicao = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Volumes a expedir:')) {
+                    dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Nr. Reserva:')) {
+                    dados.numeroReserva = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Peso :')) {
+                    dados.peso = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Ldm:')) {
+                    dados.ldm = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Multiplas Recolhas?:')) {
+                    dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Não disponível';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de FT3Dados.txt
+        function processarConteudoFT3(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Email para entrega:')) {
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de FTDados.txt
+        function processarConteudoFT(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Nr. Cliente:')) {
+                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Nome Cliente:')) {
+                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Local Carga:')) {
+                    dados.localCarga = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Local Descarga:')) {
+                    dados.localDescarga = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Data Expedição:')) {
+                    dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Expeditor:')) {
+                    dados.expeditor = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Nr. Encomenda:')) {
+                    dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Não disponível';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de SZADRS_Dados.txt
+        function processarConteudoSZADRS(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Descrição da entrega:')) {
+                    dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Nome da entrega:')) {
+                    dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Morada da entrega:')) {
+                    dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Local da entrega:')) {
+                    dados.localEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Código Postal da entrega:')) {
+                    dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('País da entrega:')) {
+                    dados.paisEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Nome Contacto da entrega:')) {
+                    dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Telefone da entrega:')) {
+                    dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Email da entrega:')) {
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                } else if (linha.includes('Observação da entrega:')) {
+                    dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                }
+            });
+            return dados;
+        }
 
         // Exibir os dados na página
         function exibirDados(dados1, dados2, dados3, dados4, dados5) {
@@ -113,7 +201,35 @@
                     <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
                 </ul>
 
-                <!-- Continue com os outros dados -->
+                <h2>FT3 Dados</h2>
+                <ul>
+                    <li>Email para entrega: ${dados3.emailEntrega}</li>
+                </ul>
+
+                <h2>FT Dados</h2>
+                <ul>
+                    <li>Nr. Cliente: ${dados4.nrCliente}</li>
+                    <li>Nome Cliente: ${dados4.nomeCliente}</li>
+                    <li>Local Carga: ${dados4.localCarga}</li>
+                    <li>Local Descarga: ${dados4.localDescarga}</li>
+                    <li>Data Expedição: ${dados4.dataExpedicao}</li>
+                    <li>Expeditor: ${dados4.expeditor}</li>
+                    <li>Nr. Encomenda: ${dados4.nrEncomenda}</li>
+                </ul>
+
+                <h2>SZADRS Dados</h2>
+                <ul>
+                    <li>Descrição: ${dados5.descricaoEntrega}</li>
+                    <li>Nome: ${dados5.nomeEntrega}</li>
+                    <li>Morada: ${dados5.moradaEntrega}</li>
+                    <li>Local: ${dados5.localEntrega}</li>
+                    <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
+                    <li>País: ${dados5.paisEntrega}</li>
+                    <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
+                    <li>Telefone: ${dados5.telefoneEntrega}</li>
+                    <li>Email: ${dados5.emailEntrega}</li>
+                    <li>Observação: ${dados5.observacaoEntrega}</li>
+                </ul>
             `;
         }
 
