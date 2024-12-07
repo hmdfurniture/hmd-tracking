@@ -35,9 +35,14 @@
             // Caminho para a pasta de conteúdo
             const conteudoUrl = `conteudo/${codigo}/FLDados.txt`;
 
-            // Exemplo de como o conteúdo será carregado (em um ambiente real seria uma requisição para carregar o arquivo)
+            // Carregar o conteúdo do arquivo FLDados.txt
             fetch(conteudoUrl)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Arquivo não encontrado.");
+                    }
+                    return response.text();
+                })
                 .then(conteudo => {
                     const dados = processarConteudo(conteudo);
                     exibirDados(dados);
