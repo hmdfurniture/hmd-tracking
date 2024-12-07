@@ -21,27 +21,46 @@
 <body>
     <div class="container">
         <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-        <h1>Tracking</h1>
         <input type="text" id="codigo" placeholder="Ex: 12345">
         <button onclick="procurarDetalhes()">Buscar</button>
+        <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
     </div>
 
     <script>
         // Desabilita o clique com o botão direito
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
-             });
+        });
 
-        function procurarDetalhes() {
+        async function procurarDetalhes() {
             const codigo = document.getElementById('codigo').value.trim();
+            const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+
+            // Limpa qualquer mensagem anterior
+            mensagemEl.textContent = "";
 
             if (codigo === "") {
-                alert("Por favor insira um código.");
+                mensagemEl.textContent = "Por favor insira um código.";
                 return;
             }
 
-            // Redireciona para a página 'detalhes.html' com o código na URL
-            window.location.href = detalhes.html?codigo=${codigo};
+            // Caminho da pasta no repositório
+            const caminhoPasta = `conteúdo/${codigo}/`;
+
+            try {
+                // Faz uma requisição HEAD para verificar se a pasta existe
+                const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
+
+                if (resposta.ok) {
+                    // Redireciona para a página 'detalhes.html' se a pasta existir
+                    window.location.href = `detalhes.html?codigo=${codigo}`;
+                } else {
+                    // Mostra mensagem de erro se a pasta não for encontrada
+                    mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
+                }
+            } catch (erro) {
+                mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
+            }
         }
     </script>
 </body>
