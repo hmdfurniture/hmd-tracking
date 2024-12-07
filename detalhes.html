@@ -3,180 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes - HMD Tracking</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Conteúdo</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-            <h1>Tracking - Detalhes</h1>
-        </div>
-
-        <div id="conteudo">
-            <!-- O conteúdo será carregado dinamicamente aqui -->
-        </div>
-    </div>
+    <div id="conteudo"></div>
 
     <script>
-        function obterCodigoDaURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('codigo');
-        }
-
+        // Função para carregar e exibir os dados
         function carregarConteudo() {
-            const codigo = obterCodigoDaURL();
+            // Definir o caminho dos arquivos de texto
+            const arquivos = [
+                'FL_Dados.txt',
+                'FT2_Dados.txt',
+                'FT3_Dados.txt',
+                'FT_Dados.txt',
+                'SZADRS_Dados.txt'
+            ];
 
-            if (!codigo) {
-                alert("Código não encontrado.");
-                return;
-            }
+            // Processar os arquivos de texto
+            Promise.all(arquivos.map(arquivo => fetch(arquivo).then(response => response.text())))
+                .then(conteudos => {
+                    const dados1 = processarConteudoFL(conteudos[0]);
+                    const dados2 = processarConteudoFT2(conteudos[1]);
+                    const dados3 = processarConteudoFT3(conteudos[2]);
+                    const dados4 = processarConteudoFT(conteudos[3]);
+                    const dados5 = processarConteudoSZADRS(conteudos[4]);
 
-            // Caminho para os arquivos de conteúdo
-            const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
-            const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
-            const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
-            const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`; // Novo arquivo FTDados.txt
-            const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`; // Novo arquivo SZADRS_Dados.txt
-
-            // Carregar os cinco arquivos
-            Promise.all([
-                fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.reject("Arquivo FLDados.txt não encontrado")),
-                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado")),
-                fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT3Dados.txt não encontrado")),
-                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.reject("Arquivo FTDados.txt não encontrado")),
-                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.reject("Arquivo SZADRS_Dados.txt não encontrado"))
-            ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
-                const dados1 = processarConteudoFL(dadosFL);
-                const dados2 = processarConteudoFT2(dadosFT2);
-                const dados3 = processarConteudoFT3(dadosFT3);
-                const dados4 = processarConteudoFT(dadosFT);
-                const dados5 = processarConteudoSZADRS(dadosSZADRS); // Processar SZADRS_Dados.txt
-                exibirDados(dados1, dados2, dados3, dados4, dados5);
-            })
-            .catch(error => {
-                alert(error);
-                console.error(error);
-            });
+                    exibirConteudo(dados1, dados2, dados3, dados4, dados5);
+                })
+                .catch(error => console.error('Erro ao carregar os arquivos:', error));
         }
 
-        // Processar conteúdo de FLDados.txt
+        // Processar conteúdo FL_Dados.txt
         function processarConteudoFL(conteudo) {
-            const dados = {};
             const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Nome Expedidor Origem:')) {
-                    dados.nomeExpedidor = linha.replace('Nome Expedidor Origem:', '').trim();
-                } else if (linha.includes('No Expedidor Origem:')) {
-                    dados.numeroExpedidor = linha.replace('No Expedidor Origem:', '').trim();
-                } else if (linha.includes('Morada Expedidor Origem:')) {
-                    dados.moradaExpedidor = linha.replace('Morada Expedidor Origem:', '').trim();
-                } else if (linha.includes('Código Postal Expedidor Origem:')) {
-                    dados.codigoPostal = linha.replace('Código Postal Expedidor Origem:', '').trim();
-                } else if (linha.includes('Local Expedidor Origem:')) {
-                    dados.localExpedidor = linha.replace('Local Expedidor Origem:', '').trim();
-                } else if (linha.includes('Telefone Expedidor Origem:')) {
-                    dados.telefoneExpedidor = linha.replace('Telefone Expedidor Origem:', '').trim();
-                } else if (linha.includes('Email Expedidor Origem:')) {
-                    dados.emailExpedidor = linha.replace('Email Expedidor Origem:', '').trim();
-                }
-            });
-            return dados;
+            return {
+                nomeExpedidor: linhas[0].split(':')[1].trim(),
+                numeroExpedidor: linhas[1].split(':')[1].trim(),
+                moradaExpedidor: linhas[2].split(':')[1].trim(),
+                codigoPostal: linhas[3].split(':')[1].trim(),
+                localExpedidor: linhas[4].split(':')[1].trim(),
+                telefoneExpedidor: linhas[5].split(':')[1].trim(),
+                emailExpedidor: linhas[6].split(':')[1].trim(),
+            };
         }
 
-        // Processar conteúdo de FT2Dados.txt
+        // Processar conteúdo FT2_Dados.txt
         function processarConteudoFT2(conteudo) {
-            const dados = {};
             const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('m3:')) {
-                    dados.m3 = linha.replace('m3:', '').trim();
-                } else if (linha.includes('Zona Expedição:')) {
-                    dados.zonaExpedicao = linha.replace('Zona Expedição:', '').trim();
-                } else if (linha.includes('Volumes a expedir:')) {
-                    dados.volumesExpedir = linha.replace('Volumes a expedir:', '').trim();
-                } else if (linha.includes('Nr. Reserva:')) {
-                    dados.numeroReserva = linha.replace('Nr. Reserva:', '').trim();
-                } else if (linha.includes('Peso :')) {
-                    dados.peso = linha.replace('Peso :', '').trim();
-                } else if (linha.includes('Ldm:')) {
-                    dados.ldm = linha.replace('Ldm:', '').trim();
-                } else if (linha.includes('Multiplas Recolhas?:')) {
-                    dados.multiplasRecolhas = linha.replace('Multiplas Recolhas?:', '').trim();
-                }
-            });
-            return dados;
+            return {
+                m3: linhas[0].split(':')[1].trim(),
+                zonaExpedicao: linhas[1].split(':')[1].trim(),
+                volumesExpedir: linhas[2].split(':')[1].trim(),
+                numeroReserva: linhas[3].split(':')[1].trim(),
+                peso: linhas[4].split(':')[1].trim(),
+                ldm: linhas[5].split(':')[1].trim(),
+                multiplasRecolhas: linhas[6].split(':')[1].trim(),
+            };
         }
 
-        // Processar conteúdo de FT3Dados.txt
+        // Processar conteúdo FT3_Dados.txt
         function processarConteudoFT3(conteudo) {
-            const dados = {};
             const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Email para entrega:')) {
-                    dados.emailEntrega = linha.replace('Email para entrega:', '').trim();
-                }
-            });
-            return dados;
+            return {
+                emailEntrega: linhas[0].split(':')[1].trim(),
+            };
         }
 
-        // Processar conteúdo de FTDados.txt
+        // Processar conteúdo FT_Dados.txt
         function processarConteudoFT(conteudo) {
-            const dados = {};
             const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Nr. Cliente:')) {
-                    dados.nrCliente = linha.replace('Nr. Cliente:', '').trim();
-                } else if (linha.includes('Nome Cliente:')) {
-                    dados.nomeCliente = linha.replace('Nome Cliente:', '').trim();
-                } else if (linha.includes('Local Carga:')) {
-                    dados.localCarga = linha.replace('Local Carga:', '').trim();
-                } else if (linha.includes('Local Descarga:')) {
-                    dados.localDescarga = linha.replace('Local Descarga:', '').trim();
-                } else if (linha.includes('Data Expedição:')) {
-                    dados.dataExpedicao = linha.replace('Data Expedição:', '').trim();
-                } else if (linha.includes('Expeditor:')) {
-                    dados.expeditor = linha.replace('Expeditor:', '').trim();
-                } else if (linha.includes('Nr. Encomenda:')) {
-                    dados.nrEncomenda = linha.replace('Nr. Encomenda:', '').trim();
-                }
-            });
-            return dados;
+            return {
+                nrCliente: linhas[0].split(':')[1].trim(),
+                nomeCliente: linhas[1].split(':')[1].trim(),
+                localCarga: linhas[2].split(':')[1].trim(),
+                localDescarga: linhas[3].split(':')[1].trim(),
+                dataExpedicao: linhas[4].split(':')[1].trim(),
+                expeditor: linhas[5].split(':')[1].trim(),
+                nrEncomenda: linhas[6].split(':')[1].trim(),
+            };
         }
 
-        // Processar conteúdo de SZADRS_Dados.txt
+        // Processar conteúdo SZADRS_Dados.txt
         function processarConteudoSZADRS(conteudo) {
-            const dados = {};
             const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Descrição da entrega:')) {
-                    dados.descricaoEntrega = linha.replace('Descrição da entrega:', '').trim();
-                } else if (linha.includes('Nome da entrega:')) {
-                    dados.nomeEntrega = linha.replace('Nome da entrega:', '').trim();
-                } else if (linha.includes('Morada da entrega:')) {
-                    dados.moradaEntrega = linha.replace('Morada da entrega:', '').trim();
-                } else if (linha.includes('Local da entrega:')) {
-                    dados.localEntrega = linha.replace('Local da entrega:', '').trim();
-                } else if (linha.includes('Código Postal da entrega:')) {
-                    dados.codigoPostalEntrega = linha.replace('Código Postal da entrega:', '').trim();
-                } else if (linha.includes('País da entrega:')) {
-                    dados.paisEntrega = linha.replace('País da entrega:', '').trim();
-                } else if (linha.includes('Nome Contacto da entrega:')) {
-                    dados.nomeContatoEntrega = linha.replace('Nome Contacto da entrega:', '').trim();
-                } else if (linha.includes('Telefone da entrega:')) {
-                    dados.telefoneEntrega = linha.replace('Telefone da entrega:', '').trim();
-                } else if (linha.includes('Email da entrega:')) {
-                    dados.emailEntrega = linha.replace('Email da entrega:', '').trim();
-                } else if (linha.includes('Observação da entrega:')) {
-                    dados.observacaoEntrega = linha.replace('Observação da entrega:', '').trim();
-                }
-            });
-            return dados;
+            return {
+                descricaoEntrega: linhas[0].split(':')[1].trim(),
+                nomeEntrega: linhas[1].split(':')[1].trim(),
+                moradaEntrega: linhas[2].split(':')[1].trim(),
+                localEntrega: linhas[3].split(':')[1].trim(),
+                codigoPostalEntrega: linhas[4].split(':')[1].trim(),
+                paisEntrega: linhas[5].split(':')[1].trim(),
+                nomeContatoEntrega: linhas[6].split(':')[1].trim(),
+                telefoneEntrega: linhas[7].split(':')[1].trim(),
+                emailEntrega: linhas[8].split(':')[1].trim(),
+                observacaoEntrega: linhas[9].split(':')[1].trim(),
+            };
         }
 
-        // Exibir os dados na página
-        function exibirDados(dados1, dados2, dados3, dados4, dados5) {
+        // Exibir o conteúdo no HTML
+        function exibirConteudo(dados1, dados2, dados3, dados4, dados5) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
                 <h2>FL Dados</h2>
@@ -189,6 +129,7 @@
                     <li>Telefone: ${dados1.telefoneExpedidor}</li>
                     <li>Email: ${dados1.emailExpedidor}</li>
                 </ul>
+                <img src="image_fldados.jpg" alt="Imagem FL Dados">
 
                 <h2>FT2 Dados</h2>
                 <ul>
@@ -200,6 +141,7 @@
                     <li>Ldm: ${dados2.ldm}</li>
                     <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
                 </ul>
+                <img src="image_ft2dados.jpg" alt="Imagem FT2 Dados">
 
                 <h2>FT3 Dados</h2>
                 <ul>
