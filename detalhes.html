@@ -35,16 +35,22 @@
             // Caminho para os arquivos de conteúdo
             const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
             const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
+            const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
+            const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`; // Novo arquivo FTDados.txt
 
-            // Carregar ambos os arquivos FLDados.txt e FT2Dados.txt
+            // Carregar os quatro arquivos FLDados.txt, FT2Dados.txt, FT3Dados.txt e FTDados.txt
             Promise.all([
                 fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.reject("Arquivo FLDados.txt não encontrado")),
-                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado"))
+                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado")),
+                fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT3Dados.txt não encontrado")),
+                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.reject("Arquivo FTDados.txt não encontrado"))
             ])
-            .then(([dadosFL, dadosFT2]) => {
+            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT]) => {
                 const dados1 = processarConteudoFL(dadosFL);
                 const dados2 = processarConteudoFT2(dadosFT2);
-                exibirDados(dados1, dados2);
+                const dados3 = processarConteudoFT3(dadosFT3);
+                const dados4 = processarConteudoFT(dadosFT); // Processar FTDados.txt
+                exibirDados(dados1, dados2, dados3, dados4);
             })
             .catch(error => {
                 alert(error);
@@ -100,8 +106,44 @@
             return dados;
         }
 
+        // Processar conteúdo de FT3Dados.txt
+        function processarConteudoFT3(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Email para entrega:')) {
+                    dados.emailEntrega = linha.replace('Email para entrega:', '').trim();
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de FTDados.txt (novo arquivo)
+        function processarConteudoFT(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Nr. Cliente:')) {
+                    dados.nrCliente = linha.replace('Nr. Cliente:', '').trim();
+                } else if (linha.includes('Nome Cliente:')) {
+                    dados.nomeCliente = linha.replace('Nome Cliente:', '').trim();
+                } else if (linha.includes('Local Carga:')) {
+                    dados.localCarga = linha.replace('Local Carga:', '').trim();
+                } else if (linha.includes('Local Descarga:')) {
+                    dados.localDescarga = linha.replace('Local Descarga:', '').trim();
+                } else if (linha.includes('Data Expedição:')) {
+                    dados.dataExpedicao = linha.replace('Data Expedição:', '').trim();
+                } else if (linha.includes('Expeditor:')) {
+                    dados.expeditor = linha.replace('Expeditor:', '').trim();
+                } else if (linha.includes('Nr. Encomenda:')) {
+                    dados.nrEncomenda = linha.replace('Nr. Encomenda:', '').trim();
+                }
+            });
+            return dados;
+        }
+
         // Exibir os dados na página
-        function exibirDados(dados1, dados2) {
+        function exibirDados(dados1, dados2, dados3, dados4) {
             const conteudoDiv = document.getElementById('conteudo');
             
             // Exibir os dados de FLDados.txt
@@ -113,25 +155,38 @@
                     <label>Número Expedidor:</label><p>${dados1.numeroExpedidor}</p>
                     <label>Morada Expedidor:</label><p>${dados1.moradaExpedidor}</p>
                     <label>Código Postal:</label><p>${dados1.codigoPostal}</p>
-                    <label>Local:</label><p>${dados1.localExpedidor}</p>
+                    <label>Local Expedidor:</label><p>${dados1.localExpedidor}</p>
                     <label>Telefone:</label><p>${dados1.telefoneExpedidor}</p>
                     <label>Email:</label><p>${dados1.emailExpedidor}</p>
                 </div>
-                
                 <h3>Expedição</h3>
                 <div>
                     <label>m3:</label><p>${dados2.m3}</p>
                     <label>Zona Expedição:</label><p>${dados2.zonaExpedicao}</p>
-                    <label>Volumes a expedir:</label><p>${dados2.volumesExpedir}</p>
+                    <label>Volumes a Expedir:</label><p>${dados2.volumesExpedir}</p>
                     <label>Nr. Reserva:</label><p>${dados2.numeroReserva}</p>
                     <label>Peso:</label><p>${dados2.peso}</p>
                     <label>Ldm:</label><p>${dados2.ldm}</p>
-                    <label>Multiplas Recolhas?</label><p>${dados2.multiplasRecolhas}</p>
+                    <label>Multiplas Recolhas:</label><p>${dados2.multiplasRecolhas}</p>
+                </div>
+                <h3>Entrega</h3>
+                <div>
+                    <label>Email para entrega:</label><p>${dados3.emailEntrega}</p>
+                </div>
+                <h3>Cliente</h3>
+                <div>
+                    <label>Nr. Cliente:</label><p>${dados4.nrCliente}</p>
+                    <label>Nome Cliente:</label><p>${dados4.nomeCliente}</p>
+                    <label>Local Carga:</label><p>${dados4.localCarga}</p>
+                    <label>Local Descarga:</label><p>${dados4.localDescarga}</p>
+                    <label>Data Expedição:</label><p>${dados4.dataExpedicao}</p>
+                    <label>Expeditor:</label><p>${dados4.expeditor}</p>
+                    <label>Nr. Encomenda:</label><p>${dados4.nrEncomenda}</p>
                 </div>
             `;
         }
 
-        // Chama a função para carregar o conteúdo quando a página carregar
+        // Carregar o conteúdo ao carregar a página
         window.onload = carregarConteudo;
     </script>
 </body>
