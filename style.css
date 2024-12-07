@@ -46,7 +46,9 @@ body {
 .search-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center; /* Centraliza os elementos no contêiner */
+    align-items: center; /* Alinha verticalmente os elementos */
+    gap: 1vw; /* Espaço entre o campo de pesquisa e o botão */
     width: 100%;
     margin-top: 3vw;
 }
@@ -54,12 +56,11 @@ body {
 /* Estilo para a caixa de pesquisa */
 input {
     padding: 12px;
-    margin: 2vw 0;
     font-size: 18px;
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
-    width: 90%;
-    max-width: 550px;
+    width: calc(70% - 1vw); /* Campo ocupa 70% do espaço */
+    max-width: 400px; /* Largura máxima para ecrãs grandes */
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2);
 }
@@ -73,9 +74,8 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 90%;
-    max-width: 550px;
-    margin-top: 2vw;
+    width: calc(30% - 1vw); /* Botão ocupa 30% do espaço */
+    max-width: 150px; /* Largura máxima */
 }
 
 /* Estilo para telas grandes (largura maior que 768px) */
@@ -103,12 +103,12 @@ button {
     }
 
     input {
-        width: auto;
-        margin-right: 2vw;
+        width: calc(70% - 1vw);
+        margin-right: 0;
     }
 
     button {
-        width: auto;
+        width: calc(30% - 1vw);
         margin-top: 0;
     }
 }
@@ -122,7 +122,7 @@ button {
 
     .search-container {
         width: 100%;
-        flex-direction: column;
+        flex-direction: column; /* Empilha o botão abaixo do campo */
         margin-top: 3vw;
     }
 
@@ -136,6 +136,7 @@ button {
         font-size: 5vw;
         width: 90%;
         max-width: 550px;
+        margin-top: 2vw;
     }
 
     .logo-container {
