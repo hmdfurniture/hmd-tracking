@@ -5,67 +5,61 @@ body {
     color: #000000; /* Cor preta para o texto */
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Para garantir que padding e border sejam contados no total da largura/altura */
+    box-sizing: border-box;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Estilo para o contêiner principal */
 .container {
     text-align: center;
-    padding: 5vw 2vw; /* Padding responsivo, ajustando com base na largura da tela */
+    padding: 5vw 2vw;
     display: flex;
-    flex-direction: column; /* Organiza os itens de cima para baixo */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%; /* O contêiner ocupa toda a largura disponível */
-    max-width: 800px; /* Limita a largura máxima para 800px */
+    width: 100%;
+    max-width: 800px;
 }
 
-/* Contêiner do logo e título */
+/* Contêiner do logo */
 .logo-container {
     display: flex;
-    flex-direction: row; /* Logo e título lado a lado */
-    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-    align-items: center; /* Alinha verticalmente */
-    margin-bottom: 3vw; /* Espaço abaixo do logo e título */
-    width: 100%; /* Garante que o contêiner ocupe toda a largura */
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 3vw;
+    width: 100%;
 }
 
 /* Estilo para o logo */
 .logo {
-    width: 60%; /* Logo ocupa 60% da largura da tela */
-    max-width: 700px; /* Limita a largura máxima do logo */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 2vw; /* Espaço entre o logo e o título */
-}
-
-/* Estilo para o título */
-h1 {
-    font-size: 36px; /* Tamanho do título */
-    margin: 0; /* Remove margem padrão */
+    width: 60%;
+    max-width: 700px;
+    height: auto;
+    margin-right: 2vw;
 }
 
 /* Contêiner da pesquisa e do botão */
 .search-container {
     display: flex;
-    flex-direction: row; /* Em telas grandes, os itens ficam lado a lado */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%; /* Ocupa toda a largura disponível */
-    margin-top: 3vw; /* Espaço acima do contêiner */
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 3vw;
 }
 
 /* Estilo para a caixa de pesquisa */
 input {
     padding: 12px;
-    margin: 2vw 0; /* Espaço acima e abaixo do input */
-    font-size: 18px; /* Tamanho da fonte */
+    margin: 2vw 0;
+    font-size: 18px;
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
-    width: 90%; /* Ocupa 90% da largura da tela */
-    max-width: 550px; /* Limita a largura máxima */
+    width: 90%;
+    max-width: 550px;
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2);
 }
@@ -79,43 +73,43 @@ button {
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
-    width: 90%; /* O botão ocupa 90% da largura da tela */
-    max-width: 550px; /* Limita a largura máxima */
-    margin-top: 2vw; /* Espaço acima do botão */
+    width: 90%;
+    max-width: 550px;
+    margin-top: 2vw;
 }
 
 /* Estilo para telas grandes (largura maior que 768px) */
 @media screen and (min-width: 769px) {
     .container {
-        flex-direction: column; /* Organização vertical */
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
     .logo-container {
-        flex-direction: row; /* Logo e título lado a lado */
-        justify-content: flex-start; /* Alinha à esquerda */
-        margin-bottom: 2vw; /* Espaço abaixo do logo e título */
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 2vw;
     }
 
     .logo {
-        width: auto; /* Ajusta ao espaço disponível */
-        margin-right: 2vw; /* Espaço entre logo e título */
+        width: auto;
+        margin-right: 2vw;
     }
 
     .search-container {
-        width: auto; /* Ajuste do contêiner de pesquisa */
-        flex-direction: row; /* Pesquisa e botão lado a lado */
+        width: auto;
+        flex-direction: row;
     }
 
     input {
-        width: auto; /* Ajuste para não ocupar toda a largura */
-        margin-right: 2vw; /* Espaço entre o input e o botão */
+        width: auto;
+        margin-right: 2vw;
     }
 
     button {
-        width: auto; /* Ajuste a largura do botão */
-        margin-top: 0; /* Remove margem superior */
+        width: auto;
+        margin-top: 0;
     }
 }
 
@@ -123,37 +117,37 @@ button {
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
-        padding: 5vw 2vw; /* Ajusta o padding */
+        padding: 5vw 2vw;
     }
 
     .search-container {
-        width: 100%; /* O contêiner ocupa toda a largura */
-        flex-direction: column; /* Itens organizados verticalmente */
-        margin-top: 3vw; /* Espaço acima do contêiner */
+        width: 100%;
+        flex-direction: column;
+        margin-top: 3vw;
     }
 
     input {
-        font-size: 5vw; /* Fonte responsiva */
-        width: 90%; /* Ocupa 90% da largura */
-        max-width: 550px; /* Limita a largura máxima */
+        font-size: 5vw;
+        width: 90%;
+        max-width: 550px;
     }
 
     button {
-        font-size: 5vw; /* Fonte responsiva */
-        width: 90%; /* O botão ocupa 90% da largura */
-        max-width: 550px; /* Limita a largura máxima */
+        font-size: 5vw;
+        width: 90%;
+        max-width: 550px;
     }
 
     .logo-container {
-        flex-direction: row; /* Logo e título na mesma linha */
+        flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
     }
 
     .logo {
-        width: 80%; /* Logo ocupa 80% da largura */
-        max-width: 600px; /* Limita a largura máxima */
-        margin-right: 0; /* Remove margem à direita */
+        width: 80%;
+        max-width: 600px;
+        margin-right: 0;
     }
 }
