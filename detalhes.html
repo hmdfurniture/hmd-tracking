@@ -33,14 +33,62 @@
             }
 
             // Caminho para a pasta de conteúdo
-            const conteudoUrl = `conteudo/${codigo}/`;
+            const conteudoUrl = `conteudo/${codigo}/FLDados.txt`;
 
-            // Carregar o conteúdo (exemplo: imagem e texto)
+            // Exemplo de como o conteúdo será carregado (em um ambiente real seria uma requisição para carregar o arquivo)
+            fetch(conteudoUrl)
+                .then(response => response.text())
+                .then(conteudo => {
+                    const dados = processarConteudo(conteudo);
+                    exibirDados(dados);
+                })
+                .catch(error => {
+                    alert("Erro ao carregar o conteúdo.");
+                    console.error(error);
+                });
+        }
+
+        function processarConteudo(conteudo) {
+            const dados = {};
+
+            // Dividir o conteúdo em linhas
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Nome Expedidor Origem:')) {
+                    dados.nomeExpedidor = linha.replace('Nome Expedidor Origem:', '').trim();
+                } else if (linha.includes('No Expedidor Origem:')) {
+                    dados.numeroExpedidor = linha.replace('No Expedidor Origem:', '').trim();
+                } else if (linha.includes('Morada Expedidor Origem:')) {
+                    dados.moradaExpedidor = linha.replace('Morada Expedidor Origem:', '').trim();
+                } else if (linha.includes('Código Postal Expedidor Origem:')) {
+                    dados.codigoPostal = linha.replace('Código Postal Expedidor Origem:', '').trim();
+                } else if (linha.includes('Local Expedidor Origem:')) {
+                    dados.localExpedidor = linha.replace('Local Expedidor Origem:', '').trim();
+                } else if (linha.includes('Telefone Expedidor Origem:')) {
+                    dados.telefoneExpedidor = linha.replace('Telefone Expedidor Origem:', '').trim();
+                } else if (linha.includes('Email Expedidor Origem:')) {
+                    dados.emailExpedidor = linha.replace('Email Expedidor Origem:', '').trim();
+                }
+            });
+
+            return dados;
+        }
+
+        function exibirDados(dados) {
             const conteudoDiv = document.getElementById('conteudo');
+            
+            // Adicionar os rótulos e valores dos dados
             conteudoDiv.innerHTML = `
-                <h2>Conteúdo para o código ${codigo}</h2>
-                <img src="${conteudoUrl}imagem.jpg" alt="Imagem do Código ${codigo}" class="conteudo-imagem">
-                <p>Descrição ou conteúdo relacionado ao código ${codigo} estará aqui.</p>
+                <h2>Detalhes para o código ${obterCodigoDaURL()}</h2>
+                <div>
+                    <label>Nome Expedidor:</label><p>${dados.nomeExpedidor}</p>
+                    <label>Número Expedidor:</label><p>${dados.numeroExpedidor}</p>
+                    <label>Morada Expedidor:</label><p>${dados.moradaExpedidor}</p>
+                    <label>Código Postal:</label><p>${dados.codigoPostal}</p>
+                    <label>Local:</label><p>${dados.localExpedidor}</p>
+                    <label>Telefone:</label><p>${dados.telefoneExpedidor}</p>
+                    <label>Email:</label><p>${dados.emailExpedidor}</p>
+                </div>
             `;
         }
 
