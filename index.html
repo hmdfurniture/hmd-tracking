@@ -45,7 +45,7 @@
             }
 
             // Caminho da pasta no repositório
-            const caminhoPasta = `conteúdo/${codigo}/`;
+            const caminhoPasta = `conteudo/${codigo}/`;
 
             try {
                 // Faz uma requisição HEAD para verificar se a pasta existe
@@ -60,6 +60,7 @@
                 }
             } catch (erro) {
                 mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
+                console.error("Erro:", erro);
             }
         }
     </script>
