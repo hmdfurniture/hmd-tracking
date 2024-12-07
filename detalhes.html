@@ -9,6 +9,9 @@
             max-width: 100%;
             height: auto;
             margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         h2 {
             color: #333;
@@ -16,6 +19,10 @@
         ul {
             list-style-type: none;
             padding-left: 0;
+        }
+        .imagem-container {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -129,7 +136,9 @@
                     <li>Telefone: ${dados1.telefoneExpedidor}</li>
                     <li>Email: ${dados1.emailExpedidor}</li>
                 </ul>
-                <img src="image_fldados.jpg" alt="Imagem FL Dados">
+                <div class="imagem-container">
+                    <img src="image_fldados.jpg" alt="Imagem FL Dados">
+                </div>
 
                 <h2>FT2 Dados</h2>
                 <ul>
@@ -141,7 +150,9 @@
                     <li>Ldm: ${dados2.ldm}</li>
                     <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
                 </ul>
-                <img src="image_ft2dados.jpg" alt="Imagem FT2 Dados">
+                <div class="imagem-container">
+                    <img src="image_ft2dados.jpg" alt="Imagem FT2 Dados">
+                </div>
 
                 <h2>FT3 Dados</h2>
                 <ul>
