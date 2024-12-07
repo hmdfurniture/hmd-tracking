@@ -32,31 +32,29 @@
                 return;
             }
 
-            // Caminho para a pasta de conteúdo
-            const conteudoUrl = `conteudo/${codigo}/FLDados.txt`;
+            // Caminho para os arquivos de conteúdo
+            const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
+            const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
 
-            // Carregar o conteúdo do arquivo FLDados.txt
-            fetch(conteudoUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Arquivo não encontrado.");
-                    }
-                    return response.text();
-                })
-                .then(conteudo => {
-                    const dados = processarConteudo(conteudo);
-                    exibirDados(dados);
-                })
-                .catch(error => {
-                    alert("Erro ao carregar o conteúdo.");
-                    console.error(error);
-                });
+            // Carregar ambos os arquivos FLDados.txt e FT2Dados.txt
+            Promise.all([
+                fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.reject("Arquivo FLDados.txt não encontrado")),
+                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado"))
+            ])
+            .then(([dadosFL, dadosFT2]) => {
+                const dados1 = processarConteudoFL(dadosFL);
+                const dados2 = processarConteudoFT2(dadosFT2);
+                exibirDados(dados1, dados2);
+            })
+            .catch(error => {
+                alert(error);
+                console.error(error);
+            });
         }
 
-        function processarConteudo(conteudo) {
+        // Processar conteúdo de FLDados.txt
+        function processarConteudoFL(conteudo) {
             const dados = {};
-
-            // Dividir o conteúdo em linhas
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
                 if (linha.includes('Nome Expedidor Origem:')) {
@@ -75,24 +73,60 @@
                     dados.emailExpedidor = linha.replace('Email Expedidor Origem:', '').trim();
                 }
             });
-
             return dados;
         }
 
-        function exibirDados(dados) {
+        // Processar conteúdo de FT2Dados.txt
+        function processarConteudoFT2(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('m3:')) {
+                    dados.m3 = linha.replace('m3:', '').trim();
+                } else if (linha.includes('Zona Expedição:')) {
+                    dados.zonaExpedicao = linha.replace('Zona Expedição:', '').trim();
+                } else if (linha.includes('Volumes a expedir:')) {
+                    dados.volumesExpedir = linha.replace('Volumes a expedir:', '').trim();
+                } else if (linha.includes('Nr. Reserva:')) {
+                    dados.numeroReserva = linha.replace('Nr. Reserva:', '').trim();
+                } else if (linha.includes('Peso :')) {
+                    dados.peso = linha.replace('Peso :', '').trim();
+                } else if (linha.includes('Ldm:')) {
+                    dados.ldm = linha.replace('Ldm:', '').trim();
+                } else if (linha.includes('Multiplas Recolhas?:')) {
+                    dados.multiplasRecolhas = linha.replace('Multiplas Recolhas?:', '').trim();
+                }
+            });
+            return dados;
+        }
+
+        // Exibir os dados na página
+        function exibirDados(dados1, dados2) {
             const conteudoDiv = document.getElementById('conteudo');
             
-            // Adicionar os rótulos e valores dos dados
+            // Exibir os dados de FLDados.txt
             conteudoDiv.innerHTML = `
                 <h2>Detalhes para o código ${obterCodigoDaURL()}</h2>
+                <h3>Expedidor</h3>
                 <div>
-                    <label>Nome Expedidor:</label><p>${dados.nomeExpedidor}</p>
-                    <label>Número Expedidor:</label><p>${dados.numeroExpedidor}</p>
-                    <label>Morada Expedidor:</label><p>${dados.moradaExpedidor}</p>
-                    <label>Código Postal:</label><p>${dados.codigoPostal}</p>
-                    <label>Local:</label><p>${dados.localExpedidor}</p>
-                    <label>Telefone:</label><p>${dados.telefoneExpedidor}</p>
-                    <label>Email:</label><p>${dados.emailExpedidor}</p>
+                    <label>Nome Expedidor:</label><p>${dados1.nomeExpedidor}</p>
+                    <label>Número Expedidor:</label><p>${dados1.numeroExpedidor}</p>
+                    <label>Morada Expedidor:</label><p>${dados1.moradaExpedidor}</p>
+                    <label>Código Postal:</label><p>${dados1.codigoPostal}</p>
+                    <label>Local:</label><p>${dados1.localExpedidor}</p>
+                    <label>Telefone:</label><p>${dados1.telefoneExpedidor}</p>
+                    <label>Email:</label><p>${dados1.emailExpedidor}</p>
+                </div>
+                
+                <h3>Expedição</h3>
+                <div>
+                    <label>m3:</label><p>${dados2.m3}</p>
+                    <label>Zona Expedição:</label><p>${dados2.zonaExpedicao}</p>
+                    <label>Volumes a expedir:</label><p>${dados2.volumesExpedir}</p>
+                    <label>Nr. Reserva:</label><p>${dados2.numeroReserva}</p>
+                    <label>Peso:</label><p>${dados2.peso}</p>
+                    <label>Ldm:</label><p>${dados2.ldm}</p>
+                    <label>Multiplas Recolhas?</label><p>${dados2.multiplasRecolhas}</p>
                 </div>
             `;
         }
