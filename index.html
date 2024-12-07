@@ -22,26 +22,39 @@
 <body>
     <div class="container">
         <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-         <input type="text" id="codigo" placeholder="Ex: 12345">
+        <input type="text" id="codigo" placeholder="Ex: 12345">
         <button onclick="procurarDetalhes()">Buscar</button>
+        <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
     </div>
 
     <script>
         // Desabilita o clique com o botão direito
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
-             });
+        });
 
         function procurarDetalhes() {
             const codigo = document.getElementById('codigo').value.trim();
+            const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+
+            // Limpa qualquer mensagem anterior
+            mensagemEl.textContent = "";
 
             if (codigo === "") {
-                alert("Por favor insira um código.");
+                mensagemEl.textContent = "Please enter a code.";
                 return;
             }
 
-            // Redireciona para a página 'detalhes.html' com o código na URL
-            window.location.href = `detalhes.html?codigo=${codigo}`;
+            // Simulação da verificação de existência da pasta
+            const pastasDisponiveis = ["12345", "67890", "54321"]; // Lista de códigos disponíveis
+
+            if (pastasDisponiveis.includes(codigo)) {
+                // Se o código existir, redireciona para a página de detalhes
+                window.location.href = `detalhes.html?codigo=${codigo}`;
+            } else {
+                // Mostra mensagem de código não encontrado
+                mensagemEl.textContent = "The code was not found.";
+            }
         }
     </script>
 </body>
