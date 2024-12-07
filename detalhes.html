@@ -37,20 +37,23 @@
             const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
             const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
             const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`; // Novo arquivo FTDados.txt
+            const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`; // Novo arquivo SZADRS_Dados.txt
 
-            // Carregar os quatro arquivos FLDados.txt, FT2Dados.txt, FT3Dados.txt e FTDados.txt
+            // Carregar os cinco arquivos
             Promise.all([
                 fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.reject("Arquivo FLDados.txt não encontrado")),
                 fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT2Dados.txt não encontrado")),
                 fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.reject("Arquivo FT3Dados.txt não encontrado")),
-                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.reject("Arquivo FTDados.txt não encontrado"))
+                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.reject("Arquivo FTDados.txt não encontrado")),
+                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.reject("Arquivo SZADRS_Dados.txt não encontrado"))
             ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT]) => {
+            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
                 const dados1 = processarConteudoFL(dadosFL);
                 const dados2 = processarConteudoFT2(dadosFT2);
                 const dados3 = processarConteudoFT3(dadosFT3);
-                const dados4 = processarConteudoFT(dadosFT); // Processar FTDados.txt
-                exibirDados(dados1, dados2, dados3, dados4);
+                const dados4 = processarConteudoFT(dadosFT);
+                const dados5 = processarConteudoSZADRS(dadosSZADRS); // Processar SZADRS_Dados.txt
+                exibirDados(dados1, dados2, dados3, dados4, dados5);
             })
             .catch(error => {
                 alert(error);
@@ -118,7 +121,7 @@
             return dados;
         }
 
-        // Processar conteúdo de FTDados.txt (novo arquivo)
+        // Processar conteúdo de FTDados.txt
         function processarConteudoFT(conteudo) {
             const dados = {};
             const linhas = conteudo.split('\n');
@@ -142,51 +145,95 @@
             return dados;
         }
 
+        // Processar conteúdo de SZADRS_Dados.txt
+        function processarConteudoSZADRS(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Descrição da entrega:')) {
+                    dados.descricaoEntrega = linha.replace('Descrição da entrega:', '').trim();
+                } else if (linha.includes('Nome da entrega:')) {
+                    dados.nomeEntrega = linha.replace('Nome da entrega:', '').trim();
+                } else if (linha.includes('Morada da entrega:')) {
+                    dados.moradaEntrega = linha.replace('Morada da entrega:', '').trim();
+                } else if (linha.includes('Local da entrega:')) {
+                    dados.localEntrega = linha.replace('Local da entrega:', '').trim();
+                } else if (linha.includes('Código Postal da entrega:')) {
+                    dados.codigoPostalEntrega = linha.replace('Código Postal da entrega:', '').trim();
+                } else if (linha.includes('País da entrega:')) {
+                    dados.paisEntrega = linha.replace('País da entrega:', '').trim();
+                } else if (linha.includes('Nome Contacto da entrega:')) {
+                    dados.nomeContatoEntrega = linha.replace('Nome Contacto da entrega:', '').trim();
+                } else if (linha.includes('Telefone da entrega:')) {
+                    dados.telefoneEntrega = linha.replace('Telefone da entrega:', '').trim();
+                } else if (linha.includes('Email da entrega:')) {
+                    dados.emailEntrega = linha.replace('Email da entrega:', '').trim();
+                } else if (linha.includes('Observação da entrega:')) {
+                    dados.observacaoEntrega = linha.replace('Observação da entrega:', '').trim();
+                }
+            });
+            return dados;
+        }
+
         // Exibir os dados na página
-        function exibirDados(dados1, dados2, dados3, dados4) {
-            const conteudoDiv = document.getElementById('conteudo');
-            
-            // Exibir os dados de FLDados.txt
+        function exibirDados(dados1, dados2, dados3, dados4, dados5) {
+            const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
-                <h2>Detalhes para o código ${obterCodigoDaURL()}</h2>
-                <h3>Expedidor</h3>
-                <div>
-                    <label>Nome Expedidor:</label><p>${dados1.nomeExpedidor}</p>
-                    <label>Número Expedidor:</label><p>${dados1.numeroExpedidor}</p>
-                    <label>Morada Expedidor:</label><p>${dados1.moradaExpedidor}</p>
-                    <label>Código Postal:</label><p>${dados1.codigoPostal}</p>
-                    <label>Local Expedidor:</label><p>${dados1.localExpedidor}</p>
-                    <label>Telefone:</label><p>${dados1.telefoneExpedidor}</p>
-                    <label>Email:</label><p>${dados1.emailExpedidor}</p>
-                </div>
-                <h3>Expedição</h3>
-                <div>
-                    <label>m3:</label><p>${dados2.m3}</p>
-                    <label>Zona Expedição:</label><p>${dados2.zonaExpedicao}</p>
-                    <label>Volumes a Expedir:</label><p>${dados2.volumesExpedir}</p>
-                    <label>Nr. Reserva:</label><p>${dados2.numeroReserva}</p>
-                    <label>Peso:</label><p>${dados2.peso}</p>
-                    <label>Ldm:</label><p>${dados2.ldm}</p>
-                    <label>Multiplas Recolhas:</label><p>${dados2.multiplasRecolhas}</p>
-                </div>
-                <h3>Entrega</h3>
-                <div>
-                    <label>Email para entrega:</label><p>${dados3.emailEntrega}</p>
-                </div>
-                <h3>Cliente</h3>
-                <div>
-                    <label>Nr. Cliente:</label><p>${dados4.nrCliente}</p>
-                    <label>Nome Cliente:</label><p>${dados4.nomeCliente}</p>
-                    <label>Local Carga:</label><p>${dados4.localCarga}</p>
-                    <label>Local Descarga:</label><p>${dados4.localDescarga}</p>
-                    <label>Data Expedição:</label><p>${dados4.dataExpedicao}</p>
-                    <label>Expeditor:</label><p>${dados4.expeditor}</p>
-                    <label>Nr. Encomenda:</label><p>${dados4.nrEncomenda}</p>
-                </div>
+                <h2>FL Dados</h2>
+                <ul>
+                    <li>Nome Expedidor: ${dados1.nomeExpedidor}</li>
+                    <li>Nr. Expedidor: ${dados1.numeroExpedidor}</li>
+                    <li>Morada Expedidor: ${dados1.moradaExpedidor}</li>
+                    <li>Código Postal: ${dados1.codigoPostal}</li>
+                    <li>Local: ${dados1.localExpedidor}</li>
+                    <li>Telefone: ${dados1.telefoneExpedidor}</li>
+                    <li>Email: ${dados1.emailExpedidor}</li>
+                </ul>
+
+                <h2>FT2 Dados</h2>
+                <ul>
+                    <li>m3: ${dados2.m3}</li>
+                    <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
+                    <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
+                    <li>Nr. Reserva: ${dados2.numeroReserva}</li>
+                    <li>Peso: ${dados2.peso}</li>
+                    <li>Ldm: ${dados2.ldm}</li>
+                    <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
+                </ul>
+
+                <h2>FT3 Dados</h2>
+                <ul>
+                    <li>Email para entrega: ${dados3.emailEntrega}</li>
+                </ul>
+
+                <h2>FT Dados</h2>
+                <ul>
+                    <li>Nr. Cliente: ${dados4.nrCliente}</li>
+                    <li>Nome Cliente: ${dados4.nomeCliente}</li>
+                    <li>Local Carga: ${dados4.localCarga}</li>
+                    <li>Local Descarga: ${dados4.localDescarga}</li>
+                    <li>Data Expedição: ${dados4.dataExpedicao}</li>
+                    <li>Expeditor: ${dados4.expeditor}</li>
+                    <li>Nr. Encomenda: ${dados4.nrEncomenda}</li>
+                </ul>
+
+                <h2>SZADRS Dados</h2>
+                <ul>
+                    <li>Descrição: ${dados5.descricaoEntrega}</li>
+                    <li>Nome: ${dados5.nomeEntrega}</li>
+                    <li>Morada: ${dados5.moradaEntrega}</li>
+                    <li>Local: ${dados5.localEntrega}</li>
+                    <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
+                    <li>País: ${dados5.paisEntrega}</li>
+                    <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
+                    <li>Telefone: ${dados5.telefoneEntrega}</li>
+                    <li>Email: ${dados5.emailEntrega}</li>
+                    <li>Observação: ${dados5.observacaoEntrega}</li>
+                </ul>
             `;
         }
 
-        // Carregar o conteúdo ao carregar a página
+        // Carregar os dados assim que a página for carregada
         window.onload = carregarConteudo;
     </script>
 </body>
