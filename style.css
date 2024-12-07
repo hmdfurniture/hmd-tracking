@@ -60,7 +60,7 @@ input {
     border: 1px solid rgba(200, 200, 200, 0.2);
     border-radius: 4px;
     width: calc(70% - 1vw); /* Campo ocupa 70% do espaço */
-    max-width: 400px; /* Largura máxima para ecrãs grandes */
+    max-width: 540px; /* Ajuste do máximo para telas grandes */
     box-sizing: border-box;
     background-color: rgba(200, 200, 200, 0.2);
 }
@@ -75,7 +75,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     width: calc(30% - 1vw); /* Botão ocupa 30% do espaço */
-    max-width: 150px; /* Largura máxima */
+    max-width: 150px; /* Largura máxima do botão */
 }
 
 /* Estilo para telas grandes (largura maior que 768px) */
@@ -129,13 +129,13 @@ button {
     input {
         font-size: 5vw;
         width: 90%;
-        max-width: 550px;
+        max-width: 540px; /* Ajuste para telas pequenas */
     }
 
     button {
         font-size: 5vw;
         width: 90%;
-        max-width: 550px;
+        max-width: 150px; /* Ajuste para o botão em telas pequenas */
         margin-top: 2vw;
     }
 
