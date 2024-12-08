@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMD Tracking</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMD Tracking</title>
+    <link rel="stylesheet" href="style.css">
 
-<style>
-/* Desabilita a seleção de texto */
-body {
-user-select: none; /* Impede a seleção de texto */
-}
+    <style>
+        /* Desabilita a seleção de texto */
+        body {
+            user-select: none; /* Impede a seleção de texto */
+        }
 
-/* Impede o arrasto de imagens */
-img {
-pointer-events: none; /* Impede a interação com a imagem */
-}
-</style>
+        /* Impede o arrasto de imagens */
+        img {
+            pointer-events: none; /* Impede a interação com a imagem */
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<img src="images/logo.jpg" alt="Logo HMD" class="logo">
-<h1>Tracking</h1>
-<input type="text" id="codigo" placeholder="Ex: 12345">
-<button onclick="procurarDetalhes()">Buscar</button>
-</div>
+    <div class="container">
+        <img src="images/logo.jpg" alt="Logo HMD" class="logo">
+        <h1>Tracking</h1>
+        <input type="text" id="codigo" placeholder="Ex: 12345">
+        <button onclick="procurarDetalhes()">Buscar</button>
+        <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
+    </div>
 
-<script>
-// Desabilita o clique com o botão direito
-document.addEventListener('contextmenu', function(event) {
-event.preventDefault();
-            alert('O clique com o botão direito está desabilitado nesta página.');
+    <script>
+        // Desabilita o clique com o botão direito
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
         });
-             });
 
-function procurarDetalhes() {
-const codigo = document.getElementById('codigo').value.trim();
+        // Função que realiza a busca da pasta e valida a existência
+        async function procurarDetalhes() {
+            const codigo = document.getElementById('codigo').value.trim();
+            const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
 
-if (codigo === "") {
-alert("Por favor insira um código.");
-return;
-}
+            // Limpa qualquer mensagem anterior
+            mensagemEl.textContent = "";
 
-// Redireciona para a página 'detalhes.html' com o código na URL
-window.location.href = `detalhes.html?codigo=${codigo}`;
-}
-</script>
+            if (codigo === "") {
+                mensagemEl.textContent = "Por favor insira um código.";
+                return;
+            }
+
+            // Caminho da pasta no repositório
+            const caminhoPasta = `conteudo/${codigo}/`;
+
+            try {
+                // Faz uma requisição HEAD para verificar se a pasta existe
+                const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
+
+                if (resposta.ok) {
+                    // Redireciona para a página 'detalhes.html' se a pasta existir
+                    window.location.href = `detalhes.html?codigo=${codigo}`;
+                } else {
+                    // Mostra mensagem de erro se a pasta não for encontrada
+                    mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
+                }
+            } catch (erro) {
+                mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
+                console.error("Erro:", erro);
+            }
+        }
+    </script>
 </body>
 </html>
