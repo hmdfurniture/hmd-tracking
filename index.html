@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMD Tracking</title>
     <link rel="stylesheet" href="style.css">
-
     <style>
         /* Desabilita a seleção de texto */
         body {
@@ -28,11 +27,6 @@
     </div>
 
     <script>
-        // Desabilita o clique com o botão direito
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-
         // Função que realiza a busca da pasta e valida a existência
         async function procurarDetalhes() {
             const codigo = document.getElementById('codigo').value.trim();
@@ -41,6 +35,7 @@
             // Limpa qualquer mensagem anterior
             mensagemEl.textContent = "";
 
+            // Verificar se o campo de pesquisa está vazio
             if (codigo === "") {
                 mensagemEl.textContent = "Por favor insira um código.";
                 return;
@@ -50,18 +45,19 @@
             const caminhoPasta = `conteudo/${codigo}/`;
 
             try {
-                // Faz uma requisição HEAD para verificar se a pasta existe
-                const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
+                // Tenta acessar qualquer arquivo dentro da pasta (por exemplo, verificando se a pasta tem arquivos)
+                const resposta = await fetch(caminhoPasta);
 
                 if (resposta.ok) {
-                    // Redireciona para a página 'detalhes.html' se a pasta existir
+                    // Se a resposta for ok (a pasta existe com arquivos dentro), redirecionar para detalhes.html
                     window.location.href = `detalhes.html?codigo=${codigo}`;
                 } else {
-                    // Mostra mensagem de erro se a pasta não for encontrada
-                    mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
+                    // Se a pasta não for encontrada, mostrar mensagem de erro
+                    mensagemEl.textContent = `A pasta com o código ${codigo} não foi encontrada ou está vazia.`;
                 }
             } catch (erro) {
-                mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
+                // Caso ocorra um erro de rede ou outro, mostrar mensagem de erro
+                mensagemEl.textContent = "Erro ao verificar o código. Tente novamente.";
                 console.error("Erro:", erro);
             }
         }
