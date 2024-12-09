@@ -33,38 +33,35 @@
             event.preventDefault();
         });
 
-        // Função que realiza a busca da pasta e valida a existência
-async function procurarDetalhes() {
-    const codigo = document.getElementById('codigo').value.trim();
-    const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+        document.querySelector("button").addEventListener("click", function () {
+    const codigo = document.querySelector("input").value.trim();
 
-    // Limpa qualquer mensagem anterior
-    mensagemEl.textContent = "";
-
-    if (codigo === "") {
-        mensagemEl.textContent = "Por favor insira um código.";
+    // Verificar se o campo de pesquisa está vazio
+    if (!codigo) {
+        alert("Por favor, preencha o código.");
         return;
     }
 
-    // Caminho da pasta no repositório
-    const caminhoPasta = `conteudo/${codigo}/`;
+    // Caminho para a pasta conteudo/{codigo}
+    const caminho = `conteudo/${codigo}/`;
 
-    try {
-        // Faz uma requisição HEAD para verificar se a pasta existe
-        const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
-
-        if (resposta.ok) {
-            // Redireciona para a página 'detalhes.html' se a pasta existir
-            window.location.href = `detalhes.html?codigo=${codigo}`;
-        } else {
-            // Mostra mensagem de erro se a pasta não for encontrada
-            mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
-        }
-    } catch (erro) {
-        mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
-        console.error("Erro:", erro);
-    }
-}
+    // Tentar acessar a URL da pasta diretamente
+    fetch(caminho)
+        .then(response => {
+            if (response.ok) {
+                // Se a resposta for ok (pasta existe), redirecionar para detalhes.html
+                window.location.href = `detalhes.html?codigo=${codigo}`;
+            } else {
+                // Se a pasta não for encontrada, mostrar mensagem de erro
+                alert(`Não foi encontrada a pasta com o código ${codigo}.`);
+            }
+        })
+        .catch(error => {
+            // Caso ocorra um erro (pasta não encontrada), mostrar mensagem de erro
+            alert("Erro ao verificar o código. Tente novamente.");
+            console.error(error);
+        });
+});
     </script>
 </body>
 </html>
