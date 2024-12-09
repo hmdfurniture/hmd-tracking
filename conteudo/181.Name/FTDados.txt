@@ -1,8 +1,0 @@
-﻿Nr. Cliente: 181
-Nome Cliente: BASIC COLLECTION KFT
-Local Carga: 
-Local Descarga: BASIC COLLECTION-CASTELLUM VESZPRÉM
-Data Expedição: 29/11/2024
-Expeditor: Dhl
-Nr. Encomenda: ALCH FABR.SAMPL
-
