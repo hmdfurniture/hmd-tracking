@@ -1,63 +1,73 @@
-event.preventDefault();
-});
-
-        document.querySelector("button").addEventListener("click", function () {
-    const codigo = document.querySelector("input").value.trim();
-        // Função que realiza a busca da pasta e valida a existência
-        async function procurarDetalhes() {
-            const codigo = document.getElementById('codigo').value.trim();
-            const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
-
-    // Verificar se o campo de pesquisa está vazio
-    if (!codigo) {
-        alert("Por favor, preencha o código.");
-        return;
-    }
-            // Limpa qualquer mensagem anterior
-            mensagemEl.textContent = "";
-
-    // Caminho para a pasta conteudo/{codigo}
-    const caminho = `conteudo/${codigo}/`;
-            if (codigo === "") {
-                mensagemEl.textContent = "Por favor insira um código.";
-                return;
-            }
-
-            // Caminho da pasta no repositório
-            const caminhoPasta = `conteudo/${codigo}/`;
-
-            try {
-                // Faz uma requisição HEAD para verificar se a pasta existe
-                const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
-
-    // Tentar acessar a URL da pasta diretamente
-    fetch(caminho)
-        .then(response => {
-            if (response.ok) {
-                // Se a resposta for ok (pasta existe), redirecionar para detalhes.html
-                window.location.href = `detalhes.html?codigo=${codigo}`;
-            } else {
-                // Se a pasta não for encontrada, mostrar mensagem de erro
-                alert(`Não foi encontrada a pasta com o código ${codigo}.`);
-                if (resposta.ok) {
-                    // Redireciona para a página 'detalhes.html' se a pasta existir
-                    window.location.href = `detalhes.html?codigo=${codigo}`;
-                } else {
-                    // Mostra mensagem de erro se a pasta não for encontrada
-                    mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
-                }
-            } catch (erro) {
-                mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
-                console.error("Erro:", erro);
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMD Tracking</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Desabilita a seleção de texto */
+body {
+user-select: none; /* Impede a seleção de texto */
 }
-        })
-        .catch(error => {
-            // Caso ocorra um erro (pasta não encontrada), mostrar mensagem de erro
-            alert("Erro ao verificar o código. Tente novamente.");
-            console.error(error);
-        });
-});
-        }
+
+/* Impede o arrasto de imagens */
+img {
+pointer-events: none; /* Impede a interação com a imagem */
+}
+</style>
+</head>
+<body>
+<div class="container">
+<img src="images/logo.jpg" alt="Logo HMD" class="logo">
+<h1></h1>
+        <input type="text" id="codigo" placeholder="Ex: 12345">
+        <input type="text" id="codigo" placeholder="Ex: 173">
+<button onclick="procurarDetalhes()">Buscar</button>
+<p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
+</div>
+
+<script>
+// Função que realiza a busca da pasta e valida a existência
+async function procurarDetalhes() {
+const codigo = document.getElementById('codigo').value.trim();
+const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+
+// Limpa qualquer mensagem anterior
+mensagemEl.textContent = "";
+
+// Verificar se o campo de pesquisa está vazio
+if (codigo === "") {
+mensagemEl.textContent = "Por favor insira um código.";
+return;
+}
+
+// Caminho da pasta no repositório
+const caminhoPasta = `conteudo/${codigo}/`;
+
+            // Arquivo de controle (pode ser qualquer arquivo que você tenha certeza que existe em cada pasta)
+            const arquivoDeControle = `${caminhoPasta}FLDados.txt`; // Pode ser `index.html` ou qualquer outro arquivo dentro da pasta
+
+try {
+                // Tenta acessar qualquer arquivo dentro da pasta (por exemplo, verificando se a pasta tem arquivos)
+                const resposta = await fetch(caminhoPasta);
+                // Tenta acessar o arquivo de controle dentro da pasta
+                const resposta = await fetch(arquivoDeControle);
+
+if (resposta.ok) {
+// Se a resposta for ok (a pasta existe com arquivos dentro), redirecionar para detalhes.html
+window.location.href = `detalhes.html?codigo=${codigo}`;
+} else {
+                    // Se a pasta não for encontrada, mostrar mensagem de erro
+                    // Se o arquivo não for encontrado, mostrar mensagem de erro
+mensagemEl.textContent = `A pasta com o código ${codigo} não foi encontrada ou está vazia.`;
+}
+} catch (erro) {
+// Caso ocorra um erro de rede ou outro, mostrar mensagem de erro
+mensagemEl.textContent = "Erro ao verificar o código. Tente novamente.";
+console.error("Erro:", erro);
+}
+}
 </script>
 </body>
 </html>
