@@ -8,65 +8,58 @@
 <style>
 /* Desabilita a seleção de texto */
 body {
-user-select: none; /* Impede a seleção de texto */
+    user-select: none;
 }
 
 /* Impede o arrasto de imagens */
 img {
-pointer-events: none; /* Impede a interação com a imagem */
+    pointer-events: none;
 }
 </style>
 </head>
 <body>
 <div class="container">
-<img src="images/logo.jpg" alt="Logo HMD" class="logo">
-<h1></h1>
-        <input type="text" id="codigo" placeholder="Ex: 12345">
-        <input type="text" id="codigo" placeholder="Ex: 173">
-<button onclick="procurarDetalhes()">Buscar</button>
-<p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
+    <img src="images/logo.jpg" alt="Logo HMD" class="logo">
+    <h1>Rastreamento de Pastas</h1>
+    <input type="text" id="codigoPrincipal" placeholder="Ex: 12345">
+    <button onclick="procurarDetalhes()">Buscar</button>
+    <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
 </div>
 
 <script>
-// Função que realiza a busca da pasta e valida a existência
 async function procurarDetalhes() {
-const codigo = document.getElementById('codigo').value.trim();
-const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+    const codigo = document.getElementById('codigoPrincipal').value.trim();
+    const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
 
-// Limpa qualquer mensagem anterior
-mensagemEl.textContent = "";
+    // Limpa qualquer mensagem anterior
+    mensagemEl.textContent = "";
 
-// Verificar se o campo de pesquisa está vazio
-if (codigo === "") {
-mensagemEl.textContent = "Por favor insira um código.";
-return;
-}
+    // Verificar se o campo de pesquisa está vazio
+    if (codigo === "") {
+        mensagemEl.textContent = "Por favor insira um código.";
+        return;
+    }
 
-// Caminho da pasta no repositório
-const caminhoPasta = `conteudo/${codigo}/`;
+    // Caminho da pasta no repositório
+    const caminhoPasta = `conteudo/${codigo}/`;
+    const arquivoDeControle = `${caminhoPasta}FLDados.txt`; // Arquivo para validar a pasta
 
-            // Arquivo de controle (pode ser qualquer arquivo que você tenha certeza que existe em cada pasta)
-            const arquivoDeControle = `${caminhoPasta}FLDados.txt`; // Pode ser `index.html` ou qualquer outro arquivo dentro da pasta
+    try {
+        // Tenta acessar o arquivo de controle
+        const resposta = await fetch(arquivoDeControle);
 
-try {
-                // Tenta acessar qualquer arquivo dentro da pasta (por exemplo, verificando se a pasta tem arquivos)
-                const resposta = await fetch(caminhoPasta);
-                // Tenta acessar o arquivo de controle dentro da pasta
-                const resposta = await fetch(arquivoDeControle);
-
-if (resposta.ok) {
-// Se a resposta for ok (a pasta existe com arquivos dentro), redirecionar para detalhes.html
-window.location.href = `detalhes.html?codigo=${codigo}`;
-} else {
-                    // Se a pasta não for encontrada, mostrar mensagem de erro
-                    // Se o arquivo não for encontrado, mostrar mensagem de erro
-mensagemEl.textContent = `A pasta com o código ${codigo} não foi encontrada ou está vazia.`;
-}
-} catch (erro) {
-// Caso ocorra um erro de rede ou outro, mostrar mensagem de erro
-mensagemEl.textContent = "Erro ao verificar o código. Tente novamente.";
-console.error("Erro:", erro);
-}
+        if (resposta.ok) {
+            // Se o arquivo existe, redirecionar para a página de detalhes
+            window.location.href = `detalhes.html?codigo=${codigo}`;
+        } else {
+            // Arquivo não encontrado
+            mensagemEl.textContent = `A pasta com o código ${codigo} não foi encontrada ou está vazia.`;
+        }
+    } catch (erro) {
+        // Erro de rede ou outro problema
+        mensagemEl.textContent = "Erro ao verificar o código. Tente novamente.";
+        console.error("Erro:", erro);
+    }
 }
 </script>
 </body>
