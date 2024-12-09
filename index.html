@@ -1,57 +1,63 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracking - Detalhes</title>
-</head>
-<body>
-    <div class="container">
-        <div class="logo-container">
-            <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-            <h1>Tracking - Detalhes</h1>
-        </div>
+event.preventDefault();
+});
 
-        <div id="conteudo">
-            <!-- O conteúdo será carregado dinamicamente aqui -->
-        </div>
-    </div>
+        document.querySelector("button").addEventListener("click", function () {
+    const codigo = document.querySelector("input").value.trim();
+        // Função que realiza a busca da pasta e valida a existência
+        async function procurarDetalhes() {
+            const codigo = document.getElementById('codigo').value.trim();
+            const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
 
-    <script>
-        function obterCodigoDaURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('codigo');
-        }
+    // Verificar se o campo de pesquisa está vazio
+    if (!codigo) {
+        alert("Por favor, preencha o código.");
+        return;
+    }
+            // Limpa qualquer mensagem anterior
+            mensagemEl.textContent = "";
 
-        function validarArquivo() {
-            const codigo = obterCodigoDaURL();
-
-            if (!codigo) {
-                alert("Código não encontrado. Verifique a URL.");
+    // Caminho para a pasta conteudo/{codigo}
+    const caminho = `conteudo/${codigo}/`;
+            if (codigo === "") {
+                mensagemEl.textContent = "Por favor insira um código.";
                 return;
             }
 
-            // Caminho para o arquivo de conteúdo a ser validado
-            const conteudoUrl = `conteudo/${codigo}/FLDados.txt`;
+            // Caminho da pasta no repositório
+            const caminhoPasta = `conteudo/${codigo}/`;
 
-            // Validar se o arquivo existe
-            fetch(conteudoUrl)
-                .then(response => {
-                    if (response.ok) {
-                        // Se o arquivo existe, redireciona para a página de detalhes
-                        window.location.href = `https://hmdfurniture.github.io/hmd-tracking/detalhes.html?codigo=${codigo}`;
-                    } else {
-                        alert("Arquivo não encontrado na pasta.");
-                    }
-                })
-                .catch(error => {
-                    alert("Ocorreu um erro ao validar o arquivo.");
-                    console.error(error);
-                });
+            try {
+                // Faz uma requisição HEAD para verificar se a pasta existe
+                const resposta = await fetch(caminhoPasta, { method: 'HEAD' });
+
+    // Tentar acessar a URL da pasta diretamente
+    fetch(caminho)
+        .then(response => {
+            if (response.ok) {
+                // Se a resposta for ok (pasta existe), redirecionar para detalhes.html
+                window.location.href = `detalhes.html?codigo=${codigo}`;
+            } else {
+                // Se a pasta não for encontrada, mostrar mensagem de erro
+                alert(`Não foi encontrada a pasta com o código ${codigo}.`);
+                if (resposta.ok) {
+                    // Redireciona para a página 'detalhes.html' se a pasta existir
+                    window.location.href = `detalhes.html?codigo=${codigo}`;
+                } else {
+                    // Mostra mensagem de erro se a pasta não for encontrada
+                    mensagemEl.textContent = "A pasta com o código fornecido não foi encontrada.";
+                }
+            } catch (erro) {
+                mensagemEl.textContent = "Ocorreu um erro ao procurar a pasta. Tente novamente.";
+                console.error("Erro:", erro);
+}
+        })
+        .catch(error => {
+            // Caso ocorra um erro (pasta não encontrada), mostrar mensagem de erro
+            alert("Erro ao verificar o código. Tente novamente.");
+            console.error(error);
+        });
+});
         }
-
-        // Chama a função de validação assim que a página for carregada
-        window.onload = validarArquivo;
-    </script>
+</script>
 </body>
 </html>
