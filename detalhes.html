@@ -175,7 +175,7 @@
         function exibirDados(dados1, dados2, dados3, dados4, dados5) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
-                <h2>FL Dados</h2>
+                <h2>Carrier at origin</h2>
                 <ul>
                     <li>Nome Expedidor: ${dados1.nomeExpedidor}</li>
                     <li>Nr. Expedidor: ${dados1.numeroExpedidor}</li>
@@ -184,6 +184,7 @@
                     <li>Local: ${dados1.localExpedidor}</li>
                     <li>Telefone: ${dados1.telefoneExpedidor}</li>
                     <li>Email: ${dados1.emailExpedidor}</li>
+                    <li>Nr. Reserva: ${dados2.numeroReserva}</li>
                 </ul>
 
                 <h2>FT2 Dados</h2>
@@ -191,7 +192,6 @@
                     <li>m3: ${dados2.m3}</li>
                     <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
                     <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
-                    <li>Nr. Reserva: ${dados2.numeroReserva}</li>
                     <li>Peso: ${dados2.peso}</li>
                     <li>Ldm: ${dados2.ldm}</li>
                     <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
