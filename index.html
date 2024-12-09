@@ -22,7 +22,7 @@ img {
     <img src="images/logo.jpg" alt="Logo HMD" class="logo">
     <h1></h1>
     <input type="text" id="codigoPrincipal" placeholder="Ex: 12345">
-    <button onclick="procurarDetalhes()">Buscar</button>
+    <button onclick="procurarDetalhes()">search</button>
     <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
 </div>
 
@@ -36,7 +36,7 @@ async function procurarDetalhes() {
 
     // Verificar se o campo de pesquisa está vazio
     if (codigo === "") {
-        mensagemEl.textContent = "Por favor insira um código.";
+        mensagemEl.textContent = "Please enter a valid code.";
         return;
     }
 
@@ -53,11 +53,11 @@ async function procurarDetalhes() {
             window.location.href = `detalhes.html?codigo=${codigo}`;
         } else {
             // Arquivo não encontrado
-            mensagemEl.textContent = `A pasta com o código ${codigo} não foi encontrada ou está vazia.`;
+            mensagemEl.textContent = `${codigo} was not found.`;
         }
     } catch (erro) {
         // Erro de rede ou outro problema
-        mensagemEl.textContent = "Erro ao verificar o código. Tente novamente.";
+        mensagemEl.textContent = "Error verifying the code. Please try again.";
         console.error("Erro:", erro);
     }
 }
