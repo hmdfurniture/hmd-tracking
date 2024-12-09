@@ -6,7 +6,7 @@
     <div class="container">
         <div class="logo-container">
             <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-            <h1>Tracking - Detalhes</h1>
+            <h1></h1>
         </div>
 
         <div id="conteudo">
@@ -189,31 +189,22 @@
 
                 <h2>merchandise details</h2>
                 <ul>
+                    <li>Shipment Date: ${dados4.dataExpedicao}</li>
                     <li>m3: ${dados2.m3}</li>
                     <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
                     <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
                     <li>Peso: ${dados2.peso}</li>
                     <li>Ldm: ${dados2.ldm}</li>
-                    <li>Multiplas Recolhas?: ${dados2.multiplasRecolhas}</li>
-                </ul>
+                    </ul>
 
-                <h2>FT3 Dados</h2>
+                <h2>Client</h2>
                 <ul>
-                    <li>Email para entrega: ${dados3.emailEntrega}</li>
+                    <li>Nr.: ${dados4.nrCliente}</li>
+                    <li>Name: ${dados4.nomeCliente}</li>
+                    <li>Order Nr.: ${dados4.nrEncomenda}</li>
                 </ul>
 
-                <h2>FT Dados</h2>
-                <ul>
-                    <li>Nr. Cliente: ${dados4.nrCliente}</li>
-                    <li>Nome Cliente: ${dados4.nomeCliente}</li>
-                    <li>Local Carga: ${dados4.localCarga}</li>
-                    <li>Local Descarga: ${dados4.localDescarga}</li>
-                    <li>Data Expedição: ${dados4.dataExpedicao}</li>
-                    <li>Expeditor: ${dados4.expeditor}</li>
-                    <li>Nr. Encomenda: ${dados4.nrEncomenda}</li>
-                </ul>
-
-                <h2>SZADRS Dados</h2>
+                <h2>delivery address</h2>
                 <ul>
                     <li>Descrição: ${dados5.descricaoEntrega}</li>
                     <li>Nome: ${dados5.nomeEntrega}</li>
