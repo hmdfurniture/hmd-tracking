@@ -63,19 +63,19 @@
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
                 if (linha.includes('Nome Expedidor Origem:')) {
-                    dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('No Expedidor Origem:')) {
-                    dados.numeroExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.numeroExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Morada Expedidor Origem:')) {
-                    dados.moradaExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.moradaExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Código Postal Expedidor Origem:')) {
-                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Local Expedidor Origem:')) {
-                    dados.localExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.localExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Telefone Expedidor Origem:')) {
-                    dados.telefoneExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.telefoneExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Email Expedidor Origem:')) {
-                    dados.emailExpedidor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.emailExpedidor = linha.split(':')[1]?.trim() || 'Not available';
                 }
             });
             return dados;
@@ -87,19 +87,19 @@
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
                 if (linha.includes('m3:')) {
-                    dados.m3 = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.m3 = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Zona Expedição:')) {
                     dados.zonaExpedicao = linha.split(':')[1]?.trim() || 'Não disponível';
                 } else if (linha.includes('Volumes a expedir:')) {
-                    dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Nr. Reserva:')) {
-                    dados.numeroReserva = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.numeroReserva = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Peso :')) {
-                    dados.peso = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.peso = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Ldm:')) {
-                    dados.ldm = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.ldm = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Multiplas Recolhas?:')) {
-                    dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Not available';
                 }
             });
             return dados;
@@ -111,7 +111,7 @@
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
                 if (linha.includes('Email para entrega:')) {
-                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 }
             });
             return dados;
@@ -123,19 +123,19 @@
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
                 if (linha.includes('Nr. Cliente:')) {
-                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Nome Cliente:')) {
-                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Local Carga:')) {
-                    dados.localCarga = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.localCarga = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Local Descarga:')) {
-                    dados.localDescarga = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.localDescarga = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Data Expedição:')) {
-                    dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Expeditor:')) {
-                    dados.expeditor = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.expeditor = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Nr. Encomenda:')) {
-                    dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Not available';
                 }
             });
             return dados;
@@ -146,26 +146,26 @@
             const dados = {};
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
-                if (linha.includes('Descrição da entrega:')) {
-                    dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                if (linha.includes('Descrião da entrega:')) {
+                    dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Nome da entrega:')) {
-                    dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Morada da entrega:')) {
-                    dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Local da entrega:')) {
-                    dados.localEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.localEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Código Postal da entrega:')) {
-                    dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('País da entrega:')) {
-                    dados.paisEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.paisEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Nome Contacto da entrega:')) {
-                    dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Telefone da entrega:')) {
-                    dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Email da entrega:')) {
-                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 } else if (linha.includes('Observação da entrega:')) {
-                    dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Não disponível';
+                    dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
                 }
             });
             return dados;
@@ -213,7 +213,7 @@
                     <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
                     <li>País: ${dados5.paisEntrega}</li>
                     <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
-                    li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+                    <li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
                      <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
