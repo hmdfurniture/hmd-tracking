@@ -87,11 +87,11 @@
                 const dados5 = processarConteudoSZADRS(dadosSZADRS);
 
 let imagemHTML = '';
-        if (imagemBlob) {
-            const imagemURL = URL.createObjectURL(imagemBlob); // Cria um URL para a imagem carregada
-            imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
-        }
-                
+        if (imagem) {
+    const imagemURL = URL.createObjectURL(imagem); // Cria um URL para a imagem carregada
+    imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
+}
+              
                 exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML);
             })
             .catch(error => {
