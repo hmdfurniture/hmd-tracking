@@ -10,7 +10,7 @@
             margin-top: 20px;
             font-size: 18px;
             text-decoration: none;
-            color: #007bff;
+            color: black; /* Muda a cor do link para preto */
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -21,10 +21,27 @@
         .back-icon {
             margin-right: 10px;
         }
-        .image-container img {
-            max-width: 100%;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            width: 80%;
+        }
+        .content-section img {
+            max-width: 200px;
             height: auto;
-            margin-top: 20px;
+        }
+        .content {
+            flex: 1;
         }
     </style>
 </head>
@@ -51,78 +68,26 @@
             return urlParams.get('codigo');
         }
 
-        function carregarImagens() {
+        function carregarConteudo() {
             const codigo = obterCodigoDaURL();
 
             if (!codigo) {
                 alert("Código não encontrado. Verifique a URL.");
-                // Exibe o link de retorno à página principal se o código não for encontrado
-                document.getElementById("conteudo").innerHTML = ` 
+                document.getElementById("conteudo").innerHTML = `
                     <p><strong>Código não encontrado.</strong></p>
                     <a href="/" class="back-button">
                         <span class="back-icon">←</span> Voltar à Página Principal
                     </a>
                 `;
-                return; // Não carrega o conteúdo
+                return;
             }
 
-            // Caminho para as imagens associadas
-            const imagemUrl1 = `conteudo/${codigo}/image_fldados.jpg`;
-            const imagemUrl2 = `conteudo/${codigo}/image_ftdados.jpg`;
-            const imagemUrl3 = `conteudo/${codigo}/image_ft2dados.jpg`;
-            const imagemUrl4 = `conteudo/${codigo}/image_ftdados.jpg`;
-            const imagemUrl5 = `conteudo/${codigo}/image_szadrsdados.jpg`;
-
-            // Carregar as imagens
-            Promise.all([
-                fetch(imagemUrl1).then(response => response.ok ? imagemUrl1 : 'image_fldados.jpg não encontrada.'),
-                fetch(imagemUrl2).then(response => response.ok ? imagemUrl2 : 'image_ftdados.jpg não encontrada.'),
-                fetch(imagemUrl3).then(response => response.ok ? imagemUrl3 : 'image_ft2dados.jpg não encontrada.'),
-                fetch(imagemUrl4).then(response => response.ok ? imagemUrl4 : 'image_ftdados.jpg não encontrada.'),
-                fetch(imagemUrl5).then(response => response.ok ? imagemUrl5 : 'image_szadrsdados.jpg não encontrada.')
-            ])
-            .then(([imgFL, imgFT, imgFT2, imgFT4, imgSZADRS]) => {
-                exibirImagens(imgFL, imgFT, imgFT2, imgFT4, imgSZADRS);
-                carregarDados(codigo, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS);
-            })
-            .catch(error => {
-                alert("Ocorreu um erro ao carregar as imagens.");
-                console.error(error);
-            });
-        }
-
-        // Exibir imagens separadamente
-        function exibirImagens(imgFL, imgFT, imgFT2, imgFT4, imgSZADRS) {
-            const conteudoDiv = document.getElementById("conteudo");
-            conteudoDiv.innerHTML = `
-                <h2>Imagens Associadas</h2>
-                <div class="image-container">
-                    <img src="${imgFL}" alt="Imagem FLDados">
-                </div>
-                <div class="image-container">
-                    <img src="${imgFT}" alt="Imagem FTDados">
-                </div>
-                <div class="image-container">
-                    <img src="${imgFT2}" alt="Imagem FT2Dados">
-                </div>
-                <div class="image-container">
-                    <img src="${imgFT4}" alt="Imagem FTDados">
-                </div>
-                <div class="image-container">
-                    <img src="${imgSZADRS}" alt="Imagem SZADRS Dados">
-                </div>
-            `;
-        }
-
-        function carregarDados(codigo, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS) {
-            // Caminho para os arquivos de conteúdo
             const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
             const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
             const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
             const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
             const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
 
-            // Carregar os cinco arquivos de dados
             Promise.all([
                 fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
                 fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
@@ -144,7 +109,6 @@
             });
         }
 
-        // Processar conteúdo de FLDados.txt
         function processarConteudoFL(conteudo) {
             const dados = {};
             const linhas = conteudo.split('\n');
@@ -167,8 +131,7 @@
             });
             return dados;
         }
-
-        // Processar conteúdo de FT2Dados.txt
+// Processar conteúdo de FT2Dados.txt
         function processarConteudoFT2(conteudo) {
             const dados = {};
             const linhas = conteudo.split('\n');
@@ -258,8 +221,81 @@
             return dados;
         }
 
-        // Carregar as imagens e dados ao carregar a página
-        window.onload = carregarImagens;
+        function exibirDados(dados1, dados2, dados3, dados4, dados5) {
+            const conteudoDiv = document.getElementById("conteudo");
+            conteudoDiv.innerHTML = `
+                <div class="content-section">
+                    <div class="content">
+                        <h2>Carrier at origin</h2>
+                        <ul>
+                            <li>Nome: ${dados1.nomeExpedidor}</li>
+                            <li>Nr. Expedidor: ${dados1.numeroExpedidor}</li>
+                            <li>Morada Expedidor: ${dados1.moradaExpedidor}</li>
+                            <li>Código Postal: ${dados1.codigoPostal}</li>
+                            <li>Local: ${dados1.localExpedidor}</li>
+                            <li>Telefone: ${dados1.telefoneExpedidor}</li>
+                            <li>Email: ${dados1.emailExpedidor}</li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <img src="images/image_fldados.jpg" alt="Imagem FLDados">
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content">
+                        <h2>Merchandise details</h2>
+                        <ul>
+                            <li>Shipment Date: ${dados4.dataExpedicao}</li>
+                            <li>m3: ${dados2.m3}</li>
+                            <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
+                            <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
+                            <li>Peso: ${dados2.peso}</li>
+                            <li>Ldm: ${dados2.ldm}</li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <img src="images/image_ftdados.jpg" alt="Imagem FTDados">
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content">
+                        <h2>Client</h2>
+                        <ul>
+                            <li>Nr.: ${dados4.nrCliente}</li>
+                            <li>Name: ${dados4.nomeCliente}</li>
+                            <li>Order Nr.: ${dados4.nrEncomenda}</li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <img src="images/image_ft2dados.jpg" alt="Imagem FT2Dados">
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="content">
+                        <h2>Delivery address</h2>
+                        <ul>
+                            <li>Descrição: ${dados5.descricaoEntrega}</li>
+                            <li>Nome: ${dados5.nomeEntrega}</li>
+                            <li>Morada: ${dados5.moradaEntrega}</li>
+                            <li>Local: ${dados5.localEntrega}</li>
+                            <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
+                            <li>País: ${dados5.paisEntrega}</li>
+                            <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
+                            <li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+                            <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <img src="images/image_ft3dados.jpg" alt="Imagem FT3Dados">
+                    </div>
+                </div>
+            `;
+        }
+
+        window.onload = carregarConteudo;
     </script>
 </body>
 </html>
