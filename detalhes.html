@@ -215,7 +215,7 @@ let imagemHTML = '';
         }
 
         // Exibir os dados na página
-        function exibirDados(dados1, dados2, dados3, dados4, dados5) {
+        function exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
                 <h2>Carrier at origin</h2>
@@ -260,6 +260,7 @@ let imagemHTML = '';
                     <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
+                 ${imagemHTML} <!-- Aqui você exibe a imagem carregada --
             `;
         }
 
