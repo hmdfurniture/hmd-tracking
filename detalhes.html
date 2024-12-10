@@ -21,28 +21,6 @@
         .back-icon {
             margin-right: 10px;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .logo-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .content-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            width: 80%;
-        }
-        .content-section img {
-            max-width: 200px;
-            height: auto;
-        }
-        .content {
-            flex: 1;
-        }
     </style>
 </head>
 <body>
@@ -73,27 +51,33 @@
 
             if (!codigo) {
                 alert("Código não encontrado. Verifique a URL.");
+                // Exibe o link de retorno à página principal se o código não for encontrado
                 document.getElementById("conteudo").innerHTML = `
                     <p><strong>Código não encontrado.</strong></p>
                     <a href="/" class="back-button">
                         <span class="back-icon">←</span> Voltar à Página Principal
                     </a>
                 `;
-                return;
+                return; // Não carrega o conteúdo
             }
 
+            // Caminho para os arquivos de conteúdo
             const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
             const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
             const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
             const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
             const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
+            const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`; // Caminho da imagem
 
+            // Carregar os cinco arquivos
             Promise.all([
                 fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
                 fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
                 fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
                 fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
                 fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado."))
+                fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null)) // Carregar imagem como blob
+    ])
             ])
             .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
                 const dados1 = processarConteudoFL(dadosFL);
@@ -101,7 +85,14 @@
                 const dados3 = processarConteudoFT3(dadosFT3);
                 const dados4 = processarConteudoFT(dadosFT);
                 const dados5 = processarConteudoSZADRS(dadosSZADRS);
-                exibirDados(dados1, dados2, dados3, dados4, dados5);
+
+let imagemHTML = '';
+        if (imagemBlob) {
+            const imagemURL = URL.createObjectURL(imagemBlob); // Cria um URL para a imagem carregada
+            imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
+        }
+                
+                exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML);
             })
             .catch(error => {
                 alert("Ocorreu um erro ao carregar o conteúdo.");
@@ -109,6 +100,7 @@
             });
         }
 
+        // Processar conteúdo de FLDados.txt
         function processarConteudoFL(conteudo) {
             const dados = {};
             const linhas = conteudo.split('\n');
@@ -131,7 +123,8 @@
             });
             return dados;
         }
-// Processar conteúdo de FT2Dados.txt
+
+        // Processar conteúdo de FT2Dados.txt
         function processarConteudoFT2(conteudo) {
             const dados = {};
             const linhas = conteudo.split('\n');
@@ -221,80 +214,56 @@
             return dados;
         }
 
+        // Exibir os dados na página
         function exibirDados(dados1, dados2, dados3, dados4, dados5) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
-                <div class="content-section">
-                    <div class="content">
-                        <h2>Carrier at origin</h2>
-                        <ul>
-                            <li>Nome: ${dados1.nomeExpedidor}</li>
-                            <li>Nr. Expedidor: ${dados1.numeroExpedidor}</li>
-                            <li>Morada Expedidor: ${dados1.moradaExpedidor}</li>
-                            <li>Código Postal: ${dados1.codigoPostal}</li>
-                            <li>Local: ${dados1.localExpedidor}</li>
-                            <li>Telefone: ${dados1.telefoneExpedidor}</li>
-                            <li>Email: ${dados1.emailExpedidor}</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <img src="images/image_fldados.jpg" alt="Imagem FLDados">
-                    </div>
-                </div>
+                <h2>Carrier at origin</h2>
+                <ul>
+                    <li>Nome: ${dados1.nomeExpedidor}</li>
+                    <li>Nr. Expedidor: ${dados1.numeroExpedidor}</li>
+                    <li>Morada Expedidor: ${dados1.moradaExpedidor}</li>
+                    <li>Código Postal: ${dados1.codigoPostal}</li>
+                    <li>Local: ${dados1.localExpedidor}</li>
+                    <li>Telefone: ${dados1.telefoneExpedidor}</li>
+                    <li>Email: ${dados1.emailExpedidor}</li>
+                    <li>Tracking number: ${dados2.numeroReserva}</li>
+                </ul>
 
-                <div class="content-section">
-                    <div class="content">
-                        <h2>Merchandise details</h2>
-                        <ul>
-                            <li>Shipment Date: ${dados4.dataExpedicao}</li>
-                            <li>m3: ${dados2.m3}</li>
-                            <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
-                            <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
-                            <li>Peso: ${dados2.peso}</li>
-                            <li>Ldm: ${dados2.ldm}</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <img src="images/image_ftdados.jpg" alt="Imagem FTDados">
-                    </div>
-                </div>
+                <h2>Merchandise details</h2>
+                <ul>
+                    <li>Shipment Date: ${dados4.dataExpedicao}</li>
+                    <li>m3: ${dados2.m3}</li>
+                    <li>Zona Expedição: ${dados2.zonaExpedicao}</li>
+                    <li>Volumes a Expedir: ${dados2.volumesExpedir}</li>
+                    <li>Peso: ${dados2.peso}</li>
+                    <li>Ldm: ${dados2.ldm}</li>
+                </ul>
 
-                <div class="content-section">
-                    <div class="content">
-                        <h2>Client</h2>
-                        <ul>
-                            <li>Nr.: ${dados4.nrCliente}</li>
-                            <li>Name: ${dados4.nomeCliente}</li>
-                            <li>Order Nr.: ${dados4.nrEncomenda}</li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <img src="images/image_ft2dados.jpg" alt="Imagem FT2Dados">
-                    </div>
-                </div>
+                <h2>Client</h2>
+                <ul>
+                    <li>Nr.: ${dados4.nrCliente}</li>
+                    <li>Name: ${dados4.nomeCliente}</li>
+                    <li>Order Nr.: ${dados4.nrEncomenda}</li>
+                </ul>
 
-                <div class="content-section">
-                    <div class="content">
-                        <h2>Delivery address</h2>
-                        <ul>
-                            <li>Descrição: ${dados5.descricaoEntrega}</li>
-                            <li>Nome: ${dados5.nomeEntrega}</li>
-                            <li>Morada: ${dados5.moradaEntrega}</li>
-                            <li>Local: ${dados5.localEntrega}</li>
-                            <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
-                            <li>País: ${dados5.paisEntrega}</li>
-                            <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
-                            <li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
-                            <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
-                        </ul>
-                    </div>
-                    <div class="content">
-                        <img src="images/image_ft3dados.jpg" alt="Imagem FT3Dados">
-                    </div>
-                </div>
+                <h2>Delivery address</h2>
+                <ul>
+                    <li>Descrição: ${dados5.descricaoEntrega}</li>
+                    <li>Nome: ${dados5.nomeEntrega}</li>
+                    <li>Morada: ${dados5.moradaEntrega}</li>
+                    <li>Local: ${dados5.localEntrega}</li>
+                    <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
+                    <li>País: ${dados5.paisEntrega}</li>
+                    <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
+                    <li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+                    <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
+                    <li>Observação: ${dados5.observacaoEntrega}</li>
+                </ul>
             `;
         }
 
+        // Carregar os dados assim que a página for carregada
         window.onload = carregarConteudo;
     </script>
 </body>
