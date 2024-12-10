@@ -10,7 +10,7 @@
             margin-top: 20px;
             font-size: 18px;
             text-decoration: none;
-            color: black; /* Muda a cor do link para preto */
+            color: #007bff;
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -20,6 +20,11 @@
         }
         .back-icon {
             margin-right: 10px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -68,21 +73,33 @@
             const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
             const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
 
-            // Carregar os cinco arquivos
+            // Caminho para as imagens associadas
+            const imagemUrl1 = `conteudo/${codigo}/image_fldados.jpg`;
+            const imagemUrl2 = `conteudo/${codigo}/image_ftdados.jpg`;
+            const imagemUrl3 = `conteudo/${codigo}/image_ft2dados.jpg`;
+            const imagemUrl4 = `conteudo/${codigo}/image_ftdados.jpg`;
+            const imagemUrl5 = `conteudo/${codigo}/image_szadrsdados.jpg`;
+
+            // Carregar os cinco arquivos e as imagens
             Promise.all([
                 fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
                 fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
                 fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
                 fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
-                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado."))
+                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
+                fetch(imagemUrl1).then(response => response.ok ? imagemUrl1 : 'image_fldados.jpg não encontrada.'),
+                fetch(imagemUrl2).then(response => response.ok ? imagemUrl2 : 'image_ftdados.jpg não encontrada.'),
+                fetch(imagemUrl3).then(response => response.ok ? imagemUrl3 : 'image_ft2dados.jpg não encontrada.'),
+                fetch(imagemUrl4).then(response => response.ok ? imagemUrl4 : 'image_ftdados.jpg não encontrada.'),
+                fetch(imagemUrl5).then(response => response.ok ? imagemUrl5 : 'image_szadrsdados.jpg não encontrada.')
             ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
+            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS]) => {
                 const dados1 = processarConteudoFL(dadosFL);
                 const dados2 = processarConteudoFT2(dadosFT2);
                 const dados3 = processarConteudoFT3(dadosFT3);
                 const dados4 = processarConteudoFT(dadosFT);
                 const dados5 = processarConteudoSZADRS(dadosSZADRS);
-                exibirDados(dados1, dados2, dados3, dados4, dados5);
+                exibirDados(dados1, dados2, dados3, dados4, dados5, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS);
             })
             .catch(error => {
                 alert("Ocorreu um erro ao carregar o conteúdo.");
@@ -90,122 +107,8 @@
             });
         }
 
-        // Processar conteúdo de FLDados.txt
-        function processarConteudoFL(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Nome Expedidor Origem:')) {
-                    dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('No Expedidor Origem:')) {
-                    dados.numeroExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Morada Expedidor Origem:')) {
-                    dados.moradaExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Código Postal Expedidor Origem:')) {
-                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local Expedidor Origem:')) {
-                    dados.localExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Telefone Expedidor Origem:')) {
-                    dados.telefoneExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Email Expedidor Origem:')) {
-                    dados.emailExpedidor = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
-        // Processar conteúdo de FT2Dados.txt
-        function processarConteudoFT2(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('m3:')) {
-                    dados.m3 = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Zona Expedição:')) {
-                    dados.zonaExpedicao = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Volumes a expedir:')) {
-                    dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nr. Reserva:')) {
-                    dados.numeroReserva = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Peso :')) {
-                    dados.peso = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Ldm:')) {
-                    dados.ldm = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Multiplas Recolhas?:')) {
-                    dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
-        // Processar conteúdo de FT3Dados.txt
-        function processarConteudoFT3(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Email para entrega:')) {
-                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
-        // Processar conteúdo de FTDados.txt
-        function processarConteudoFT(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Nr. Cliente:')) {
-                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nome Cliente:')) {
-                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local Carga:')) {
-                    dados.localCarga = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local Descarga:')) {
-                    dados.localDescarga = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Data Expedição:')) {
-                    dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Expeditor:')) {
-                    dados.expeditor = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nr. Encomenda:')) {
-                    dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
-        // Processar conteúdo de SZADRS_Dados.txt
-        function processarConteudoSZADRS(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('Descrição da entrega:')) {
-                    dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nome da entrega:')) {
-                    dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Morada da entrega:')) {
-                    dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local da entrega:')) {
-                    dados.localEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Código Postal da entrega:')) {
-                    dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('País da entrega:')) {
-                    dados.paisEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nome do Contato da entrega:')) {
-                    dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Telefone da entrega:')) {
-                    dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Email da entrega:')) {
-                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Observação da entrega:')) {
-                    dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
-        // Exibir os dados na página
-        function exibirDados(dados1, dados2, dados3, dados4, dados5) {
+        // Exibir os dados na página com as imagens
+        function exibirDados(dados1, dados2, dados3, dados4, dados5, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
                 <h2>Carrier at origin</h2>
@@ -219,6 +122,9 @@
                     <li>Email: ${dados1.emailExpedidor}</li>
                     <li>Tracking number: ${dados2.numeroReserva}</li>
                 </ul>
+                <div class="image-container">
+                    <img src="${imgFL}" alt="Imagem FLDados">
+                </div>
 
                 <h2>Merchandise details</h2>
                 <ul>
@@ -229,6 +135,9 @@
                     <li>Peso: ${dados2.peso}</li>
                     <li>Ldm: ${dados2.ldm}</li>
                 </ul>
+                <div class="image-container">
+                    <img src="${imgFT}" alt="Imagem FTDados">
+                </div>
 
                 <h2>Client</h2>
                 <ul>
@@ -236,6 +145,9 @@
                     <li>Name: ${dados4.nomeCliente}</li>
                     <li>Order Nr.: ${dados4.nrEncomenda}</li>
                 </ul>
+                <div class="image-container">
+                    <img src="${imgFT2}" alt="Imagem FT2Dados">
+                </div>
 
                 <h2>Delivery address</h2>
                 <ul>
@@ -250,6 +162,9 @@
                     <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
+                <div class="image-container">
+                    <img src="${imgSZADRS}" alt="Imagem SZADRS Dados">
+                </div>
             `;
         }
 
