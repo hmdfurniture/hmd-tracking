@@ -106,7 +106,119 @@
                 console.error(error);
             });
         }
+// Processar conteúdo de FLDados.txt
+        function processarConteudoFL(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Nome Expedidor Origem:')) {
+                    dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('No Expedidor Origem:')) {
+                    dados.numeroExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Morada Expedidor Origem:')) {
+                    dados.moradaExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Código Postal Expedidor Origem:')) {
+                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Local Expedidor Origem:')) {
+                    dados.localExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Telefone Expedidor Origem:')) {
+                    dados.telefoneExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Email Expedidor Origem:')) {
+                    dados.emailExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+                }
+            });
+            return dados;
+        }
 
+        // Processar conteúdo de FT2Dados.txt
+        function processarConteudoFT2(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('m3:')) {
+                    dados.m3 = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Zona Expedição:')) {
+                    dados.zonaExpedicao = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Volumes a expedir:')) {
+                    dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Nr. Reserva:')) {
+                    dados.numeroReserva = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Peso :')) {
+                    dados.peso = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Ldm:')) {
+                    dados.ldm = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Multiplas Recolhas?:')) {
+                    dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Not available';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de FT3Dados.txt
+        function processarConteudoFT3(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Email para entrega:')) {
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de FTDados.txt
+        function processarConteudoFT(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Nr. Cliente:')) {
+                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Nome Cliente:')) {
+                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Local Carga:')) {
+                    dados.localCarga = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Local Descarga:')) {
+                    dados.localDescarga = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Data Expedição:')) {
+                    dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Expeditor:')) {
+                    dados.expeditor = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Nr. Encomenda:')) {
+                    dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Not available';
+                }
+            });
+            return dados;
+        }
+
+        // Processar conteúdo de SZADRS_Dados.txt
+        function processarConteudoSZADRS(conteudo) {
+            const dados = {};
+            const linhas = conteudo.split('\n');
+            linhas.forEach(linha => {
+                if (linha.includes('Descrição da entrega:')) {
+                    dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Nome da entrega:')) {
+                    dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Morada da entrega:')) {
+                    dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Local da entrega:')) {
+                    dados.localEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Código Postal da entrega:')) {
+                    dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('País da entrega:')) {
+                    dados.paisEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Nome do Contato da entrega:')) {
+                    dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Telefone da entrega:')) {
+                    dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Email da entrega:')) {
+                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                } else if (linha.includes('Observação da entrega:')) {
+                    dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+                }
+            });
+            return dados;
+        }
         // Exibir os dados na página com as imagens
         function exibirDados(dados1, dados2, dados3, dados4, dados5, imgFL, imgFT, imgFT2, imgFT4, imgSZADRS) {
             const conteudoDiv = document.getElementById("conteudo");
