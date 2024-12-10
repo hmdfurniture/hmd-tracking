@@ -75,22 +75,21 @@
                 fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
                 fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
                 fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
-                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado."))
+                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
                 fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null)) // Carregar imagem como blob
-    ])
             ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS]) => {
+            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, imagem]) => {
                 const dados1 = processarConteudoFL(dadosFL);
                 const dados2 = processarConteudoFT2(dadosFT2);
                 const dados3 = processarConteudoFT3(dadosFT3);
                 const dados4 = processarConteudoFT(dadosFT);
                 const dados5 = processarConteudoSZADRS(dadosSZADRS);
 
-let imagemHTML = '';
-        if (imagem) {
-    const imagemURL = URL.createObjectURL(imagem); // Cria um URL para a imagem carregada
-    imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
-}
+                let imagemHTML = '';
+                if (imagem) {
+                    const imagemURL = URL.createObjectURL(imagem); // Cria um URL para a imagem carregada
+                    imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
+                }
               
                 exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML);
             })
@@ -260,7 +259,7 @@ let imagemHTML = '';
                     <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
-                 ${imagemHTML} <!-- Aqui você exibe a imagem carregada --
+                 ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
             `;
         }
 
