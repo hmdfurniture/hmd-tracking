@@ -312,13 +312,16 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML)
             <li>País: ${dados6.pais}</li>
             <li>Telefone: ${dados6.telefone}</li>
             <li>Email: <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-            <li>URL: <a href="${dados6.url}" target="_blank">${dados6.url}</a></li>
+            <li>URL: <a href="${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
         </ul>
 
         ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
     `;
 }
-
+// Função para remover o protocolo da URL
+function removerProtocolo(url) {
+    return url.replace(/^(https?:\/\/)/, '');
+}
         // Carregar os dados assim que a página for carregada
         window.onload = carregarConteudo;
     </script>
