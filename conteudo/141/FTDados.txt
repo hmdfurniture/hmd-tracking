@@ -1,8 +1,0 @@
-﻿Nr. Cliente: 141
-Nome Cliente: REBECCA VERSTRAETE BV
-Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
-Local Descarga: REBECCA VERSTRAETE BV
-Data Expedição: 27/09/2024
-Expeditor: Xbslog
-Nr. Encomenda: 7130
-

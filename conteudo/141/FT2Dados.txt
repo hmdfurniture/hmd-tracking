@@ -1,8 +1,0 @@
-﻿m3: 0,00
-Zona Expedição: Bélgica
-Volumes a expedir: 1,00
-Nr. Reserva: 213919
-Peso : 145,00
-Ldm: 0,40
-Multiplas Recolhas?: Não
-
