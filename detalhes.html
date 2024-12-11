@@ -295,28 +295,29 @@ function removerProtocolo(url) {
         <h2>Delivery address</h2>
         <ul>
             <li>Descrição: ${dados5.descricaoEntrega}</li>
-            <li>Nome: ${dados5.nomeEntrega}</li>
-            <li>Morada: ${dados5.moradaEntrega}</li>
+            <li>Name: ${dados5.nomeEntrega}</li>
+            <li>Address: ${dados5.moradaEntrega}</li>
             <li>Local: ${dados5.localEntrega}</li>
-            <li>Código Postal: ${dados5.codigoPostalEntrega}</li>
-            <li>País: ${dados5.paisEntrega}</li>
-            <li>Nome Contato: ${dados5.nomeContatoEntrega}</li>
-            <li>Telefone da entrega: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
-            <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
-            <li>Observação: ${dados5.observacaoEntrega}</li>
+            <li>Zip Code: ${dados5.codigoPostalEntrega}</li>
+            <li>Country: ${dados5.paisEntrega}</li>
+            <li>Contact Name: ${dados5.nomeContatoEntrega}</li>
+            <li>Telephone: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+            <li>Email: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
+            <li>Obs: ${dados5.observacaoEntrega}</li>
         </ul>
 
-        <h2>Client AG Dados</h2>
+        <h2>Carrier at destinaion</h2>
         <ul>
-            <li>Nr. Cliente: ${dados6.nrCliente}</li>
-            <li>Nome Cliente: ${dados6.nomeCliente}</li>
-            <li>Morada: ${dados6.morada}</li>
-            <li>Local: ${dados6.local}</li>
-            <li>Código Postal: ${dados6.codigoPostal}</li>
-            <li>País: ${dados6.pais}</li>
-            <li>Telefone: ${dados6.telefone}</li>
-            <li>Email: <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-            <li>URL: <a href="${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
+            <li> ${dados6.nrCliente}</li>
+            <li> ${dados6.nomeCliente}</li>
+            <li> ${dados6.morada}</li>
+            <li> ${dados6.local}</li>
+            <li> ${dados6.codigoPostal}</li>
+            <li> ${dados6.pais}</li>
+            <li> <a href="tel:${dados6.telefonea}">${dados6.telefonea}</a></li>
+            <li> <a href="mailto:${dados6.email}">${dados6.email}</a></li>
+            <li> <a href="${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
+            <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
         </ul>
 
         ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
