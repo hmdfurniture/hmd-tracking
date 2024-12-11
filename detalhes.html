@@ -50,15 +50,16 @@
     const codigo = obterCodigoDaURL();
 
     if (!codigo) {
-        alert("Código não encontrado. Verifique a URL.");
-        document.getElementById("conteudo").innerHTML = `
-            <p><strong>Código não encontrado.</strong></p>
-            <a href="/" class="back-button">
-                <span class="back-icon">←</span> Voltar à Página Principal
-            </a>
-        `;
-        return;
-    }
+                alert("Código não encontrado. Verifique a URL.");
+                // Exibe o link de retorno à página principal se o código não for encontrado
+                document.getElementById("conteudo").innerHTML = `
+                    <p><strong>Código não encontrado.</strong></p>
+                    <a href="/" class="back-button">
+                        <span class="back-icon">←</span> Voltar à Página Principal
+                    </a>
+                `;
+                return; // Não carrega o conteúdo
+            }
 
     const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
     const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
