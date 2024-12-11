@@ -67,7 +67,7 @@
     const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
     const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
     const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
-    const conteudoUrl6 = `conteudo/${codigo}/AGDados.txt`; // Novo caminho para AGDados.txt
+    const conteudoUrl6 = `conteudo/${codigo}/AGDados.txt`; 
     const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`; // Caminho da imagem
 
     // Carregar os seis arquivos
@@ -77,7 +77,7 @@
         fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
         fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
         fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
-        fetch(conteudoUrl6).then(response => response.ok ? response.text() : Promise.resolve("AGDados.txt não encontrado.")), // Novo arquivo
+        fetch(conteudoUrl6).then(response => response.ok ? response.text() : Promise.resolve("AGDados.txt não encontrado.")),
         fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null)) // Carregar imagem como blob
     ])
     .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG, imagem]) => {
@@ -86,7 +86,7 @@
         const dados3 = processarConteudoFT3(dadosFT3);
         const dados4 = processarConteudoFT(dadosFT);
         const dados5 = processarConteudoSZADRS(dadosSZADRS);
-        const dados6 = processarConteudoAG(dadosAG); // Processar AGDados
+        const dados6 = processarConteudoAG(dadosAG); 
 
         let imagemHTML = '';
         if (imagem) {
@@ -94,7 +94,7 @@
             imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
         }
 
-        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML); // Passa dados6 (AGDados) ao método de exibição
+        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML); 
     })
     .catch(error => {
         alert("Ocorreu um erro ao carregar o conteúdo.");
@@ -293,9 +293,7 @@ function processarConteudoAG(conteudo) {
                     <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
-                 ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
-            `;
-        }
+         }
 	
 	<h2>Carrier at destination</h2>
                 <ul>
@@ -309,7 +307,9 @@ function processarConteudoAG(conteudo) {
             <li>Email: ${dados6.email}</li>
             <li>URL: ${dados6.url}</li>
         </ul>
-    
+
+    ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
+            `;
 }	
         // Carregar os dados assim que a página for carregada
         window.onload = carregarConteudo;
