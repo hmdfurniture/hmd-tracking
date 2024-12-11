@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 5909
+Nome Cliente: INTERFRACHT INTERNATIONALE SPEDITION
+Morada: BERGIUSSTR. 1
+Local: BREMEN
+Código Postal: D-28816 STUHR-BRINKUM
+País: Alemanha
+Telefone: +49  421 87150-273
+Email: bremen@interfracht.de
+URL: https://interfracht.de/
+
