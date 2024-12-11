@@ -153,10 +153,6 @@
             linhas.forEach(linha => {
                 if (linha.includes('Email para entrega:')) {
                     dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('nr entidade:')) {
-                    dados.nrentidade = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Data Entrega:')) {
-                    dados.dataEntrega: = linha.split(':')[1]?.trim() || 'Not available';
                 }            
             });
             return dados;
