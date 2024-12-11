@@ -47,57 +47,57 @@
         }
 
         function carregarConteudo() {
-            const codigo = obterCodigoDaURL();
+    const codigo = obterCodigoDaURL();
 
-            if (!codigo) {
-                alert("Código não encontrado. Verifique a URL.");
-                // Exibe o link de retorno à página principal se o código não for encontrado
-                document.getElementById("conteudo").innerHTML = `
-                    <p><strong>Código não encontrado.</strong></p>
-                    <a href="/" class="back-button">
-                        <span class="back-icon">←</span> Voltar à Página Principal
-                    </a>
-                `;
-                return; // Não carrega o conteúdo
-            }
+    if (!codigo) {
+        alert("Código não encontrado. Verifique a URL.");
+        document.getElementById("conteudo").innerHTML = `
+            <p><strong>Código não encontrado.</strong></p>
+            <a href="/" class="back-button">
+                <span class="back-icon">←</span> Voltar à Página Principal
+            </a>
+        `;
+        return;
+    }
 
-            // Caminho para os arquivos de conteúdo
-            const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
-            const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
-            const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
-            const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
-            const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
-            const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`; // Caminho da imagem
+    const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
+    const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
+    const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
+    const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
+    const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
+    const conteudoUrl6 = `conteudo/${codigo}/AGDados.txt`; // Novo arquivo
+    const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`;
 
-            // Carregar os cinco arquivos
-            Promise.all([
-                fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
-                fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
-                fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
-                fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
-                fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
-                fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null)) // Carregar imagem como blob
-            ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, imagem]) => {
-                const dados1 = processarConteudoFL(dadosFL);
-                const dados2 = processarConteudoFT2(dadosFT2);
-                const dados3 = processarConteudoFT3(dadosFT3);
-                const dados4 = processarConteudoFT(dadosFT);
-                const dados5 = processarConteudoSZADRS(dadosSZADRS);
+    Promise.all([
+        fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
+        fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
+        fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
+        fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
+        fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
+        fetch(conteudoUrl6).then(response => response.ok ? response.text() : Promise.resolve("AGDados.txt não encontrado.")),
+        fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null))
+    ])
+    .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG, imagem]) => {
+        const dados1 = processarConteudoFL(dadosFL);
+        const dados2 = processarConteudoFT2(dadosFT2);
+        const dados3 = processarConteudoFT3(dadosFT3);
+        const dados4 = processarConteudoFT(dadosFT);
+        const dados5 = processarConteudoSZADRS(dadosSZADRS);
+        const dados6 = processarConteudoAG(dadosAG);
 
-                let imagemHTML = '';
-                if (imagem) {
-                    const imagemURL = URL.createObjectURL(imagem); // Cria um URL para a imagem carregada
-                    imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
-                }
-              
-                exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML);
-            })
-            .catch(error => {
-                alert("Ocorreu um erro ao carregar o conteúdo.");
-                console.error(error);
-            });
+        let imagemHTML = '';
+        if (imagem) {
+            const imagemURL = URL.createObjectURL(imagem);
+            imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
         }
+
+        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML);
+    })
+    .catch(error => {
+        alert("Ocorreu um erro ao carregar o conteúdo.");
+        console.error(error);
+    });
+}
 
         // Processar conteúdo de FLDados.txt
         function processarConteudoFL(conteudo) {
@@ -212,7 +212,33 @@
             });
             return dados;
         }
-
+        // Processar conteúdo de AGDados.txt
+function processarConteudoAG(conteudo) {
+    const dados = {};
+    const linhas = conteudo.split('\n');
+    linhas.forEach(linha => {
+        if (linha.includes('Nr. Cliente:')) {
+            dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Nome Cliente:')) {
+            dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Morada:')) {
+            dados.morada = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Local:')) {
+            dados.local = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Código Postal:')) {
+            dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('País:')) {
+            dados.pais = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Telefone:')) {
+            dados.telefone = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Email:')) {
+            dados.email = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('URL:')) {
+            dados.url = linha.split(':')[1]?.trim() || 'Not available';
+        }
+    });
+    return dados;
+}
         // Exibir os dados na página
         function exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML) {
             const conteudoDiv = document.getElementById("conteudo");
