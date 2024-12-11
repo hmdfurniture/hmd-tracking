@@ -284,7 +284,7 @@ function removerProtocolo(url) {
             <li>Weight: ${dados2.peso}</li>
             <li>Ldm: ${dados2.ldm}</li>
         </ul>
-
+ ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
         <h2>Client</h2>
         <ul>
             <li>Nr.: ${dados4.nrCliente}</li>
@@ -316,7 +316,7 @@ function removerProtocolo(url) {
             <li> ${dados6.pais}</li>
             <li> <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
             <li> <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-            <li> <a href="${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
+            <li> <a href="url:${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
             <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
         </ul>
 
