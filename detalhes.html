@@ -305,36 +305,12 @@
                     <li>Código Postal: ${dados6.codigoPostal}</li>
                     <li>País: ${dados6.pais}</li>
                     <li>Telefone da entrega: <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
-<li>Email da entrega: <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-<li>Website da entrega: <a href="${dados6.url}" target="_blank">${dados6.url}</a></li>
-
+		    <li>Email da entrega: <a href="mailto:${dados6.email}">${dados6.email}</a></li>
+                    <li>Website da entrega: <a href="${dados6.url}" target="_blank">${dados6.url}</a></li>
 		 </ul>
                  ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
             `;
         }
-
-
-if (linha.includes('﻿Nr. Cliente:')) {
-                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nome Cliente:')) {
-                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Morada:')) {
-                    dados.morada = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local:')) {
-                    dados.local = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Código Postal:')) {
-                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('País:')) {
-                    dados.pais = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Telefone:')) {
-                    dados.telefone = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Email:')) {
-                    dados.email = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('URL:')) {
-                    dados.url = linha.split(':')[1]?.trim() || 'Not available';
-
-
-
         // Carregar os dados assim que a página for carregada
         window.onload = carregarConteudo;
     </script>
