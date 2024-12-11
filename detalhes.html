@@ -157,8 +157,7 @@
                     dados.nrentidade = linha.split(':')[1]?.trim() || 'Not available';
                     } else if (linha.includes('Data Entrega:')) {
                     dados.dataEntrega: = linha.split(':')[1]?.trim() || 'Not available';
-                   
-                }
+        }            
             });
             return dados;
         }
