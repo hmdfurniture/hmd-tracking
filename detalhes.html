@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -69,7 +67,6 @@
             const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
             const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
             const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
-	    const conteudoUrl6 = `conteudo/${codigo}/AGDados.txt`;
             const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`; // Caminho da imagem
 
             // Carregar os cinco arquivos
@@ -79,16 +76,14 @@
                 fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
                 fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
                 fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
-		fetch(conteudoUrl6).then(response => response.ok ? response.text() : Promise.resolve("AGDados.txt não encontrado.")),
                 fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null)) // Carregar imagem como blob
             ])
-            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS,AGDados, imagem]) => {
+            .then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, imagem]) => {
                 const dados1 = processarConteudoFL(dadosFL);
                 const dados2 = processarConteudoFT2(dadosFT2);
                 const dados3 = processarConteudoFT3(dadosFT3);
                 const dados4 = processarConteudoFT(dadosFT);
                 const dados5 = processarConteudoSZADRS(dadosSZADRS);
-		const dados6 = processarConteudoAG(dadosAG);
 
                 let imagemHTML = '';
                 if (imagem) {
@@ -96,7 +91,7 @@
                     imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
                 }
               
-                exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML);
+                exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML);
             })
             .catch(error => {
                 alert("Ocorreu um erro ao carregar o conteúdo.");
@@ -218,36 +213,8 @@
             return dados;
         }
 
-// Processar conteúdo de AGDados.txt
-        function processarConteudoAG(conteudo) {
-            const dados = {};
-            const linhas = conteudo.split('\n');
-            linhas.forEach(linha => {
-                if (linha.includes('﻿Nr. Cliente:')) {
-                    dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Nome Cliente:')) {
-                    dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Morada:')) {
-                    dados.morada = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Local:')) {
-                    dados.local = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Código Postal:')) {
-                    dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('País:')) {
-                    dados.pais = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Telefone:')) {
-                    dados.telefone = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('Email:')) {
-                    dados.email = linha.split(':')[1]?.trim() || 'Not available';
-                } else if (linha.includes('URL:')) {
-                    dados.url = linha.split(':')[1]?.trim() || 'Not available';
-                }
-            });
-            return dados;
-        }
-
         // Exibir os dados na página
-        function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML) {
+        function exibirDados(dados1, dados2, dados3, dados4, dados5, imagemHTML) {
             const conteudoDiv = document.getElementById("conteudo");
             conteudoDiv.innerHTML = `
                 <h2>Carrier at origin</h2>
@@ -295,19 +262,6 @@
                     <li>Email da entrega: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
                     <li>Observação: ${dados5.observacaoEntrega}</li>
                 </ul>
-
-		<h2>Carrier at destination</h2>
-                <ul>
-                    <li>Nr: ${dados6.nrCliente}</li>
-                    <li>Nome: ${dados6.nomeCliente}</li>
-                    <li>Morada: ${dados6.morada}</li>
-                    <li>Local: ${dados6.local}</li>
-                    <li>Código Postal: ${dados6.codigoPostal}</li>
-                    <li>País: ${dados6.pais}</li>
-                    <li>Telefone: <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
-                    <li>Email: <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-                    <li>www: <a href="${dados6.url}" target="_blank">${dados6.url}</a></li>
-		 </ul>
                  ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
             `;
         }
