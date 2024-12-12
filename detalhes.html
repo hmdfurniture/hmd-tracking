@@ -21,11 +21,12 @@ text-decoration: underline;
 .back-icon {
 margin-right: 10px;
 }
-           /* Ajustar o tamanho do logo */
-    .logo {
+/* Ajustar o tamanho do logo */
+.logo {
+        max-width: 150px; /* Define a largura máxima */
         max-width: 350px; /* Define a largura máxima */
-        height: auto;     /* Mantém a proporção */
-    }
+height: auto;     /* Mantém a proporção */
+}
 </style>
 </head>
 <body>
@@ -57,11 +58,11 @@ const codigo = obterCodigoDaURL();
 if (!codigo) {
 alert("Código não encontrado. Verifique a URL.");
 document.getElementById("conteudo").innerHTML = `
-           <p><strong>Código não encontrado.</strong></p>
-           <a href="/" class="back-button">
-               <span class="back-icon">←</span> Voltar à Página Principal
-           </a>
-       `;
+          <p><strong>Código não encontrado.</strong></p>
+          <a href="/" class="back-button">
+              <span class="back-icon">←</span> Voltar à Página Principal
+          </a>
+      `;
 return; // Não carrega o conteúdo
 }
 
@@ -152,21 +153,21 @@ return dados;
 }
 
 function processarConteudoFT3(conteudo) {
-    const dados = {};
-    const linhas = conteudo.split('\n'); // Dividir o conteúdo em linhas
+const dados = {};
+const linhas = conteudo.split('\n'); // Dividir o conteúdo em linhas
 
-    linhas.forEach(linha => {
-        // Verificar e processar campos específicos
-        if (linha.includes('Email para entrega:')) {
-            dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-        } else if (linha.includes('Nr. Entidade:')) { // Novo campo
-            dados.nrEntidade = linha.split(':')[1]?.trim() || 'Not available';
-        } else if (linha.includes('Data Entrega:')) { // Novo campo
-            dados.dataEntrega = linha.split(':')[1]?.trim() || 'Not available';
-        }
-    });
+linhas.forEach(linha => {
+// Verificar e processar campos específicos
+if (linha.includes('Email para entrega:')) {
+dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nr. Entidade:')) { // Novo campo
+dados.nrEntidade = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Data Entrega:')) { // Novo campo
+dados.dataEntrega = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
 
-    return dados;
+return dados;
 }
 
 
@@ -260,82 +261,82 @@ return url.replace(/^(https?:\/\/)/, '');
 }
 // Campos que você quer aplicar ocultação
 const camposOcultar = {
-m3: (valor) => valor.trim() === 0 || valor.trim() === '0,00',  // Exemplo para m3
-ldm: (valor) => valor.trim() === 0 || valor.trim() === '0,00',  // Exemplo para Ldm
+m3: (valor) => valor === 0 || valor === '0,00',  // Exemplo para m3
+ldm: (valor) => valor === 0 || valor === '0,00',  // Exemplo para Ldm
 // Adicione outros campos conforme necessário
 };
 
 conteudoDiv.innerHTML = `
-   <h2>Merchandise details</h2>
-       <ul>
-        <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
-            <!-- 1 por linha -->
-           <li>Shipment Date: ${dados4.dataExpedicao}</li>
-           <!-- Lado a lado com verificação de valores -->
-           <li style="display: inline-block; margin-right: 20px;" 
-    ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
-    m3: ${dados2.m3}
-</li>
-<li style="display: inline-block; margin-right: 20px;" 
-    ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
-    Ldm: ${dados2.ldm}
-</li>
+  <h2>Merchandise details</h2>
+      <ul>
+       <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
            <!-- 1 por linha -->
-           <li>Country of destination: ${dados2.zonaExpedicao}</li>
-           <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
-           <li>Weight: ${dados2.peso}</li>
-            <li>Order Nr.: ${dados4.nrEncomenda}</li>
-       </ul>
-       ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
-       
-       <h2>Carrier at origin</h2>
-       <ul>
-           <li>${dados1.nomeExpedidor}</li>
-           <li>${dados1.moradaExpedidor}</li>
-           <li>${dados1.localExpedidor}</li>
-           <li>${dados1.codigoPostal}</li>
-           <li>${dados1.telefoneExpedidor}</li>
-           <li>${dados1.emailExpedidor}</li>
-           <li>Reference: ${dados2.numeroReserva}</li>
-       </ul>
+          <li>Shipment Date: ${dados4.dataExpedicao}</li>
+          <!-- Lado a lado com verificação de valores -->
+          <li style="display: inline-block; margin-right: 20px;" 
+              ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
+              m3: ${dados2.m3}
+          </li>
+          <li style="display: inline-block; margin-right: 20px;" 
+              ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
+              Ldm: ${dados2.ldm}
+          </li>
+          <!-- 1 por linha -->
+          <li>Country of destination: ${dados2.zonaExpedicao}</li>
+          <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
+          <li>Weight: ${dados2.peso}</li>
+           <li>Order Nr.: ${dados4.nrEncomenda}</li>
+      </ul>
+      ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
+      
+      <h2>Carrier at origin</h2>
+      <ul>
+          <li>${dados1.nomeExpedidor}</li>
+          <li>${dados1.moradaExpedidor}</li>
+          <li>${dados1.localExpedidor}</li>
+          <li>${dados1.codigoPostal}</li>
+          <li>${dados1.telefoneExpedidor}</li>
+          <li>${dados1.emailExpedidor}</li>
+          <li>Reference: ${dados2.numeroReserva}</li>
+      </ul>
 
-       <h2>Carrier at destinaion</h2>
-       <ul>
-           <li> ${dados6.nrCliente}</li>
-           <li> ${dados6.nomeCliente}</li>
-           <li> ${dados6.morada}</li>
-           <li> ${dados6.local}</li>
-           <li> ${dados6.codigoPostal}</li>
-           <li> ${dados6.pais}</li>
-           <li> <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
-           <li> <a href="mailto:${dados6.email}">${dados6.email}</a></li>
-           <li> <a href="url:${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
-           <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
-       </ul>
+      <h2>Carrier at destinaion</h2>
+      <ul>
+          <li> ${dados6.nrCliente}</li>
+          <li> ${dados6.nomeCliente}</li>
+          <li> ${dados6.morada}</li>
+          <li> ${dados6.local}</li>
+          <li> ${dados6.codigoPostal}</li>
+          <li> ${dados6.pais}</li>
+          <li> <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
+          <li> <a href="mailto:${dados6.email}">${dados6.email}</a></li>
+          <li> <a href="url:${dados6.url}" target="_blank">${removerProtocolo(dados6.url)}</a></li>
+          <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
+      </ul>
 
-       <h2>Client</h2>
-       <ul>
-           <li>Nr.: ${dados4.nrCliente}</li>
-           <li>Name: ${dados4.nomeCliente}</li>
-          
-       </ul>
+      <h2>Client</h2>
+      <ul>
+          <li>Nr.: ${dados4.nrCliente}</li>
+          <li>Name: ${dados4.nomeCliente}</li>
+         
+      </ul>
 
-       <h2>Delivery address</h2>
-       <ul>
-           <li>Descrição: ${dados5.descricaoEntrega}</li>
-           <li>Name: ${dados5.nomeEntrega}</li>
-           <li>Address: ${dados5.moradaEntrega}</li>
-           <li>Local: ${dados5.localEntrega}</li>
-           <li>Zip Code: ${dados5.codigoPostalEntrega}</li>
-           <li>Country: ${dados5.paisEntrega}</li>
-           <li>Contact Name: ${dados5.nomeContatoEntrega}</li>
-           <li>Telephone: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
-           <li>Email: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
-           <li>Obs: ${dados5.observacaoEntrega}</li>
-       </ul>
-     
+      <h2>Delivery address</h2>
+      <ul>
+          <li>Descrição: ${dados5.descricaoEntrega}</li>
+          <li>Name: ${dados5.nomeEntrega}</li>
+          <li>Address: ${dados5.moradaEntrega}</li>
+          <li>Local: ${dados5.localEntrega}</li>
+          <li>Zip Code: ${dados5.codigoPostalEntrega}</li>
+          <li>Country: ${dados5.paisEntrega}</li>
+          <li>Contact Name: ${dados5.nomeContatoEntrega}</li>
+          <li>Telephone: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+          <li>Email: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
+          <li>Obs: ${dados5.observacaoEntrega}</li>
+      </ul>
+    
 
-   `;
+  `;
 }
 
 // Carregar os dados assim que a página for carregada
