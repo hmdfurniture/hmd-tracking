@@ -146,17 +146,24 @@ dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Not available';
 return dados;
 }
 
-// Processar conteúdo de FT3Dados.txt
 function processarConteudoFT3(conteudo) {
-const dados = {};
-const linhas = conteudo.split('\n');
-linhas.forEach(linha => {
-if (linha.includes('Email para entrega:')) {
-dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-}            
-});
-return dados;
+    const dados = {};
+    const linhas = conteudo.split('\n'); // Dividir o conteúdo em linhas
+
+    linhas.forEach(linha => {
+        // Verificar e processar campos específicos
+        if (linha.includes('Email para entrega:')) {
+            dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Nr. Entidade:')) { // Novo campo
+            dados.nrEntidade = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Data Entrega:')) { // Novo campo
+            dados.dataEntrega = linha.split(':')[1]?.trim() || 'Not available';
+        }
+    });
+
+    return dados;
 }
+
 
 // Processar conteúdo de FTDados.txt
 function processarConteudoFT(conteudo) {
