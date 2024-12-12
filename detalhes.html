@@ -94,7 +94,7 @@ const dados6 = processarConteudoAG(dadosAG); // Chamando a função de processam
 let imagemHTML = '';
 if (imagem) {
 const imagemURL = URL.createObjectURL(imagem);
-imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; height: auto; margin-top: 20px;">`;
+imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
 }
 
 exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML);
