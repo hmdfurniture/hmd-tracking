@@ -107,7 +107,7 @@ console.error(error);
 // Processar conteúdo de FLDados.txt
 function processarConteudoFL(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n');
+const linhas = conteudo.split('\n') || [];
 linhas.forEach(linha => {
 if (linha.includes('Nome Expedidor Origem:')) {
 dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Not available';
@@ -131,7 +131,7 @@ return dados;
 // Processar conteúdo de FT2Dados.txt
 function processarConteudoFT2(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n');
+const linhas = conteudo.split('\n') || [];
 linhas.forEach(linha => {
 if (linha.includes('m3:')) {
 dados.m3 = linha.split(':')[1]?.trim() || 'Not available';
@@ -154,7 +154,7 @@ return dados;
 
 function processarConteudoFT3(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n'); // Dividir o conteúdo em linhas
+const linhas = conteudo.split('\n') || []; // Dividir o conteúdo em linhas
 
 linhas.forEach(linha => {
 // Verificar e processar campos específicos
@@ -174,7 +174,7 @@ return dados;
 // Processar conteúdo de FTDados.txt
 function processarConteudoFT(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n');
+const linhas = conteudo.split('\n') || [];
 linhas.forEach(linha => {
 if (linha.includes('Nr. Cliente:')) {
 dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
@@ -198,7 +198,7 @@ return dados;
 // Processar conteúdo de SZADRS_Dados.txt
 function processarConteudoSZADRS(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n');
+const linhas = conteudo.split('\n') || [];
 linhas.forEach(linha => {
 if (linha.includes('Descrição da entrega:')) {
 dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
@@ -227,7 +227,7 @@ return dados;
 // Processar conteúdo de AGDados.txt
 function processarConteudoAG(conteudo) {
 const dados = {};
-const linhas = conteudo.split('\n');
+const linhas = conteudo.split('\n') || [];
 linhas.forEach(linha => {
 if (linha.includes('Nr. Cliente:')) {
 dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
