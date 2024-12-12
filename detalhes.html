@@ -151,11 +151,15 @@
             const dados = {};
             const linhas = conteudo.split('\n');
             linhas.forEach(linha => {
-                if (linha.includes('Email para entrega:')) {
-                    dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
-                }            
-            });
-            return dados;
+        if (linha.includes('Email para entrega:')) {
+            // Salva o email para entrega no registro atual
+            registroAtual.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('nr entidade:')) {
+            // Salva o número de entidade no registro atual
+            registroAtual.nrEntidade = linha.split(':')[1]?.trim() || 'Not available';
+        } else if (linha.includes('Data Entrega:')) {
+            // Salva a data de entrega no registro atual
+            registroAtual.dataEntrega = linha.split(':')[1]?.trim() || 'Not available';
         }
 
         // Processar conteúdo de FTDados.txt
