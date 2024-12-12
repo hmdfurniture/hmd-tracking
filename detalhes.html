@@ -255,10 +255,14 @@ return dados;
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML) {
 const conteudoDiv = document.getElementById("conteudo");
 
-// Função para remover o protocolo da URL
 function removerProtocolo(url) {
-return url.replace(/^(https?:\/\/)/, '');
+    if (typeof url !== 'string') {
+        console.error('URL inválida:', url);
+        return ''; // Retorna uma string vazia para evitar falhas
+    }
+    return url.replace(/https?:\/\//, '');
 }
+
 // Campos que você quer aplicar ocultação
 const camposOcultar = {
 m3: (valor) => valor === 0 || valor === '0,00',  // Exemplo para m3
