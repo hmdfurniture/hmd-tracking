@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Details</title>
+<style>
+.back-button {
+display: inline-block;
+margin-top: 20px;
+font-size: 18px;
+text-decoration: none;
+color: black; /* Muda a cor do link para preto */
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+.back-button:hover {
+text-decoration: underline;
+}
+.back-icon {
+margin-right: 10px;
+}
+/* Ajustar o tamanho do logo */
+.logo {
+        max-width: 150px; /* Define a largura máxima */
+        max-width: 350px; /* Define a largura máxima */
+height: auto;     /* Mantém a proporção */
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="logo-container">
+<img src="images/logo.jpg" alt="Logo HMD" class="logo">
+<h1></h1>
+</div>
+
+<div id="conteudo">
+<!-- O conteúdo será carregado dinamicamente aqui -->
+</div>
+
+<!-- Seta de retorno à página principal -->
+<a href="index.html" class="back-button">
+<span class="back-icon">←</span> Back
+</a>
+</div>
+
+<script>
+function obterCodigoDaURL() {
+const urlParams = new URLSearchParams(window.location.search);
+return urlParams.get('codigo');
+}
+
+function carregarConteudo() {
+const codigo = obterCodigoDaURL();
+
+if (!codigo) {
+alert("Código não encontrado. Verifique a URL.");
+document.getElementById("conteudo").innerHTML = `
+          <p><strong>Código não encontrado.</strong></p>
+          <a href="/" class="back-button">
+              <span class="back-icon">←</span> Voltar à Página Principal
+          </a>
+      `;
+return; // Não carrega o conteúdo
+}
+
+const conteudoUrl1 = `conteudo/${codigo}/FLDados.txt`;
+const conteudoUrl2 = `conteudo/${codigo}/FT2Dados.txt`;
+const conteudoUrl3 = `conteudo/${codigo}/FT3Dados.txt`;
+const conteudoUrl4 = `conteudo/${codigo}/FTDados.txt`;
+const conteudoUrl5 = `conteudo/${codigo}/SZADRS_Dados.txt`;
+const conteudoUrl6 = `conteudo/${codigo}/AGDados.txt`; // Novo arquivo
+const imagemUrl = `conteudo/${codigo}/image_ft2dados.jpg`;
+
+Promise.all([
+fetch(conteudoUrl1).then(response => response.ok ? response.text() : Promise.resolve("FLDados.txt não encontrado.")),
+fetch(conteudoUrl2).then(response => response.ok ? response.text() : Promise.resolve("FT2Dados.txt não encontrado.")),
+fetch(conteudoUrl3).then(response => response.ok ? response.text() : Promise.resolve("FT3Dados.txt não encontrado.")),
+fetch(conteudoUrl4).then(response => response.ok ? response.text() : Promise.resolve("FTDados.txt não encontrado.")),
+fetch(conteudoUrl5).then(response => response.ok ? response.text() : Promise.resolve("SZADRS_Dados.txt não encontrado.")),
+fetch(conteudoUrl6).then(response => response.ok ? response.text() : Promise.resolve("AGDados.txt não encontrado.")),
+fetch(imagemUrl).then(response => response.ok ? response.blob() : Promise.resolve(null))
+])
+.then(([dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG, imagem]) => {
+const dados1 = processarConteudoFL(dadosFL);
+const dados2 = processarConteudoFT2(dadosFT2);
+const dados3 = processarConteudoFT3(dadosFT3);
+const dados4 = processarConteudoFT(dadosFT);
+const dados5 = processarConteudoSZADRS(dadosSZADRS);
+const dados6 = processarConteudoAG(dadosAG); // Chamando a função de processamento do AGDados.txt
+
+let imagemHTML = '';
+if (imagem) {
+const imagemURL = URL.createObjectURL(imagem);
+imagemHTML = `<img src="${imagemURL}" alt="Imagem FT2Dados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
+}
+
+exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML);
+})
+.catch(error => {
+alert("Ocorreu um erro ao carregar o conteúdo.");
+console.error(error);
+});
+}
+// Processar conteúdo de FLDados.txt
+function processarConteudoFL(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || [];
+linhas.forEach(linha => {
+if (linha.includes('Nome Expedidor Origem:')) {
+dados.nomeExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('No Expedidor Origem:')) {
+dados.numeroExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Morada Expedidor Origem:')) {
+dados.moradaExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Código Postal Expedidor Origem:')) {
+dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Local Expedidor Origem:')) {
+dados.localExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Telefone Expedidor Origem:')) {
+dados.telefoneExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Email Expedidor Origem:')) {
+dados.emailExpedidor = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
+return dados;
+}
+
+// Processar conteúdo de FT2Dados.txt
+function processarConteudoFT2(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || [];
+linhas.forEach(linha => {
+if (linha.includes('m3:')) {
+dados.m3 = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Zona Expedição:')) {
+dados.zonaExpedicao = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Volumes a expedir:')) {
+dados.volumesExpedir = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nr. Reserva:')) {
+dados.numeroReserva = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Peso :')) {
+dados.peso = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Ldm:')) {
+dados.ldm = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Multiplas Recolhas?:')) {
+dados.multiplasRecolhas = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
+return dados;
+}
+
+function processarConteudoFT3(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || []; // Dividir o conteúdo em linhas
+
+linhas.forEach(linha => {
+// Verificar e processar campos específicos
+if (linha.includes('Email para entrega:')) {
+dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nr. Entidade:')) { // Novo campo
+dados.nrEntidade = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Data Entrega:')) { // Novo campo
+dados.dataEntrega = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
+
+return dados;
+}
+
+
+// Processar conteúdo de FTDados.txt
+function processarConteudoFT(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || [];
+linhas.forEach(linha => {
+if (linha.includes('Nr. Cliente:')) {
+dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nome Cliente:')) {
+dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Local Carga:')) {
+dados.localCarga = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Local Descarga:')) {
+dados.localDescarga = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Data Expedição:')) {
+dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Expeditor:')) {
+dados.expeditor = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nr. Encomenda:')) {
+dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Status:')) {
+dados.status = linha.split(':')[1]?.trim() || 'Not available';
+}        
+});
+return dados;
+}
+
+// Processar conteúdo de SZADRS_Dados.txt
+function processarConteudoSZADRS(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || [];
+linhas.forEach(linha => {
+if (linha.includes('Descrição da entrega:')) {
+dados.descricaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nome da entrega:')) {
+dados.nomeEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Morada da entrega:')) {
+dados.moradaEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Local da entrega:')) {
+dados.localEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Código Postal da entrega:')) {
+dados.codigoPostalEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('País da entrega:')) {
+dados.paisEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nome Contato da entrega:')) {
+dados.nomeContatoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Telefone da entrega:')) {
+dados.telefoneEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Email da entrega:')) {
+dados.emailEntrega = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Observação da entrega:')) {
+dados.observacaoEntrega = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
+return dados;
+}
+// Processar conteúdo de AGDados.txt
+function processarConteudoAG(conteudo) {
+const dados = {};
+const linhas = conteudo.split('\n') || [];
+linhas.forEach(linha => {
+if (linha.includes('Nr. Cliente:')) {
+dados.nrCliente = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Nome Cliente:')) {
+dados.nomeCliente = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Morada:')) {
+dados.morada = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Local:')) {
+dados.local = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Código Postal:')) {
+dados.codigoPostal = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('País:')) {
+dados.pais = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Telefone:')) {
+dados.telefone = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('Email:')) {
+dados.email = linha.split(':')[1]?.trim() || 'Not available';
+} else if (linha.includes('URL:')) {
+dados.url = linha.split(':')[1]?.trim() || 'Not available';
+}
+});
+return dados;
+}
+// Exibir os dados na página
+function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemHTML) {
+const conteudoDiv = document.getElementById("conteudo");
+
+function removerProtocolo(url) {
+    if (typeof url !== 'string') {
+        console.error('URL inválida:', url);
+        return ''; // Retorna uma string vazia para evitar falhas
+    }
+    return url.replace(/https?:\/\//, '');
+}
+
+// Campos que você quer aplicar ocultação
+const camposOcultar = {
+m3: (valor) => valor === 0 || valor === '0,00',  // Exemplo para m3
+ldm: (valor) => valor === 0 || valor === '0,00',  // Exemplo para Ldm
+// Adicione outros campos conforme necessário
+};
+
+conteudoDiv.innerHTML = `
+  <h2>Merchandise details</h2>
+      <ul>
+       <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
+           <!-- 1 por linha -->
+          <li>Shipment Date: ${dados4.dataExpedicao}</li>
+          <!-- Lado a lado com verificação de valores -->
+          <li style="display: inline-block; margin-right: 20px;" 
+              ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
+              m3: ${dados2.m3}
+          </li>
+          <li style="display: inline-block; margin-right: 20px;" 
+              ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
+              Ldm: ${dados2.ldm}
+          </li>
+          <!-- 1 por linha -->
+          <li>Country of destination: ${dados2.zonaExpedicao}</li>
+          <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
+          <li>Weight: ${dados2.peso}</li>
+           <li>Order Nr.: ${dados4.nrEncomenda}</li>
+      </ul>
+      ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
+      
+      <h2>Carrier at origin</h2>
+      <ul>
+          <li>${dados1.nomeExpedidor}</li>
+          <li>${dados1.moradaExpedidor}</li>
+          <li>${dados1.localExpedidor}</li>
+          <li>${dados1.codigoPostal}</li>
+          <li>${dados1.telefoneExpedidor}</li>
+          <li>${dados1.emailExpedidor}</li>
+          <li>Reference: ${dados2.numeroReserva}</li>
+      </ul>
+
+      <h2>Carrier at destinaion</h2>
+      <ul>
+          <li> ${dados6.nrCliente}</li>
+          <li> ${dados6.nomeCliente}</li>
+          <li> ${dados6.morada}</li>
+          <li> ${dados6.local}</li>
+          <li> ${dados6.codigoPostal}</li>
+          <li> ${dados6.pais}</li>
+          <li> <a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
+          <li> <a href="mailto:${dados6.email}">${dados6.email}</a></li>
+          <li> ${dados6.url}</li>
+          <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
+      </ul>
+
+      <h2>Client</h2>
+      <ul>
+          <li>Nr.: ${dados4.nrCliente}</li>
+          <li>Name: ${dados4.nomeCliente}</li>
+         
+      </ul>
+
+      <h2>Delivery address</h2>
+      <ul>
+          <li>Descrição: ${dados5.descricaoEntrega}</li>
+          <li>Name: ${dados5.nomeEntrega}</li>
+          <li>Address: ${dados5.moradaEntrega}</li>
+          <li>Local: ${dados5.localEntrega}</li>
+          <li>Zip Code: ${dados5.codigoPostalEntrega}</li>
+          <li>Country: ${dados5.paisEntrega}</li>
+          <li>Contact Name: ${dados5.nomeContatoEntrega}</li>
+          <li>Telephone: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
+          <li>Email: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
+          <li>Obs: ${dados5.observacaoEntrega}</li>
+      </ul>
+    
+
+  `;
+}
+
+// Carregar os dados assim que a página for carregada
+window.onload = carregarConteudo;
+</script>
+</body>
+</html>
