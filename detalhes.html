@@ -190,7 +190,9 @@ dados.dataExpedicao = linha.split(':')[1]?.trim() || 'Not available';
 dados.expeditor = linha.split(':')[1]?.trim() || 'Not available';
 } else if (linha.includes('Nr. Encomenda:')) {
 dados.nrEncomenda = linha.split(':')[1]?.trim() || 'Not available';
-}
+} else if (linha.includes('Status:')) {
+dados.status = linha.split(':')[1]?.trim() || 'Not available';
+}        
 });
 return dados;
 }
