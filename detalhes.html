@@ -274,17 +274,20 @@ ldm: (valor) => valor === 0 || valor === '0,00',  // Exemplo para Ldm
 
 conteudoDiv.innerHTML = `
   
-  <h2> ${dados4.status}</h2>
+  <h2>Status</h2>
   <ul>
+  <li>Status: ${dados4.status}</li>
+  <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
   </ul>
   <h2>Merchandise details</h2>
 
       <ul>
+       <!-- 1 por linha -->
       <li>Shipment Date: ${dados4.dataExpedicao}</li>
-       <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
-           <!-- 1 por linha -->
-          
-          <!-- Lado a lado com verificação de valores -->
+       <!-- 1 por linha -->
+          <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
+          <li>Weight: ${dados2.peso}</li>
+           <!-- Lado a lado com verificação de valores -->
           <li style="display: inline-block; margin-right: 20px;" 
               ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
               m3: ${dados2.m3}
@@ -293,12 +296,7 @@ conteudoDiv.innerHTML = `
               ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
               Ldm: ${dados2.ldm}
           </li>
-          <!-- 1 por linha -->
-          
-          <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
-          <li>Weight: ${dados2.peso}</li>
           <li>Country of destination: ${dados2.zonaExpedicao}</li>
-          <li>Country: ${dados5.paisEntrega}</li>
            <li>Po Nr.: ${dados4.nrEncomenda}</li>
       </ul>
       ${imagemHTML} <!-- Aqui você exibe a imagem carregada -->
