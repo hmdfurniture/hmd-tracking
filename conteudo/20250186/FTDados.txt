@@ -4,6 +4,8 @@ Local Carga: JULIAO VASQUES BRANDAO LDA
 Local Descarga: GEMINIS MARBELLA
 Data Expedição: 07/01/2025
 Expeditor: Xbslog
-Nr. Encomenda: 881
-Status: Nossas Instalações
+Nr. Encomenda: 7146
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: LAGO DE LAS TORTUGAS
 
