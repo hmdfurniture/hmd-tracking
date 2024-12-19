@@ -1,0 +1,8 @@
+﻿m3: 1,50
+Zona Expedição: França
+Volumes a expedir: 1,00
+Nr. Reserva: 188290
+Peso : 95,00
+Ldm: 0,00
+Multiplas Recolhas?: Não
+
