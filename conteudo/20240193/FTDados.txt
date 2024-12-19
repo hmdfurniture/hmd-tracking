@@ -1,0 +1,9 @@
+﻿Nr. Cliente: 193
+Nome Cliente: ADDISON HOUSE INC
+Local Carga: 
+Local Descarga: ADDISON HOUSE INC
+Data Expedição: 20/12/2024
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7150_7158
+Status: Order not yet dispatched
+
