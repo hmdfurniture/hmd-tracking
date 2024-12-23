@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 173
+Nome Cliente: RAUMKONZEPTE PETER BUCHBERGER
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: MUSEUM REINHARD ERNST
+Data Expedição: 15/11/2024
+Expeditor: Xbslog
+Nr. Encomenda: 6818_a
+Status: Delivery completed
+Mercadoria: Paletizados
+Marcas: Restaurant Rue ONe
+
