@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 5924
+Nome Cliente: FATTON O.T.L DIJON
+Morada: 54 AVENUE DU GÉNÉRAL DE GAULLE
+Local: DIJON
+Código Postal: 21110 GENLIS
+País: França
+Telefone: +33 03 80 47 29 70
+Email: dijon@fatton.com
+URL: www.fatton.com
+
