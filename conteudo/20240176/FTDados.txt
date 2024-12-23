@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 176
+Nome Cliente: MILLENIUM HOSPITALITY REAL ESTATE SOCIMI SA - MHRE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: MILLENIUM HOSPITALITY REAL ESTATE SOCIMI SA - MHRE
+Data Expedição: 22/11/2024
+Expeditor: Xbslog
+Nr. Encomenda: 7096_2
+Status: a Definir
+Mercadoria: Paletizados
+Marcas: MUR del hotel Nobu Madrid
+
