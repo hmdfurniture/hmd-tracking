@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 185
+Nome Cliente: MAS BY ARQUESTA
+Local Carga: JULIAO VASQUES BRANDAO LDA
+Local Descarga: MAS BY ARQUESTA
+Data Expedição: 01/01/1900
+Expeditor: Xbslog
+Nr. Encomenda: 7155
+Status: a Definir
+Mercadoria: Paletizados
+Marcas: Frog Dining
+
