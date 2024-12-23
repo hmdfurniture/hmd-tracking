@@ -6,4 +6,6 @@ Data Expedição: 18/12/2024
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7139
 Status: Shipment en route to the agent
+Mercadoria: Paletizados
+Marcas: PO#19854
 
