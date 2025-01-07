@@ -1,0 +1,25 @@
+name: Delete Old Folders and Files (Ubuntu)
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Executa semanalmente, todo domingo à meia-noite
+  workflow_dispatch:  # Permite execução manual
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Delete Folders and Files Older Than 30 Days in 'conteudo' Folder
+        run: |
+          find ./conteudo -type d -mtime +14 -exec rm -rf {} \;
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Deleted old folders and files automatically" || echo "No changes to commit"
+          git push
