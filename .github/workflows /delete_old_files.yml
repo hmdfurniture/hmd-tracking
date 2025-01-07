@@ -13,7 +13,7 @@ jobs:
 
       - name: Delete Folders and Files Older Than 30 Days in 'conteudo' Folder
         run: |
-          find ./conteudo -type d -mtime +30 -exec rm -rf {} \;
+          find ./conteudo -type d -mtime +14 -exec rm -rf {} \;
 
       - name: Commit and Push Changes
         run: |
