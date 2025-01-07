@@ -3,6 +3,7 @@ name: Delete Old Folders and Files (Ubuntu)
 on:
   schedule:
     - cron: '0 0 * * 0'  # Executa semanalmente, todo domingo à meia-noite
+    workflow_dispatch:  # Permite executar manualmente
 
 jobs:
   cleanup:
