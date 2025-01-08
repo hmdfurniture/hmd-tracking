@@ -26,6 +26,7 @@ jobs:
             echo "Report generated: directory_modifications.txt"
           else
             echo "Directory './conteudo' does not exist."
+          fi
           
       - name: Commit and Push Changes
         run: |
