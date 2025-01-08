@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Delete Folders and Files Older Than 30 Days in 'conteudo' Folder
         run: |
@@ -22,6 +24,4 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add .
           git commit -m "Deleted old folders and files automatically" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          git push origin HEAD:${{ github.ref }}
