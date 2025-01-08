@@ -1,25 +1,25 @@
 Name, Last Commit Message, Last Commit Date
-20240174, Update main.yml, 2025-01-08 18:30:47
-19000185, Update main.yml, 2025-01-08 18:30:47
-20240172, Update main.yml, 2025-01-08 18:30:47
-20240182, Update main.yml, 2025-01-08 18:30:47
-20240180, Update main.yml, 2025-01-08 18:30:47
-20240173, Update main.yml, 2025-01-08 18:30:47
-20240169, Update main.yml, 2025-01-08 18:30:47
-20240193, Update main.yml, 2025-01-08 18:30:47
-20240176, Update main.yml, 2025-01-08 18:30:47
-20240166, Update main.yml, 2025-01-08 18:30:47
-20240165, Update main.yml, 2025-01-08 18:30:47
-20240168, Update main.yml, 2025-01-08 18:30:47
-20240179, Update main.yml, 2025-01-08 18:30:47
-20250184, Update main.yml, 2025-01-08 18:30:47
-20240188, Update main.yml, 2025-01-08 18:30:47
-20250186, Update main.yml, 2025-01-08 18:30:47
-20240187, Update main.yml, 2025-01-08 18:30:47
-20240171, Update main.yml, 2025-01-08 18:30:47
-20240170, Update main.yml, 2025-01-08 18:30:47
-19000168, Update main.yml, 2025-01-08 18:30:47
-20250190, Update main.yml, 2025-01-08 18:30:47
-20240178, Update main.yml, 2025-01-08 18:30:47
-19000194, Update main.yml, 2025-01-08 18:30:47
-20240189, Update main.yml, 2025-01-08 18:30:47
+20240174, Atualizando o arquivo FTDados.txt, 2024-12-23 09:49:29
+19000185, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:13
+20240172, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:17
+20240182, Atualizando o arquivo FTDados.txt, 2024-12-23 09:50:05
+20240180, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:50:00
+20240173, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:25
+20240169, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:50
+20240193, Atualizando o arquivo FTDados.txt, 2024-12-19 12:03:03
+20240176, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:38
+20240166, Atualizando o arquivo FTDados.txt, 2024-12-23 09:48:31
+20240165, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:26
+20240168, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:43
+20240179, Atualizando o arquivo FTDados.txt, 2024-12-23 09:49:50
+20250184, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-06 12:08:51
+20240188, Atualizando o arquivo FTDados.txt, 2024-12-23 09:50:19
+20250186, Atualizando o arquivo FTDados.txt, 2025-01-08 12:01:32
+20240187, Atualizando o arquivo FTDados.txt, 2024-12-23 09:50:12
+20240171, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:09
+20240170, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:01
+19000168, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:06
+20250190, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-19 13:31:48
+20240178, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:49:46
+19000194, Adicionando o arquivo SZADRS_Dados.txt, 2024-12-23 09:48:18
+20240189, Atualizando o arquivo FTDados.txt, 2024-12-23 09:50:26
