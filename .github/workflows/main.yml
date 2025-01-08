@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0  # Ensure full history is fetched
 
       - name: List Directories and Latest Commit Date
         run: |
@@ -25,6 +26,9 @@ jobs:
             for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
               # Get the directory name
               dir_name=$(basename "$dir")
+
+              # Debug information
+              echo "Processing directory: $dir_name"
 
               # Get the last commit for the directory using git log
               last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
