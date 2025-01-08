@@ -19,16 +19,17 @@ jobs:
           echo "Generating report of directories and their latest modification times..."
           if [ -d "./conteudo" ]; then
             # Gerar relatório das datas de modificação
-            find ./conteudo -type d -exec bash -c '
-              dir="{}"
-              last_mod=$(find "$dir" -type f -printf "%T@\n" 2>/dev/null | sort -n | tail -1)
+            for dir in $(find ./conteudo -type d); do
+              # Obter a data de modificação mais recente entre os ficheiros no diretório
+              last_mod=$(find "$dir" -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -1)
               if [ -z "$last_mod" ]; then
                 echo "$dir: No files"
               else
-                date_mod=$(date -d @$last_mod +"%Y-%m-%d %H:%M:%S")
+                timestamp=$(echo "$last_mod" | cut -d' ' -f1)
+                date_mod=$(date -d @$timestamp +"%Y-%m-%d %H:%M:%S")
                 echo "$dir: $date_mod"
               fi
-            ' \; > directory_modifications.txt
+            done > directory_modifications.txt
             echo "Report generated: directory_modifications.txt"
           else
             echo "Directory './conteudo' does not exist."
