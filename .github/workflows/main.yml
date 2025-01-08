@@ -38,7 +38,7 @@ jobs:
             diff_days=$(( (current_date - last_commit_timestamp) / (60*60*24) ))
 
             # Delete directories older than 20 days
-            if [ $diff_days -gt 20 ]; then
+            if [ $diff_days -ge 20 ]; then
               echo "Deleting directory: $dir_name (last commit date: $last_commit_date)" | tee -a cleanup_report.txt
               rm -rf "$dir"
             else
