@@ -26,12 +26,14 @@ jobs:
               # Obter o nome da pasta
               dir_name=$(basename "$dir")
 
-              # Obter a última mensagem de commit e data
+              # Obter a última mensagem de commit
               last_commit_message=$(git log -1 --format="%s" -- "$dir")
-              last_commit_date=$(git log -1 --format="%ci" -- "$dir")
+              
+              # Usar o formato desejado para a data do último commit
+              _GIT_COMMIT_DATE=$(git log -1 --format=%cd --date=format:%Y%m%dh%H%M%S -- "$dir")
 
               # Adicionar a informação no ficheiro de relatório
-              echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
+              echo "$dir_name, $last_commit_message, $_GIT_COMMIT_DATE" >> directory_modifications.txt
             done
             
             echo "Report generated: directory_modifications.txt"
