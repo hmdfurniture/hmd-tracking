@@ -17,12 +17,17 @@ jobs:
       - name: List Directories and Latest Modification Time in 'conteudo'
         run: |
           echo "Generating report of directories and their latest modification times..."
-          # Verifica se o diretório existe
           if [ -d "./conteudo" ]; then
-            # Cria o relatório
+            # Gerar relatório das datas de modificação
             find ./conteudo -type d -exec bash -c '
-              echo -n "{}: ";
-              find "{}" -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -1 | awk "{print \$1}" | xargs -I{} date -d @{} +"%Y-%m-%d %H:%M:%S" || echo "No files";
+              dir="{}"
+              last_mod=$(find "$dir" -type f -printf "%T@\n" 2>/dev/null | sort -n | tail -1)
+              if [ -z "$last_mod" ]; then
+                echo "$dir: No files"
+              else
+                date_mod=$(date -d @$last_mod +"%Y-%m-%d %H:%M:%S")
+                echo "$dir: $date_mod"
+              fi
             ' \; > directory_modifications.txt
             echo "Report generated: directory_modifications.txt"
           else
