@@ -14,10 +14,15 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
-      - name: Delete Folders and Files Older Than 3 Weeks in 'conteudo' Folder
+      - name: Delete Files Older Than 20 Days in 'conteudo' Folder
         run: |
-          find ./conteudo -type f -mtime +20 -exec rm -f {} \;  # Deleta arquivos com mais de 20 dias
-          find ./conteudo -type d -mtime +20 -exec rm -rf {} \;  # Deleta pastas com mais de 20 dias
+          echo "Deleting files older than 20 days..."
+          find ./conteudo -type f -mtime +20 -exec rm -f {} \; || echo "No files found to delete"
+          
+      - name: Delete Directories Older Than 20 Days in 'conteudo' Folder
+        run: |
+          echo "Deleting directories older than 20 days..."
+          find ./conteudo -type d -mtime +20 -exec rm -rf {} \; || echo "No directories found to delete"
 
       - name: Commit and Push Changes
         run: |
