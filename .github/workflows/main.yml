@@ -17,11 +17,11 @@ jobs:
 
       - name: Delete Old Directories Based on Last Commit Date
         run: |
-          echo "Checking for directories older than 20 days based on last commit date..."
+          echo "Checking for directories and files older than 20 days based on last commit date..." > cleanup_report.txt
           
           # Get the current date in seconds since epoch
           current_date=$(date +%s)
-
+          
           # List all directories in the 'conteudo' folder
           for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
             # Get the directory name
@@ -39,22 +39,25 @@ jobs:
 
             # Delete directories older than 20 days
             if [ $diff_days -gt 20 ]; then
-              echo "Deleting directory: $dir_name (last commit date: $last_commit_date)"
+              echo "Deleting directory: $dir_name (last commit date: $last_commit_date)" | tee -a cleanup_report.txt
               rm -rf "$dir"
+            else
+              echo "Directory not old enough: $dir_name (last commit date: $last_commit_date)" | tee -a cleanup_report.txt
             fi
           done
 
-          echo "Old directories deleted based on last commit date."
+          echo "Old directories checked based on last commit date." | tee -a cleanup_report.txt
 
       - name: Delete Files Older Than 20 Days in 'conteudo' Folder
         run: |
-          echo "Deleting files older than 20 days..."
-          find ./conteudo -type f -mtime +20 -exec rm -f {} \; || echo "No files found to delete"
+          echo "Deleting files older than 20 days..." | tee -a cleanup_report.txt
+          find ./conteudo -type f -mtime +20 -exec rm -f {} \; -exec echo "Deleted file: {}" \; || echo "No files found to delete" | tee -a cleanup_report.txt
+          echo "Old files deleted." | tee -a cleanup_report.txt
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add .
-          git commit -m "Deleted old folders and files automatically based on last commit date" || echo "No changes to commit"
+          git add cleanup_report.txt
+          git commit -m "Cleanup report: Deleted old folders and files automatically based on last commit date" || echo "No changes to commit"
           git push origin HEAD:${{ github.ref }}
