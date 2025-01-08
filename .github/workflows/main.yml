@@ -16,7 +16,7 @@ jobs:
 
       - name: Delete Folders and Files Older Than 3 Weeks in 'conteudo' Folder
         run: |
-          find ./conteudo -type d -mtime +18 -exec rm -rf {} \;
+          find ./conteudo -type d -mtime +20 -exec rm -rf {} \;
 
       - name: Commit and Push Changes
         run: |
