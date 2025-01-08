@@ -18,11 +18,22 @@ jobs:
         run: |
           echo "Generating report of directories and their latest commit dates..."
           if [ -d "./conteudo" ]; then
-            > directory_modifications.txt
+            # Criar ou sobrescrever o ficheiro de relatório
+            echo "Name, Last Commit Message, Last Commit Date" > directory_modifications.txt
+            
+            # Iterar por todas as pastas em './conteudo'
             for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
-              last_commit=$(git log -1 --format="%ci" -- "$dir")
-              echo "$dir: $last_commit" >> directory_modifications.txt
+              # Obter o nome da pasta
+              dir_name=$(basename "$dir")
+
+              # Obter a última mensagem de commit e data
+              last_commit_message=$(git log -1 --format="%s" -- "$dir")
+              last_commit_date=$(git log -1 --format="%ci" -- "$dir")
+
+              # Adicionar a informação no ficheiro de relatório
+              echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
             done
+            
             echo "Report generated: directory_modifications.txt"
           else
             echo "Directory './conteudo' does not exist."
