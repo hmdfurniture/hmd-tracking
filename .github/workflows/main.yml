@@ -22,32 +22,25 @@ jobs:
             # Create or overwrite the report file
             echo "Name, Last Commit Message, Last Commit Date" > directory_modifications.txt
 
-            # Get the current date
-            current_date=$(date +%s)
-
             # List all directories in the 'conteudo' folder
             for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
               # Get the directory name
               dir_name=$(basename "$dir")
 
+              # Debug information
+              echo "Processing directory: $dir_name"
+
               # Get the last commit for the directory using git log
               last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
               last_commit_date=$(git log -1 --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S" -- "$dir")
               
+              # Debug output to verify the correct directory and git log output
+              echo "Directory: $dir_name"
+              echo "Last Commit Message: $last_commit_message"
+              echo "Last Commit Date: $last_commit_date"
+              
               # Append the information to the report file
               echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
-
-              # Convert last commit date to timestamp
-              last_commit_timestamp=$(date -d "$last_commit_date" +%s)
-
-              # Calculate the difference in days
-              diff_days=$(( (current_date - last_commit_timestamp) / (60*60*24) ))
-
-              # Delete directories older than 21 days
-              if [ $diff_days -gt 20 ]; then
-                echo "Deleting directory: $dir_name (last commit date: $last_commit_date)"
-                rm -rf "$dir"
-              fi
             done
 
             echo "Report generated: directory_modifications.txt"
