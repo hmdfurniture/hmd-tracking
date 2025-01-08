@@ -1,4 +1,4 @@
-name: List Directories and Their Latest Modification Time (Ubuntu)
+name: List Directories and Their Latest Git Commit Date (Ubuntu)
 
 on:
   schedule:
@@ -14,27 +14,19 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
-      - name: List Directories and Latest Modification Time in 'conteudo'
+      - name: List Directories and Latest Commit Date
         run: |
-          echo "Generating report of directories and their latest modification times..."
+          echo "Generating report of directories and their latest commit dates..."
           if [ -d "./conteudo" ]; then
-            # Gerar relatório das datas de modificação
-            for dir in $(find ./conteudo -type d); do
-              # Obter a data de modificação mais recente entre os ficheiros no diretório
-              last_mod=$(find "$dir" -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -1)
-              if [ -z "$last_mod" ]; then
-                echo "$dir: No files"
-              else
-                timestamp=$(echo "$last_mod" | cut -d' ' -f1)
-                date_mod=$(date -d @$timestamp +"%Y-%m-%d %H:%M:%S")
-                echo "$dir: $date_mod"
-              fi
-            done > directory_modifications.txt
+            > directory_modifications.txt
+            for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
+              last_commit=$(git log -1 --format="%ci" -- "$dir")
+              echo "$dir: $last_commit" >> directory_modifications.txt
+            done
             echo "Report generated: directory_modifications.txt"
           else
             echo "Directory './conteudo' does not exist."
-          fi
-
+          
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions'
