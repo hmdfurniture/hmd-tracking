@@ -13,7 +13,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          fetch-depth: 0  # Ensure full history is fetched
 
       - name: List Directories and Latest Commit Date
         run: |
@@ -27,17 +26,9 @@ jobs:
               # Get the directory name
               dir_name=$(basename "$dir")
 
-              # Debug information
-              echo "Processing directory: $dir_name"
-
               # Get the last commit for the directory using git log
               last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
               last_commit_date=$(git log -1 --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S" -- "$dir")
-              
-              # Debug output to verify the correct directory and git log output
-              echo "Directory: $dir_name"
-              echo "Last Commit Message: $last_commit_message"
-              echo "Last Commit Date: $last_commit_date"
               
               # Append the information to the report file
               echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
