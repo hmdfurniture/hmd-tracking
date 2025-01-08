@@ -1,0 +1,30 @@
+name: List Directories and Their Latest Modification Time (Ubuntu)
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Executa semanalmente, todo domingo à meia-noite
+  workflow_dispatch:  # Permite execução manual
+
+jobs:
+  list_directories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: List Directories and Latest Modification Time in 'conteudo'
+        run: |
+          echo "Listing directories and their latest modification time (including files inside):"
+          # Listando as pastas e a última modificação considerando os arquivos dentro delas
+          find ./conteudo -type d -exec bash -c 'echo -n "{} "; stat --format="%y" $(find "{}" -type f | sort -n | tail -n 1)' \;
+
+      - name: Commit and Push Changes (se necessário)
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Listed directories with latest modification time" || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref }}
+
