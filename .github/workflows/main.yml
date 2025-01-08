@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Permite execução manual
 
 jobs:
-  cleanup:
+  list_directories:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -14,7 +14,25 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
 
-      - name: List Directories and Their Latest Modification Time in 'conteudo'
+      - name: List Directories and Latest Modification Time in 'conteudo'
         run: |
-          echo "Listing directories and their latest modification time (including files inside):"
-          find ./conteudo -type d -exec stat --format '%n %y' {} \; | sed 's/\..*//'
+          echo "Generating report of directories and their latest modification times..."
+          # Verifica se o diretório existe
+          if [ -d "./conteudo" ]; then
+            # Cria o relatório
+            find ./conteudo -type d -exec bash -c '
+              echo -n "{}: ";
+              find "{}" -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -1 | awk "{print \$1}" | xargs -I{} date -d @{} +"%Y-%m-%d %H:%M:%S" || echo "No files";
+            ' \; > directory_modifications.txt
+            echo "Report generated: directory_modifications.txt"
+          else
+            echo "Directory './conteudo' does not exist."
+          fi
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add directory_modifications.txt
+          git commit -m "Updated directory modification times report" || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref }}
