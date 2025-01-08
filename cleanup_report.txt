@@ -1,0 +1,28 @@
+Checking for directories and files older than 20 days based on last commit date...
+Directory not old enough: 20240174 (last commit date: 2024-12-23 09:49:29)
+Directory not old enough: 19000185 (last commit date: 2024-12-23 09:48:13)
+Directory not old enough: 20240172 (last commit date: 2024-12-23 09:49:17)
+Directory not old enough: 20240182 (last commit date: 2024-12-23 09:50:05)
+Directory not old enough: 20240180 (last commit date: 2024-12-23 09:50:00)
+Directory not old enough: 20240173 (last commit date: 2024-12-23 09:49:25)
+Directory not old enough: 20240169 (last commit date: 2024-12-23 09:48:50)
+Directory not old enough: 20240193 (last commit date: 2024-12-19 12:03:03)
+Directory not old enough: 20240176 (last commit date: 2024-12-23 09:49:38)
+Directory not old enough: 20240166 (last commit date: 2024-12-23 09:48:31)
+Directory not old enough: 20240165 (last commit date: 2024-12-23 09:48:26)
+Directory not old enough: 20240168 (last commit date: 2024-12-23 09:48:43)
+Directory not old enough: 20240179 (last commit date: 2024-12-23 09:49:50)
+Directory not old enough: 20250184 (last commit date: 2025-01-06 12:08:51)
+Directory not old enough: 20240188 (last commit date: 2024-12-23 09:50:19)
+Directory not old enough: 20250186 (last commit date: 2025-01-08 12:01:32)
+Directory not old enough: 20240187 (last commit date: 2024-12-23 09:50:12)
+Directory not old enough: 20240171 (last commit date: 2024-12-23 09:49:09)
+Directory not old enough: 20240170 (last commit date: 2024-12-23 09:49:01)
+Directory not old enough: 19000168 (last commit date: 2024-12-23 09:48:06)
+Directory not old enough: 20250190 (last commit date: 2024-12-19 13:31:48)
+Directory not old enough: 20240178 (last commit date: 2024-12-23 09:49:46)
+Directory not old enough: 19000194 (last commit date: 2024-12-23 09:48:18)
+Directory not old enough: 20240189 (last commit date: 2024-12-23 09:50:26)
+Old directories checked based on last commit date.
+Deleting files older than 20 days...
+Old files deleted.
