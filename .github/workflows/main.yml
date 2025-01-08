@@ -1,4 +1,4 @@
-name: Delete Old Folders and Files (Ubuntu)
+name: Delete Old Folders and Files in 'conteudo' (Ubuntu)
 
 on:
   schedule:
@@ -16,7 +16,8 @@ jobs:
 
       - name: Delete Folders and Files Older Than 3 Weeks in 'conteudo' Folder
         run: |
-          find ./conteudo -type d -mtime +20 -exec rm -rf {} \;
+          find ./conteudo -type f -mtime +20 -exec rm -f {} \;  # Deleta arquivos com mais de 20 dias
+          find ./conteudo -type d -mtime +20 -exec rm -rf {} \;  # Deleta pastas com mais de 20 dias
 
       - name: Commit and Push Changes
         run: |
