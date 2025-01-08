@@ -2,8 +2,8 @@ name: List Directories and Their Latest Git Commit Date (Ubuntu)
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Executa semanalmente, todo domingo à meia-noite
-  workflow_dispatch:  # Permite execução manual
+    - cron: '0 0 * * 0'  # Runs weekly, every Sunday at midnight
+  workflow_dispatch:  # Allows manual execution
 
 jobs:
   list_directories:
@@ -18,19 +18,19 @@ jobs:
         run: |
           echo "Generating report of directories and their latest commit dates..."
           if [ -d "./conteudo" ]; then
-            # Criar ou sobrescrever o ficheiro de relatório
+            # Create or overwrite the report file
             echo "Name, Last Commit Message, Last Commit Date" > directory_modifications.txt
 
-            # Listar todos os diretórios na pasta 'conteudo'
+            # List all directories in the 'conteudo' folder
             for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
-              # Obter o nome do diretório
+              # Get the directory name
               dir_name=$(basename "$dir")
 
-              # Obter o último commit para o diretório usando git log
+              # Get the last commit for the directory using git log
               last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
               last_commit_date=$(git log -1 --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S" -- "$dir")
               
-              # Adicionar as informações no ficheiro de relatório
+              # Append the information to the report file
               echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
             done
 
