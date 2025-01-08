@@ -1,4 +1,4 @@
-name: List Directories and Their Latest Git Commit Date (Ubuntu)
+name: Delete Old Folders and Files in 'conteudo' (Ubuntu)
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Allows manual execution
 
 jobs:
-  list_directories:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -15,43 +15,46 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           fetch-depth: 0  # Ensure full history is fetched
 
-      - name: List Directories and Latest Commit Date
+      - name: Delete Old Directories Based on Last Commit Date
         run: |
-          echo "Generating report of directories and their latest commit dates..."
-          if [ -d "./conteudo" ]; then
-            # Create or overwrite the report file
-            echo "Name, Last Commit Message, Last Commit Date" > directory_modifications.txt
-
-            # List all directories in the 'conteudo' folder
-            for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
-              # Get the directory name
-              dir_name=$(basename "$dir")
-
-              # Debug information
-              echo "Processing directory: $dir_name"
-
-              # Get the last commit for the directory using git log
-              last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
-              last_commit_date=$(git log -1 --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S" -- "$dir")
-              
-              # Debug output to verify the correct directory and git log output
-              echo "Directory: $dir_name"
-              echo "Last Commit Message: $last_commit_message"
-              echo "Last Commit Date: $last_commit_date"
-              
-              # Append the information to the report file
-              echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
-            done
-
-            echo "Report generated: directory_modifications.txt"
-          else
-            echo "Directory './conteudo' does not exist."
-          fi
+          echo "Checking for directories older than 20 days based on last commit date..."
           
+          # Get the current date in seconds since epoch
+          current_date=$(date +%s)
+
+          # List all directories in the 'conteudo' folder
+          for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d); do
+            # Get the directory name
+            dir_name=$(basename "$dir")
+
+            # Get the last commit for the directory using git log
+            last_commit_message=$(git log -1 --pretty=format:"%s" -- "$dir")
+            last_commit_date=$(git log -1 --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S" -- "$dir")
+
+            # Convert last commit date to timestamp
+            last_commit_timestamp=$(date -d "$last_commit_date" +%s)
+
+            # Calculate the difference in days
+            diff_days=$(( (current_date - last_commit_timestamp) / (60*60*24) ))
+
+            # Delete directories older than 20 days
+            if [ $diff_days -gt 20 ]; then
+              echo "Deleting directory: $dir_name (last commit date: $last_commit_date)"
+              rm -rf "$dir"
+            fi
+          done
+
+          echo "Old directories deleted based on last commit date."
+
+      - name: Delete Files Older Than 20 Days in 'conteudo' Folder
+        run: |
+          echo "Deleting files older than 20 days..."
+          find ./conteudo -type f -mtime +20 -exec rm -f {} \; || echo "No files found to delete"
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add directory_modifications.txt
-          git commit -m "Updated directory modification times report" || echo "No changes to commit"
+          git add .
+          git commit -m "Deleted old folders and files automatically based on last commit date" || echo "No changes to commit"
           git push origin HEAD:${{ github.ref }}
