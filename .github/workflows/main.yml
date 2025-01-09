@@ -18,27 +18,28 @@ jobs:
       - name: Delete Directories If All Files Are Older Than 20 Days
         run: |
           set -e  # Interrompe o script em caso de erro
-          echo "Checking directories where all files are older than 20 days..."
+          echo "Checking directories inside './conteudo' where all files are older than 20 days..."
 
           if [ -d "./conteudo" ]; then
+            # Loop por todas as subpastas dentro de './conteudo'
             find ./conteudo -mindepth 1 -maxdepth 1 -type d | while read dir; do
               dir_name=$(basename "$dir")
-              all_old=true  # Assume que todos os arquivos são antigos
+              all_old=true  # Assumir que todos os arquivos são antigos
 
-              # Verifica cada arquivo no diretório
+              # Verificar todos os arquivos dentro da subpasta
               find "$dir" -type f | while read file; do
                 last_commit_timestamp=$(git log -1 --pretty=format:"%ct" -- "$file")
                 current_timestamp=$(date +%s)
                 days_diff=$(( (current_timestamp - last_commit_timestamp) / 86400 ))
 
-                # Se encontrar um arquivo ainda válido, cancela a exclusão
+                # Se encontrar um arquivo recente, não deletar a pasta
                 if [ "$days_diff" -le 20 ]; then
                   all_old=false
-                  break
+                  break  # Não precisa verificar os outros arquivos, já temos um arquivo recente
                 fi
               done
 
-              # Remove a pasta somente se todos os arquivos forem antigos
+              # Se todos os arquivos forem mais antigos que 20 dias, apagar a pasta
               if [ "$all_old" = true ]; then
                 echo "Deleting directory: $dir_name (all files older than 20 days)"
                 rm -rf "$dir"
