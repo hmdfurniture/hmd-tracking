@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 5919
+Nome Cliente: ARCESE ESPAÑA S.A.U. - BARCELONA
+Morada: CARRER DE LA MAR ROJA, 42-50, DISTRITO DE SANTS-MONTJUI
+Local: ZONA DE ACTIVIDADES LOGÍSTICAS - ZAL I
+Código Postal: 08040 BARCELONA
+País: Espanha
+Telefone: +34 933 28 73 74
+Email: gricci@arcese.com
+URL: www.arcese.com
+
