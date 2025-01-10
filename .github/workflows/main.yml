@@ -1,4 +1,4 @@
-name: List of renamed Directories 
+name: List Directories and Their Latest Git Commit Date (Ubuntu)
 
 on:
   schedule:
@@ -45,11 +45,11 @@ jobs:
               # Append the information to the report file
               echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
 
-              # Calculate the time difference in seconds
+              # Calculate the time difference in seconds (17 hours = 61200 seconds)
               time_difference=$(( $(date -ud "$current_date" +%s) - $(date -ud "$last_commit_date" +%s) ))
 
-              # Rename the directory if the commit date is older than 24 hours (86400 seconds)
-              if [ "$time_difference" -gt 86400 ]; then
+              # Rename the directory if the commit date is older than 17 hours (61200 seconds)
+              if [ "$time_difference" -gt 61200 ]; then
                 echo "Renaming directory $dir_name to ${dir_name}_old"
                 mv "$dir" "${dir}_old"
               fi
