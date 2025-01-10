@@ -1,0 +1,44 @@
+name: Delete Old Directories
+
+on:
+  schedule:
+    - cron: '5 0 * * 0'  # Runs weekly, every Sunday at 00:05 UTC (5 minutes after the previous workflow)
+  workflow_dispatch:  # Allows manual execution
+
+jobs:
+  delete_old_directories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0  # Ensure full history is fetched
+
+      - name: Delete Old Directories
+        run: |
+          echo "Deleting old directories..."
+          if [ -d "./conteudo" ]; then
+            # List all directories in the 'conteudo' folder
+            for dir in $(find ./conteudo -mindepth 1 -maxdepth 1 -type d -name "*_old"); do
+              # Get the directory name
+              dir_name=$(basename "$dir")
+
+              # Debug information
+              echo "Processing directory: $dir_name"
+
+              # Remove the directory
+              rm -rf "$dir"
+              echo "Deleted directory: $dir_name"
+            done
+          else
+            echo "Directory './conteudo' does not exist."
+          fi
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m "Deleted old directories" || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref }}
