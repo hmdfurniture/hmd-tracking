@@ -44,11 +44,11 @@ jobs:
               # Append the information to the report file
               echo "$dir_name, $last_commit_message, $last_commit_date" >> directory_modifications.txt
 
-              # Calculate the time difference in seconds (17 hours = 61200 seconds)
+              # Calculate the time difference in seconds (20 days × 86400 seconds/day = 1728000 seconds)
               time_difference=$(( $(date -ud "$current_date" +%s) - $(date -ud "$last_commit_date" +%s) ))
 
               # Rename the directory if the commit date is older than 17 hours (61200 seconds)
-              if [ "$time_difference" -gt 61200 ]; then
+              if [ "$time_difference" -gt 1728000 ]; then
                 echo "Renaming directory $dir_name to ${dir_name}_old"
                 mv "$dir" "${dir}_old"
                 # Add the renamed directory to the index
