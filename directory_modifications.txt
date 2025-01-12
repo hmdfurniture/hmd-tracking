@@ -1,4 +1,10 @@
 Name, Last Commit Message, Last Commit Date
+20240182, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:04:14
+20240193, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:04:45
+20240179, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:04:06
 20250184, Atualizando o arquivo FTDados.txt, 2025-01-10 16:07:16
+20240188, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:04:29
+20250186, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:05:08
 20250003, Atualizando o arquivo FTDados.txt, 2025-01-10 16:04:57
 20240187, Atualizando o arquivo FTDados.txt, 2025-01-10 10:19:45
+20240189, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-10 17:04:37
