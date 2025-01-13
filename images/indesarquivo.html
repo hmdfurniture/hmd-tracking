@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMD Tracking</title>
+    <!-- Ícones de Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="https://github.com/hmdfurniture/hmd-tracking/raw/main/images/Favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://github.com/hmdfurniture/hmd-tracking/raw/main/images/Favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://github.com/hmdfurniture/hmd-tracking/raw/main/images/Favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="https://github.com/hmdfurniture/hmd-tracking/raw/main/images/Favicon/android-chrome-512x512.png">
+<link rel="apple-touch-icon" href="https://github.com/hmdfurniture/hmd-tracking/raw/main/images/Favicon/apple-touch-icon.png">
+     
+<link rel="stylesheet" href="style.css">
+<style>
+/* Desabilita a seleção de texto */
+body {
+    user-select: none;
+}
+
+/* Impede o arrasto de imagens */
+img {
+    pointer-events: none;
+}    
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="images/logo.jpg" alt="Logo HMD" class="logo">
+    <h1></h1>
+    <input type="text" id="codigoPrincipal" placeholder="Ex: 12345">
+    <button onclick="procurarDetalhes()">search</button>
+    <p id="mensagem" style="color: red; font-size: 14px; margin-top: 10px;"></p> <!-- Mensagem de erro -->
+</div>
+
+<script>
+async function procurarDetalhes() {
+    const codigo = document.getElementById('codigoPrincipal').value.trim();
+    const mensagemEl = document.getElementById('mensagem'); // Elemento para exibir a mensagem
+
+    // Limpa qualquer mensagem anterior
+    mensagemEl.textContent = "";
+
+    // Verificar se o campo de pesquisa está vazio
+    if (codigo === "") {
+        mensagemEl.textContent = "Please enter a valid code.";
+        return;
+    }
+
+    // Caminho da pasta no repositório
+    const caminhoPasta = `conteudo/${codigo}/`;
+    const arquivoDeControle = `${caminhoPasta}FLDados.txt`; // Arquivo para validar a pasta
+
+    try {
+        // Tenta acessar o arquivo de controle
+        const resposta = await fetch(arquivoDeControle);
+
+        if (resposta.ok) {
+            // Se o arquivo existe, redirecionar para a página de detalhes
+            window.location.href = `detalhes.html?codigo=${codigo}`;
+        } else {
+            // Arquivo não encontrado
+            mensagemEl.textContent = `${codigo} was not found.`;
+        }
+    } catch (erro) {
+        // Erro de rede ou outro problema
+        mensagemEl.textContent = "Error verifying the code. Please try again.";
+        console.error("Erro:", erro);
+    }
+}
+</script>
+</body>
+</html>
