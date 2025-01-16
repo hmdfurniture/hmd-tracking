@@ -162,8 +162,9 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
           <li>Order Nr.: ${dados4.nrEncomenda}</li>
       </ul>
       ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
-      
+
       <h2>Carrier at origin</h2>
+      ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
       <ul>
           <li>${dados1.nomeExpedidor}</li>
           <li>${dados1.moradaExpedidor}</li>
@@ -173,9 +174,9 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
           <li>${dados1.emailExpedidor}</li>
           <li>Reference: ${dados2.numeroReserva}</li>
       </ul>
-      ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
 
       <h2>Carrier at destination</h2>
+      ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
       <ul>
           <li>${dados6.nrCliente}</li>
           <li>${dados6.nomeCliente}</li>
@@ -188,7 +189,6 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
           <li>${removerProtocolo(dados6.url)}</li>
           <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
       </ul>
-      ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
 
       <h2>Client</h2>
       <ul>
