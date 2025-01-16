@@ -1,8 +1,1 @@
-﻿Nome Expedidor Origem: TRANSMAIA TRANSPORTES LDA
-No Expedidor Origem: 5912
-Morada Expedidor Origem: RUA DE SÃO MAMEDE, 1595
-Código Postal Expedidor Origem: 4745-456 SÃO MAMEDE CORONADO
-Local Expedidor Origem: TROFA
-Telefone Expedidor Origem: +351 229 865 070
-Email Expedidor Origem: geral@transmaia.pt
-
+﻿
