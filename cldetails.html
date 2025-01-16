@@ -65,7 +65,12 @@ function processarConteudo(dados, tipo) {
     return dados ? dados : `${tipo} dados não encontrados.`;
 }
 
-function carregarConteudo() {
+function removerProtocolo(url) {
+    // This function removes the protocol (http:// or https://) from a URL
+    return url.replace(/^https?:\/\//, '');
+}
+
+async function carregarConteudo() {
     const codigo = obterCodigoDaURL();
 
     if (!codigo) {
@@ -87,19 +92,29 @@ function carregarConteudo() {
         `conteudo/${codigo}/SZADRS_Dados.txt`,
         `conteudo/${codigo}/AGDados.txt`
     ];
-    const imagemUrlFt2 = `conteudo/${codigo}/image_ft2dados.jpg`;
-    const imagemUrlAg = `conteudo/${codigo}/image_agdados.jpg`;
-    const imagemUrlFl = `conteudo/${codigo}/image_fldados.jpg`;
 
-    Promise.all([
-        ...conteudoUrls.map(url => fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`))),
-        fetch(imagemUrlFt2).then(response => response.ok ? response.blob() : Promise.resolve(null)),
-        fetch(imagemUrlAg).then(response => response.ok ? response.blob() : Promise.resolve(null)),
-        fetch(imagemUrlFl).then(response => response.ok ? response.blob() : Promise.resolve(null))
-    ])
-    .then(([
-        dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG, imagemFt2, imagemAg, imagemFl
-    ]) => {
+    const imagemUrls = {
+        ft2: `conteudo/${codigo}/image_ft2dados.jpg`,
+        ag: `conteudo/${codigo}/image_agdados.jpg`,
+        fl: `conteudo/${codigo}/image_fldados.jpg`
+    };
+
+    try {
+        const dados = await Promise.all(
+            conteudoUrls.map(url =>
+                fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`))
+            )
+        );
+
+        const imagens = await Promise.all(
+            Object.values(imagemUrls).map(url =>
+                fetch(url).then(response => response.ok ? response.blob() : Promise.resolve(null)).catch(() => Promise.resolve(null))
+            )
+        );
+
+        const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG] = dados;
+        const [imagemFt2, imagemAg, imagemFl] = imagens;
+
         const dados1 = processarConteudo(dadosFL, 'FL');
         const dados2 = processarConteudo(dadosFT2, 'FT2');
         const dados3 = processarConteudo(dadosFT3, 'FT3');
@@ -107,7 +122,6 @@ function carregarConteudo() {
         const dados5 = processarConteudo(dadosSZADRS, 'SZADRS');
         const dados6 = processarConteudo(dadosAG, 'AG');
 
-        // Only create image HTML if corresponding data exists
         let imagemFt2HTML = '';
         if (imagemFt2 && dados2) {
             const imagemURLFt2 = URL.createObjectURL(imagemFt2);
@@ -127,11 +141,10 @@ function carregarConteudo() {
         }
 
         exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML);
-    })
-    .catch(error => {
+    } catch (error) {
         alert("Ocorreu um erro ao carregar o conteúdo.");
         console.error("Error loading content:", error); // Check the error details in the browser console
-    });
+    }
 }
 
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
