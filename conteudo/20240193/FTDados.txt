@@ -3,7 +3,7 @@ Nome Cliente: ADDISON HOUSE INC
 Local Carga: ALPI PORTUGAL NAVEGAÇÕES E TRANSITOS LDA
 Local Descarga: ADDISON HOUSE INC
 Data Expedição: 20/12/2024
-Expeditor: Transmaia
+Expeditor: 
 Nr. Encomenda: 7150_7158
 Status: Goods with the agent - awaiting shipment
 Mercadoria: Paletizados
