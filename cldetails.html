@@ -101,15 +101,11 @@ async function carregarConteudo() {
 
     try {
         const dados = await Promise.all(
-            conteudoUrls.map(url =>
-                fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`))
-            )
+            conteudoUrls.map(url => fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`)))
         );
 
         const imagens = await Promise.all(
-            Object.values(imagemUrls).map(url =>
-                fetch(url).then(response => response.ok ? response.blob() : Promise.resolve(null)).catch(() => Promise.resolve(null))
-            )
+            Object.values(imagemUrls).map(url => fetch(url).then(response => response.ok ? response.blob() : Promise.resolve(null)).catch(() => Promise.resolve(null)))
         );
 
         const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG] = dados;
@@ -125,19 +121,19 @@ async function carregarConteudo() {
         let imagemFt2HTML = '';
         if (imagemFt2 && dados2) {
             const imagemURLFt2 = URL.createObjectURL(imagemFt2);
-            imagemFt2HTML = `<img src="${imagemURLFt2}" alt="Imagem FT2Dados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
+            imagemFt2HTML = `<img src="${imagemURLFt2}" alt="Imagem FT2Dados" style="max-height: 42px; width: auto;">`;
         }
 
         let imagemAgHTML = '';
         if (imagemAg && dados6) {
             const imagemURLAg = URL.createObjectURL(imagemAg);
-            imagemAgHTML = `<img src="${imagemURLAg}" alt="Imagem AGDados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
+            imagemAgHTML = `<img src="${imagemURLAg}" alt="Imagem AGDados" style="max-height: 42px; width: auto;">`;
         }
 
         let imagemFlHTML = '';
         if (imagemFl && dados1) {
             const imagemURLFl = URL.createObjectURL(imagemFl);
-            imagemFlHTML = `<img src="${imagemURLFl}" alt="Imagem FLDados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
+            imagemFlHTML = `<img src="${imagemURLFl}" alt="Imagem FLDados" style="max-height: 42px; width: auto;">`;
         }
 
         exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML);
