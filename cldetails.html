@@ -159,70 +159,71 @@ async function carregarConteudo() {
 
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
     console.log('Exibindo dados:', { dados1, dados2, dados3, dados4, dados5, dados6 });
+
     const conteudoDiv = document.getElementById("conteudo");
 
-    const m3HTML = dados2.m3 && dados2.m3 !== '0,00' ? `<li style="display: inline-block; margin-right: 20px;">m3: ${dados2.m3}</li>` : '';
-    const ldmHTML = dados2.ldm && dados2.ldm !== '0,00' ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${dados2.ldm}</li>` : '';
+    const m3HTML = dados2.includes('m3: 0,00') ? '' : `<li style="display: inline-block; margin-right: 20px;">m3: ${dados2.split('\n').find(line => line.includes('m3:')).split(':')[1].trim()}</li>`;
+    const ldmHTML = dados2.includes('Ldm: 0,00') ? '' : `<li style="display: inline-block; margin-right: 20px;">Ldm: ${dados2.split('\n').find(line => line.includes('Ldm:')).split(':')[1].trim()}</li>`;
 
     conteudoDiv.innerHTML = `
       <h2>Merchandise details</h2>
       <ul>
-          <li>Expected Delivery Date: ${dados3.dataEntrega}</li>
-          <li>Shipment Date: ${dados4.dataExpedicao}</li>
+          <li>Expected Delivery Date: ${dados3.split('\n').find(line => line.includes('Data Entrega:')).split(':')[1].trim()}</li>
+          <li>Shipment Date: ${dados4.split('\n').find(line => line.includes('Data Expedição:')).split(':')[1].trim()}</li>
           ${m3HTML}
           ${ldmHTML}
-          <li>Country of destination: ${dados2.zonaExpedicao}</li>
-          <li>No. of volumes/packages: ${dados2.volumesExpedir}</li>
-          <li>Weight: ${dados2.peso}</li>
-          <li>Order Nr.: ${dados4.nrEncomenda}</li>
+          <li>Country of destination: ${dados2.split('\n').find(line => line.includes('Zona Expedição:')).split(':')[1].trim()}</li>
+          <li>No. of volumes/packages: ${dados2.split('\n').find(line => line.includes('Volumes a expedir:')).split(':')[1].trim()}</li>
+          <li>Weight: ${dados2.split('\n').find(line => line.includes('Peso:')).split(':')[1].trim()}</li>
+          <li>Order Nr.: ${dados4.split('\n').find(line => line.includes('Nr. Encomenda:')).split(':')[1].trim()}</li>
       </ul>
       ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
       <h2>Carrier at origin</h2>
       ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
       <ul>
-          <li>${dados1.nomeExpedidor}</li>
-          <li>${dados1.moradaExpedidor}</li>
-          <li>${dados1.localExpedidor}</li>
-          <li>${dados1.codigoPostal}</li>
-          <li>${dados1.telefoneExpedidor}</li>
-          <li>${dados1.emailExpedidor}</li>
-          <li>Reference: ${dados2.numeroReserva}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Nome Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Morada Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Local Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Código Postal Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Telefone Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>${dados1.split('\n').find(line => line.includes('Email Expedidor Origem:')).split(':')[1].trim()}</li>
+          <li>Reference: ${dados2.split('\n').find(line => line.includes('Nr. Reserva:')).split(':')[1].trim()}</li>
       </ul>
 
       <h2>Carrier at destination</h2>
       ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
       <ul>
-          <li>${dados6.nrCliente}</li>
-          <li>${dados6.nomeCliente}</li>
-          <li>${dados6.morada}</li>
-          <li>${dados6.local}</li>
-          <li>${dados6.codigoPostal}</li>
-          <li>${dados6.pais}</li>
-          <li><a href="tel:${dados6.telefone}">${dados6.telefone}</a></li>
-          <li><a href="mailto:${dados6.email}">${dados6.email}</a></li>
-          <li>${removerProtocolo(dados6.url)}</li>
-          <li>Carrier at origin Reference: ${dados2.numeroReserva}</li>
+          <li>${dados6.split('\n').find(line => line.includes('Nr. Cliente:')).split(':')[1].trim()}</li>
+          <li>${dados6.split('\n').find(line => line.includes('Nome Cliente:')).split(':')[1].trim()}</li>
+          <li>${dados6.split('\n').find(line => line.includes('Morada:')).split(':')[1].trim()}</li>
+          <li>${dados6.split('\n').find(line => line.includes('Local:')).split(':')[1].trim()}</li>
+          <li>${dados6.split('\n').find(line => line.includes('Código Postal:')).split(':')[1].trim()}</li>
+          <li>${dados6.split('\n').find(line => line.includes('País:')).split(':')[1].trim()}</li>
+          <li><a href="tel:${dados6.split('\n').find(line => line.includes('Telefone:')).split(':')[1].trim()}">${dados6.split('\n').find(line => line.includes('Telefone:')).split(':')[1].trim()}</a></li>
+          <li><a href="mailto:${dados6.split('\n').find(line => line.includes('Email:')).split(':')[1].trim()}">${dados6.split('\n').find(line => line.includes('Email:')).split(':')[1].trim()}</a></li>
+          <li>${removerProtocolo(dados6.split('\n').find(line => line.includes('URL:')).split(':')[1].trim())}</li>
+          <li>Carrier at origin Reference: ${dados2.split('\n').find(line => line.includes('Nr. Reserva:')).split(':')[1].trim()}</li>
       </ul>
 
       <h2>Client</h2>
       <ul>
-          <li>Nr.: ${dados4.nrCliente}</li>
-          <li>Name: ${dados4.nomeCliente}</li>
+          <li>Nr.: ${dados4.split('\n').find(line => line.includes('Nr. Cliente:')).split(':')[1].trim()}</li>
+          <li>Name: ${dados4.split('\n').find(line => line.includes('Nome Cliente:')).split(':')[1].trim()}</li>
       </ul>
 
       <h2>Delivery address</h2>
       <ul>
-          <li>Descrição: ${dados5.descricaoEntrega}</li>
-          <li>Name: ${dados5.nomeEntrega}</li>
-          <li>Address: ${dados5.moradaEntrega}</li>
-          <li>Local: ${dados5.localEntrega}</li>
-          <li>Zip Code: ${dados5.codigoPostalEntrega}</li>
-          <li>Country: ${dados5.paisEntrega}</li>
-          <li>Contact Name: ${dados5.nomeContatoEntrega}</li>
-          <li>Telephone: <a href="tel:${dados5.telefoneEntrega}">${dados5.telefoneEntrega}</a></li>
-          <li>Email: <a href="mailto:${dados5.emailEntrega}">${dados5.emailEntrega}</a></li>
-          <li>Obs: ${dados5.observacaoEntrega}</li>
+          <li>Descrição: ${dados5.split('\n').find(line => line.includes('Descrição da entrega:')).split(':')[1].trim()}</li>
+          <li>Name: ${dados5.split('\n').find(line => line.includes('Nome da entrega:')).split(':')[1].trim()}</li>
+          <li>Address: ${dados5.split('\n').find(line => line.includes('Morada da entrega:')).split(':')[1].trim()}</li>
+          <li>Local: ${dados5.split('\n').find(line => line.includes('Local da entrega:')).split(':')[1].trim()}</li>
+          <li>Zip Code: ${dados5.split('\n').find(line => line.includes('Código Postal da entrega:')).split(':')[1].trim()}</li>
+          <li>Country: ${dados5.split('\n').find(line => line.includes('País da entrega:')).split(':')[1].trim()}</li>
+          <li>Contact Name: ${dados5.split('\n').find(line => line.includes('Nome Contacto da entrega:')).split(':')[1].trim()}</li>
+          <li>Telephone: <a href="tel:${dados5.split('\n').find(line => line.includes('Telefone da entrega:')).split(':')[1].trim()}">${dados5.split('\n').find(line => line.includes('Telefone da entrega:')).split(':')[1].trim()}</a></li>
+          <li>Email: <a href="mailto:${dados5.split('\n').find(line => line.includes('Email da entrega:')).split(':')[1].trim()}">${dados5.split('\n').find(line => line.includes('Email da entrega:')).split(':')[1].trim()}</a></li>
+          <li>Obs: ${dados5.split('\n').find(line => line.includes('Observação da entrega:')).split(':')[1].trim()}</li>
       </ul>
   `;
 }
