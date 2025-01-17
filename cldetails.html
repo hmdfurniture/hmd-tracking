@@ -59,6 +59,7 @@ function obterCodigoDaURL() {
 }
 
 function processarConteudo(dados, tipo) {
+    console.log(`Processing ${tipo} data:`, dados);
     // Example processing logic based on the 'tipo'
     // This function should return the processed data
     // Modify this function based on your actual processing logic
@@ -101,14 +102,26 @@ async function carregarConteudo() {
 
     try {
         const dados = await Promise.all(
-            conteudoUrls.map(url => fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`)))
+            conteudoUrls.map(url => 
+                fetch(url).then(response => {
+                    console.log(`Fetching ${url}:`, response.ok ? 'Success' : 'Failed');
+                    return response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`);
+                })
+            )
         );
 
         const imagens = await Promise.all(
-            Object.values(imagemUrls).map(url => fetch(url).then(response => response.ok ? response.blob() : Promise.resolve(null)).catch(() => Promise.resolve(null)))
+            Object.values(imagemUrls).map(url => 
+                fetch(url).then(response => {
+                    console.log(`Fetching ${url}:`, response.ok ? 'Success' : 'Failed');
+                    return response.ok ? response.blob() : Promise.resolve(null);
+                }).catch(() => Promise.resolve(null))
+            )
         );
 
         const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG] = dados;
+        console.log({ dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG });
+
         const [imagemFt2, imagemAg, imagemFl] = imagens;
 
         const dados1 = processarConteudo(dadosFL, 'FL');
@@ -117,6 +130,7 @@ async function carregarConteudo() {
         const dados4 = processarConteudo(dadosFT, 'FT');
         const dados5 = processarConteudo(dadosSZADRS, 'SZADRS');
         const dados6 = processarConteudo(dadosAG, 'AG');
+        console.log({ dados1, dados2, dados3, dados4, dados5, dados6 });
 
         let imagemFt2HTML = '';
         if (imagemFt2 && dados2) {
@@ -144,6 +158,7 @@ async function carregarConteudo() {
 }
 
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
+    console.log('Exibindo dados:', { dados1, dados2, dados3, dados4, dados5, dados6 });
     const conteudoDiv = document.getElementById("conteudo");
 
     const m3HTML = dados2.m3 && dados2.m3 !== '0,00' ? `<li style="display: inline-block; margin-right: 20px;">m3: ${dados2.m3}</li>` : '';
