@@ -31,7 +31,8 @@
 /* Ajustar o tamanho do logo */
 .logo {
     max-width: 150px; /* Define a largura máxima */
-    height: auto; /* Mantém a proporção */
+    max-width: 350px; /* Define a largura máxima */
+    height: auto;     /* Mantém a proporção */
 }
 </style>
 </head>
@@ -61,9 +62,6 @@ function obterCodigoDaURL() {
 
 // Função para processar e retornar conteúdo
 function processarConteudo(dados, tipo) {
-    // Exemplo de lógica de processamento baseado no 'tipo'
-    // Esta função deve retornar os dados processados
-    // Modifique esta função com base na sua lógica de processamento real
     return dados ? dados : `${tipo} dados não encontrados.`;
 }
 
@@ -178,16 +176,21 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
 
     // Montagem do conteúdo HTML com os dados
     conteudoDiv.innerHTML = `
+        <h2>Status</h2>
+        <ul>
+            <li>${getValue(dados4, 'Status:')}</li>
+            <li>${getValue(dados4, 'Data Expedição:')}</li>
+            <li>${getValue(dados3, 'Data Entrega:')}</li>
+        </ul>
         <h2>Merchandise details</h2>
         <ul>
-            <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
-            <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+            <li>${getValue(dados4, 'Nr. Encomenda:')}</li>
+            <li>${getValue(dados4, 'Marcas:')}</li>
+            <li>${getValue(dados4, 'Mercadoria:')}</li>
+            <li>${getValue(dados2, 'Volumes a expedir:')}</li>
+            <li>${getValue(dados2, 'Peso:')} kg</li>
             ${m3HTML}
             ${ldmHTML}
-            <li>Country of destination: ${getValue(dados2, 'Zona Expedição:')}</li>
-            <li>No. of volumes/packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-            <li>Weight: ${getValue(dados2, 'Peso:')}</li>
-            <li>Order Nr.: ${getValue(dados4, 'Nr. Encomenda:')}</li>
         </ul>
         ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
@@ -206,7 +209,6 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
         <h2>Carrier at destination</h2>
         ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
         <ul>
-            <li>${getValue(dados6, 'Nr. Cliente:')}</li>
             <li>${getValue(dados6, 'Nome Cliente:')}</li>
             <li>${getValue(dados6, 'Morada:')}</li>
             <li>${getValue(dados6, 'Local:')}</li>
@@ -218,24 +220,17 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             <li>Carrier at origin Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
         </ul>
 
-        <h2>Client</h2>
-        <ul>
-            <li>Nr.: ${getValue(dados4, 'Nr. Cliente:')}</li>
-            <li>Name: ${getValue(dados4, 'Nome Cliente:')}</li>
-        </ul>
-
         <h2>Delivery address</h2>
         <ul>
-            <li>Descrição: ${getValue(dados5, 'Descrição da entrega:')}</li>
-            <li>Name: ${getValue(dados5, 'Nome da entrega:')}</li>
-            <li>Address: ${getValue(dados5, 'Morada da entrega:')}</li>
-            <li>Local: ${getValue(dados5, 'Local da entrega:')}</li>
-            <li>Zip Code: ${getValue(dados5, 'Código Postal da entrega:')}</li>
-            <li>Country: ${getValue(dados5, 'País da entrega:')}</li>
-            <li>Contact Name: ${getValue(dados5, 'Nome Contacto da entrega:')}</li>
-            <li>Telephone: <a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
-            <li>Email: <a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
-            <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
+            <li>${getValue(dados5, 'Descrição da entrega:')}</li>
+            <li>${getValue(dados5, 'Nome da entrega:')}</li>
+            <li>${getValue(dados5, 'Morada da entrega:')}</li>
+            <li>${getValue(dados5, 'Local da entrega:')}</li>
+            <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
+            <li>${getValue(dados5, 'País da entrega:')}</li>
+            <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
+            <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
+            <li>${getValue(dados5, 'Observação da entrega:')}</li>
         </ul>
     `;
 }
