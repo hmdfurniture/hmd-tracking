@@ -2,10 +2,10 @@
 Nome Cliente: UAB FURNIBAY
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: UAB FURNIBAY - SHOWROOM
-Data Expedição: 14/01/2025
+Data Expedição: 17/01/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7149
-Status: Order not yet dispatched
+Status: Goods with the local carrier awaiting shipment
 Mercadoria: Paletizados
 Marcas: FURN-07647
 
