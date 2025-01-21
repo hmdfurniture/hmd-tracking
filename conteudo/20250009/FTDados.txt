@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 9
+Nome Cliente: MARIA RAPOSO, LDA
+Local Carga: VARIOS LOCAIS
+Local Descarga: ALGARVE EXPRESS TRANSPORT & REMOVALS
+Data Expedição: 24/01/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7164
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 122/24
+
