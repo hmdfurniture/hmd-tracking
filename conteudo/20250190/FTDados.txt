@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 190
 Nome Cliente: N116 - ARQ. E DESIGN DE INTERIORES, LDA
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: N116 - URBANOS - DELEGAÇÃO DE FARO
 Data Expedição: 24/01/2025
 Expeditor: Xbslog
