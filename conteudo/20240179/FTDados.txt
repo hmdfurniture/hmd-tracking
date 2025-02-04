@@ -5,7 +5,7 @@ Local Descarga: ADDISON HOUSE INC
 Data Expedição: 18/12/2024
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7139
-Status: Goods with the agent - awaiting shipment
+Status: Shipment in transit to the destination
 Mercadoria: Paletizados
 Marcas: PO#19854
 
