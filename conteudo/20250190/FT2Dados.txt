@@ -1,7 +1,7 @@
 ﻿m3: 0,39
 Zona Expedição: PORTUGAL
 Volumes a expedir: 1,00
-Nr. Reserva: 0
+Nr. Reserva: 70622
 Peso : 20,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
