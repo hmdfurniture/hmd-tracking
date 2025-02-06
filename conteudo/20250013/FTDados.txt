@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 13
 Nome Cliente: MP HOME
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: NJ TRANSPORT - MP HOME
 Data Expedição: 07/02/2025
 Expeditor: Xbslog
