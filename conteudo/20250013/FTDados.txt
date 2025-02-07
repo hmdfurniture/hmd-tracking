@@ -5,7 +5,7 @@ Local Descarga: NJ TRANSPORT - MP HOME
 Data Expedição: 07/02/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7168
-Status: Order not yet dispatched
+Status: Goods with the agent awaiting shipment
 Mercadoria: Paletizados
 Marcas: Mora bench
 
