@@ -5,7 +5,7 @@ Local Descarga: UAB FURNIBAY - SHOWROOM
 Data Expedição: 17/01/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7149
-Status: Shipment in transit to the destination
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: FURN-07647
 
