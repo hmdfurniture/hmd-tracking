@@ -2,7 +2,7 @@ name: List Directories and Their Latest Git Commit Date (Ubuntu)
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Runs weekly, every Sunday at midnight
+    - cron: '2 2 * * 0'  # Runs weekly, every Sunday at 01:01 UTC (1 hour after the first workflow)
   workflow_dispatch:  # Allows manual execution
 
 jobs:
