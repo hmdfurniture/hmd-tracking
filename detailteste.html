@@ -183,7 +183,6 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             <ul>
                 <li>Status: ${getValue(dados4, 'Status:')}</li>
                 <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
-                <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
             </ul>
             <h2>Merchandise details</h2>
             <ul>
@@ -198,14 +197,8 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
             <h2>Collect Details</h2>
             <ul>
-                <li>Nome Cliente: ${getValue(dados6, 'Nome Cliente:')}</li>
-                <li>Morada: ${getValue(dados6, 'Morada:')}</li>
-                <li>Local: ${getValue(dados6, 'Local:')}</li>
-                <li>Código Postal: ${getValue(dados6, 'Código Postal:')}</li>
-                <li>País: ${getValue(dados6, 'País:')}</li>
-                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
-                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
-                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
+                <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
             </ul>
         `;
     } else {
