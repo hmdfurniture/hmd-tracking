@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 15
+Nome Cliente: BASIC COLLECTION KFT
+Local Carga: 
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 19/02/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7176
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Castellum Veszprém
+
