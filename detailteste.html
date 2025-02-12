@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>detailteste</title>
+<!-- Ícones de Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/Favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/Favicon/android-chrome-512x512.png">
+<link rel="apple-touch-icon" href="images/Favicon/apple-touch-icon.png">
+
+<style>
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black; /* Muda a cor do link para preto */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.back-button:hover {
+    text-decoration: underline;
+}
+.back-icon {
+    margin-right: 10px;
+}
+/* Ajustar o tamanho do logo */
+.logo {
+    max-width: 150px; /* Define a largura máxima */
+    max-width: 350px; /* Define a largura máxima */
+    height: auto;     /* Mantém a proporção */
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="logo-container">
+        <img src="images/logo.jpg" alt="Logo HMD" class="logo">
+        <h1></h1>
+    </div>
+
+    <div id="conteudo">
+        <!-- O conteúdo será carregado dinamicamente aqui -->
+    </div>
+
+    <!-- Seta de retorno à página principal -->
+    <a href="index.html" class="back-button">
+        <span class="back-icon">←</span> Back
+    </a>
+</div>
+
+<script>
+// Função para obter o código da URL
+function obterCodigoDaURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('codigo');
+}
+
+// Função para processar e retornar conteúdo
+function processarConteudo(dados, tipo) {
+    return dados ? dados : `${tipo} dados não encontrados.`;
+}
+
+// Função para remover o protocolo (http:// ou https://) de uma URL
+function removerProtocolo(url) {
+    return url ? url.replace(/^https?:\/\//, '') : '';
+}
+
+// Função para carregar o conteúdo da página
+async function carregarConteudo() {
+    const codigo = obterCodigoDaURL();
+
+    if (!codigo) {
+        alert("Código não encontrado. Verifique a URL.");
+        document.getElementById("conteudo").innerHTML = `
+            <p><strong>Código não encontrado.</strong></p>
+            <a href="/" class="back-button">
+                <span class="back-icon">←</span> Voltar à Página Principal
+            </a>
+        `;
+        return; // Não carrega o conteúdo
+    }
+
+    // URLs dos arquivos de conteúdo
+    const conteudoUrls = [
+        `conteudo/${codigo}/FLDados.txt`,
+        `conteudo/${codigo}/FT2Dados.txt`,
+        `conteudo/${codigo}/FT3Dados.txt`,
+        `conteudo/${codigo}/FTDados.txt`,
+        `conteudo/${codigo}/SZADRS_Dados.txt`,
+        `conteudo/${codigo}/AGDados.txt`
+    ];
+
+    // URLs das imagens
+    const imagemUrls = {
+        ft2: `conteudo/${codigo}/image_ft2dados.jpg`,
+        ag: `conteudo/${codigo}/image_agdados.jpg`,
+        fl: `conteudo/${codigo}/image_fldados.jpg`
+    };
+
+    try {
+        // Fetch para obter os dados dos arquivos de conteúdo
+        const dados = await Promise.all(
+            conteudoUrls.map(url => 
+                fetch(url).then(response => response.ok ? response.text() : Promise.resolve(`${url.split('/').pop()} não encontrado.`))
+            )
+        );
+
+        // Fetch para obter as imagens
+        const imagens = await Promise.all(
+            Object.values(imagemUrls).map(url => 
+                fetch(url).then(response => response.ok ? response.blob() : Promise.resolve(null)).catch(() => Promise.resolve(null))
+            )
+        );
+
+        // Atribuição dos dados obtidos
+        const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG] = dados;
+
+        // Atribuição das imagens obtidas
+        const [imagemFt2, imagemAg, imagemFl] = imagens;
+
+        // Processamento dos dados
+        const dados1 = processarConteudo(dadosFL, 'FL');
+        const dados2 = processarConteudo(dadosFT2, 'FT2');
+        const dados3 = processarConteudo(dadosFT3, 'FT3');
+        const dados4 = processarConteudo(dadosFT, 'FT');
+        const dados5 = processarConteudo(dadosSZADRS, 'SZADRS');
+        const dados6 = processarConteudo(dadosAG, 'AG');
+
+        // Criação das tags de imagem
+        let imagemFt2HTML = '';
+        if (imagemFt2 && dados2) {
+            const imagemURLFt2 = URL.createObjectURL(imagemFt2);
+            imagemFt2HTML = `<img src="${imagemURLFt2}" alt="Imagem FT2Dados" style="max-width: 100%; max-height: 200px; margin-top: 20px;">`;
+        }
+
+        let imagemAgHTML = '';
+        if (imagemAg && dados6) {
+            const imagemURLAg = URL.createObjectURL(imagemAg);
+            imagemAgHTML = `<img src="${imagemURLAg}" alt="Imagem AGDados" style="max-height: 42px; width: auto;">`;
+        }
+
+        let imagemFlHTML = '';
+        if (imagemFl && dados1) {
+            const imagemURLFl = URL.createObjectURL(imagemFl);
+            imagemFlHTML = `<img src="${imagemURLFl}" alt="Imagem FLDados" style="max-height: 42px; width: auto;">`;
+        }
+
+        // Exibir os dados na página
+        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML);
+    } catch (error) {
+        alert("Ocorreu um erro ao carregar o conteúdo.");
+        console.error("Error loading content:", error); // Verifique os detalhes do erro no console do navegador
+    }
+}
+
+// Função para exibir os dados na página
+function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
+    const conteudoDiv = document.getElementById("conteudo");
+
+    // Função para obter o valor de uma chave específica nos dados
+    const getValue = (data, key) => {
+        if (data && data.includes(key)) {
+            return data.split('\n').find(line => line.includes(key)).split(':')[1].trim();
+        }
+        return 'Not available';
+    };
+
+    const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
+
+    if (nomeExpedidorOrigem === "EX-WORKS") {
+        // Exibir dados de coletar para cliente
+        conteudoDiv.innerHTML = `
+            <h2>Collect Details</h2>
+            <ul>
+                <li>Nome Cliente: ${getValue(dados6, 'Nome Cliente:')}</li>
+                <li>Morada: ${getValue(dados6, 'Morada:')}</li>
+                <li>Local: ${getValue(dados6, 'Local:')}</li>
+                <li>Código Postal: ${getValue(dados6, 'Código Postal:')}</li>
+                <li>País: ${getValue(dados6, 'País:')}</li>
+                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
+                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
+                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
+            </ul>
+        `;
+    } else {
+        // Exibir os dados normais
+        // Verificação das condições para exibir m3 e ldm
+        const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
+        const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
+
+        // Montagem do conteúdo HTML com os dados
+        conteudoDiv.innerHTML = `
+            <h2>Status</h2>
+            <ul>
+                <li>Status: ${getValue(dados4, 'Status:')}</li>
+                <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+                <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
+            </ul>
+            <h2>Merchandise details</h2>
+            <ul>
+                <li>Order Nr.: ${getValue(dados4, 'Nr. Encomenda:')}</li>
+                <li>Marks: ${getValue(dados4, 'Marcas:')}</li>
+                <li>Type of packaging: ${getValue(dados4, 'Mercadoria:')}</li>
+                <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
+                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                ${m3HTML}
+                ${ldmHTML}
+            </ul>
+            ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
+
+            <h2>Carrier at origin</h2>
+            ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
+            <ul>
+                <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Local Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Código Postal Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Telefone Expedidor Origem:')}</li>
+                <li>${getValue(dados1, 'Email Expedidor Origem:')}</li>
+                <li>Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
+            </ul>
+
+            <h2>Carrier at destination</h2>
+            ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
+            <ul>
+                <li>${getValue(dados6, 'Nome Cliente:')}</li>
+                <li>${getValue(dados6, 'Morada:')}</li>
+                <li>${getValue(dados6, 'Local:')}</li>
+                <li>${getValue(dados6, 'Código Postal:')}</li>
+                <li>${getValue(dados6, 'País:')}</li>
+                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
+                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
+                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
+                <li>Carrier at origin Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
+            </ul>
+
+            <h2>Delivery address</h2>
+            <ul>
+                <li>${getValue(dados5, 'Descrição da entrega:')}</li>
+                <li>${getValue(dados5, 'Nome da entrega:')}</li>
+                <li>${getValue(dados5, 'Morada da entrega:')}</li>
+                <li>${getValue(dados5, 'Local da entrega:')}</li>
+                <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
+                <li>${getValue(dados5, 'País da entrega:')}</li>
+                <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
+                <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
+                <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
+            </ul>
+        `;
+    }
+}
+
+// Carregar os dados assim que a página for carregada
+window.onload = carregarConteudo;
+</script>
+</body>
+</html>
