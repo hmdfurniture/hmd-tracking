@@ -175,6 +175,23 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
     if (nomeExpedidorOrigem === "EX-WORKS") {
         // Exibir dados de coletar para cliente
         conteudoDiv.innerHTML = `
+        <h2>Status</h2>
+            <ul>
+                <li>Status: ${getValue(dados4, 'Status:')}</li>
+                <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+                <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
+            </ul>
+            <h2>Merchandise details</h2>
+            <ul>
+                <li>Order Nr.: ${getValue(dados4, 'Nr. Encomenda:')}</li>
+                <li>Marks: ${getValue(dados4, 'Marcas:')}</li>
+                <li>Type of packaging: ${getValue(dados4, 'Mercadoria:')}</li>
+                <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
+                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                ${m3HTML}
+                ${ldmHTML}
+            </ul>
+            ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
             <h2>Collect Details</h2>
             <ul>
                 <li>Nome Cliente: ${getValue(dados6, 'Nome Cliente:')}</li>
