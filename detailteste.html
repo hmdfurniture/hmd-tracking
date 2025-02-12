@@ -172,10 +172,14 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
 
     const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
 
+    // Verificação das condições para exibir m3 e ldm
+    const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
+    const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
+
     if (nomeExpedidorOrigem === "EX-WORKS") {
         // Exibir dados de coletar para cliente
         conteudoDiv.innerHTML = `
-        <h2>Status</h2>
+            <h2>Status</h2>
             <ul>
                 <li>Status: ${getValue(dados4, 'Status:')}</li>
                 <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
@@ -206,10 +210,6 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
         `;
     } else {
         // Exibir os dados normais
-        // Verificação das condições para exibir m3 e ldm
-        const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
-        const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
-
         // Montagem do conteúdo HTML com os dados
         conteudoDiv.innerHTML = `
             <h2>Status</h2>
@@ -277,3 +277,4 @@ window.onload = carregarConteudo;
 </script>
 </body>
 </html>
+``` ▋
