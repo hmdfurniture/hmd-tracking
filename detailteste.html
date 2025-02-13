@@ -92,6 +92,7 @@ async function carregarConteudo() {
         `conteudo/${codigo}/FT3Dados.txt`,
         `conteudo/${codigo}/FTDados.txt`,
         `conteudo/${codigo}/SZADRS_Dados.txt`,
+        `conteudo/${codigo}/SZADRS1_Dados.txt`,
         `conteudo/${codigo}/AGDados.txt`
     ];
 
@@ -130,6 +131,7 @@ async function carregarConteudo() {
         const dados4 = processarConteudo(dadosFT, 'FT');
         const dados5 = processarConteudo(dadosSZADRS, 'SZADRS');
         const dados6 = processarConteudo(dadosAG, 'AG');
+        const dados7 = processarConteudo(dadosSZADRS1, 'SZADRS1');
 
         // Criação das tags de imagem
         let imagemFt2HTML = '';
@@ -203,16 +205,17 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 ${ldmHTML}
             </ul>
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
-            <h2>Collect Details</h2>
+            <h2>Collect Address</h2>
             <ul>
-                <li>Nome Cliente: ${getValue(dados6, 'Nome Cliente:')}</li>
-                <li>Morada: ${getValue(dados6, 'Morada:')}</li>
-                <li>Local: ${getValue(dados6, 'Local:')}</li>
-                <li>Código Postal: ${getValue(dados6, 'Código Postal:')}</li>
-                <li>País: ${getValue(dados6, 'País:')}</li>
-                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
-                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
-                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
+                <<li>${getValue(dados7, 'Descrição da entrega:')}</li>
+                <li>${getValue(dados7, 'Nome da entrega:')}</li>
+                <li>${getValue(dados7, 'Morada da entrega:')}</li>
+                <li>${getValue(dados7, 'Local da entrega:')}</li>
+                <li>${getValue(dados7, 'Código Postal da entrega:')}</li>
+                <li>${getValue(dados7, 'País da entrega:')}</li>
+                <li><a href="tel:${getValue(dados7, 'Telefone da entrega:')}">${getValue(dados7, 'Telefone da entrega:')}</a></li>
+                <li><a href="mailto:${getValue(dados7, 'Email da entrega:')}">${getValue(dados7, 'Email da entrega:')}</a></li>
+                <li>Obs: ${getValue(dados7, 'Observação da entrega:')}</li>
             </ul>
         `;
     } else {
