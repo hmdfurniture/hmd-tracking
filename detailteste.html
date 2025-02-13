@@ -158,23 +158,53 @@ async function carregarConteudo() {
     }
 }
 
+// Função para traduzir valores de mercadoria
+function traduzirMercadoria(mercadoria) {
+    const traducoes = {
+        "Paletizados": "Palletized",
+        "Não Paletizados": "Non-Palletized",
+        "Misto – Paletes + Volumes Soltos.": "Mixed – Pallets + Loose Packages."
+    };
+    return traducoes[mercadoria] || mercadoria; // Retorna a tradução ou o valor original se não houver tradução
+}
+
+// Função para traduzir valores de país
+function traduzirPais(pais) {
+    const traducoes = {
+        "Portugal": "Portugal",
+        "Espanha": "Spain",
+        "França": "France",
+        "Alemanha": "Germany",
+        "Itália": "Italy"
+    };
+    return traducoes[pais] || pais; // Retorna a tradução ou o valor original se não houver tradução
+}
+
 // Função para exibir os dados na página
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
     const conteudoDiv = document.getElementById("conteudo");
 
-    // Função para obter o valor de uma chave específica nos dados
-    const getValue = (data, key) => {
-        if (data && data.includes(key)) {
-            return data.split('\n').find(line => line.includes(key)).split(':')[1].trim();
+    // Traduzir mercadoria e país
+    const mercadoriaTraduzida = traduzirMercadoria(dados4.mercadoria);
+    const paisTraduzido1 = traduzirPais(getValue(dados6, 'País:'));
+    const paisTraduzido2 = traduzirPais(getValue(dados5, 'País da entrega:'));
+
+    // Função para remover o protocolo (http:// ou https://) de uma URL
+    function removerProtocolo(url) {
+        if (typeof url !== 'string') {
+            console.error('URL inválida:', url);
+            return ''; // Retorna uma string vazia para evitar falhas
         }
-        return 'Not available';
+        return url.replace(/https?:\/\//, '');
+    }
+
+    // Campos que você quer aplicar ocultação
+    const camposOcultar = {
+        m3: (valor) => valor === 0 || valor === '0,00',
+        ldm: (valor) => valor === 0 || valor === '0,00',
     };
 
     const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
-
-    // Verificação das condições para exibir m3 e ldm
-    const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
-    const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
 
     if (nomeExpedidorOrigem === "EX-WORKS") {
         // Exibir dados de coletar para cliente
@@ -183,12 +213,13 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             <ul>
                 <li>Status: ${getValue(dados4, 'Status:')}</li>
                 <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+                <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
             </ul>
             <h2>Merchandise details</h2>
             <ul>
                 <li>Order Nr.: ${getValue(dados4, 'Nr. Encomenda:')}</li>
                 <li>Marks: ${getValue(dados4, 'Marcas:')}</li>
-                <li>Type of packaging: ${getValue(dados4, 'Mercadoria:')}</li>
+                <li>Type of packaging: ${mercadoriaTraduzida}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
                 <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
                 ${m3HTML}
@@ -197,8 +228,14 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
             <h2>Collect Details</h2>
             <ul>
-                <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
+                <li>Nome Cliente: ${getValue(dados6, 'Nome Cliente:')}</li>
+                <li>Morada: ${getValue(dados6, 'Morada:')}</li>
+                <li>Local: ${getValue(dados6, 'Local:')}</li>
+                <li>Código Postal: ${getValue(dados6, 'Código Postal:')}</li>
+                <li>País: ${paisTraduzido1}</li>
+                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
+                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
+                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
             </ul>
         `;
     } else {
@@ -215,11 +252,17 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             <ul>
                 <li>Order Nr.: ${getValue(dados4, 'Nr. Encomenda:')}</li>
                 <li>Marks: ${getValue(dados4, 'Marcas:')}</li>
-                <li>Type of packaging: ${getValue(dados4, 'Mercadoria:')}</li>
+                <li>Type of packaging: ${mercadoriaTraduzida}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
                 <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
-                ${m3HTML}
-                ${ldmHTML}
+                <li style="display: inline-block; margin-right: 20px;" 
+                    ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
+                    m3: ${dados2.m3}
+                </li>
+                <li style="display: inline-block; margin-right: 20px;" 
+                    ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
+                    Ldm: ${dados2.ldm}
+                </li>
             </ul>
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
@@ -242,7 +285,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>${getValue(dados6, 'Morada:')}</li>
                 <li>${getValue(dados6, 'Local:')}</li>
                 <li>${getValue(dados6, 'Código Postal:')}</li>
-                <li>${getValue(dados6, 'País:')}</li>
+                <li>País: ${paisTraduzido1}</li>
                 <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
                 <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
                 <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
@@ -256,7 +299,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>${getValue(dados5, 'Morada da entrega:')}</li>
                 <li>${getValue(dados5, 'Local da entrega:')}</li>
                 <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
-                <li>${getValue(dados5, 'País da entrega:')}</li>
+                <li>País: ${paisTraduzido2}</li>
                 <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
                 <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
                 <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
