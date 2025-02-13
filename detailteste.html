@@ -158,6 +158,14 @@ async function carregarConteudo() {
     }
 }
 
+// Função para obter o valor de uma chave específica nos dados
+function getValue(data, key) {
+    if (data && data.includes(key)) {
+        return data.split('\n').find(line => line.includes(key)).split(':')[1].trim();
+    }
+    return 'Not available';
+}
+
 // Função para traduzir valores de mercadoria
 function traduzirMercadoria(mercadoria) {
     const traducoes = {
@@ -313,4 +321,3 @@ window.onload = carregarConteudo;
 </script>
 </body>
 </html>
-``` ▋
