@@ -304,4 +304,12 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
                 <li>País: ${paisTraduzido2}</li>
                 <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
-                <li><a href ▋
+                <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
+                <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
+            </ul>
+        `;
+    }
+}
+
+// Carregar os dados assim que a página for carregada
+window.onload ▋
