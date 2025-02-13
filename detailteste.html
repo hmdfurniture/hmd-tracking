@@ -40,7 +40,6 @@
 <div class="container">
     <div class="logo-container">
         <img src="images/logo.jpg" alt="Logo HMD" class="logo">
-        <h1></h1>
     </div>
 
     <div id="conteudo">
@@ -119,7 +118,7 @@ async function carregarConteudo() {
         );
 
         // Atribuição dos dados obtidos
-        const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosAG] = dados;
+        const [dadosFL, dadosFT2, dadosFT3, dadosFT, dadosSZADRS, dadosSZADRS1, dadosAG] = dados;
 
         // Atribuição das imagens obtidas
         const [imagemFt2, imagemAg, imagemFl] = imagens;
@@ -153,7 +152,7 @@ async function carregarConteudo() {
         }
 
         // Exibir os dados na página
-        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML);
+        exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, imagemFt2HTML, imagemAgHTML, imagemFlHTML);
     } catch (error) {
         alert("Ocorreu um erro ao carregar o conteúdo.");
         console.error("Error loading content:", error); // Verifique os detalhes do erro no console do navegador
@@ -169,7 +168,7 @@ function traduzirMercadoria(mercadoria) {
     return traducoes[mercadoria] || mercadoria; // Retorna a tradução ou o valor original se não houver tradução
 }
 // Função para exibir os dados na página
-function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
+function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
     const conteudoDiv = document.getElementById("conteudo");
 
     // Função para obter o valor de uma chave específica nos dados
@@ -207,7 +206,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
             <h2>Collect Address</h2>
             <ul>
-                <<li>${getValue(dados7, 'Descrição da entrega:')}</li>
+                <li>${getValue(dados7, 'Descrição da entrega:')}</li>
                 <li>${getValue(dados7, 'Nome da entrega:')}</li>
                 <li>${getValue(dados7, 'Morada da entrega:')}</li>
                 <li>${getValue(dados7, 'Local da entrega:')}</li>
