@@ -183,7 +183,8 @@ function traduzirPais(pais) {
         "Espanha": "Spain",
         "França": "France",
         "Alemanha": "Germany",
-        "Itália": "Italy"
+        "Itália": "Italy",
+        "Irlanda": "Ireland"
     };
     return traducoes[pais] || pais; // Retorna a tradução ou o valor original se não houver tradução
 }
@@ -193,7 +194,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
     const conteudoDiv = document.getElementById("conteudo");
 
     // Traduzir mercadoria e país
-    const mercadoriaTraduzida = traduzirMercadoria(dados4.mercadoria);
+    const mercadoriaTraduzida = traduzirMercadoria(getValue(dados4, 'Mercadoria:'));
     const paisTraduzido1 = traduzirPais(getValue(dados6, 'País:'));
     const paisTraduzido2 = traduzirPais(getValue(dados5, 'País da entrega:'));
 
@@ -208,8 +209,8 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
 
     // Campos que você quer aplicar ocultação
     const camposOcultar = {
-        m3: (valor) => valor === 0 || valor === '0,00',
-        ldm: (valor) => valor === 0 || valor === '0,00',
+        m3: (valor) => valor === 0 || valor === '0,00' || valor === 'Not available',
+        ldm: (valor) => valor === 0 || valor === '0,00' || valor === 'Not available',
     };
 
     const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
@@ -230,8 +231,8 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>Type of packaging: ${mercadoriaTraduzida}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
                 <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
-                ${m3HTML}
-                ${ldmHTML}
+                ${!camposOcultar.m3(getValue(dados2, 'm3:')) ? `<li>m3: ${getValue(dados2, 'm3:')}</li>` : ''}
+                ${!camposOcultar.ldm(getValue(dados2, 'Ldm:')) ? `<li>Ldm: ${getValue(dados2, 'Ldm:')}</li>` : ''}
             </ul>
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
             <h2>Collect Details</h2>
@@ -263,14 +264,8 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>Type of packaging: ${mercadoriaTraduzida}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
                 <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
-                <li style="display: inline-block; margin-right: 20px;" 
-                    ${!camposOcultar['m3'](dados2.m3) ? '' : 'style="display: none;"'}>
-                    m3: ${dados2.m3}
-                </li>
-                <li style="display: inline-block; margin-right: 20px;" 
-                    ${!camposOcultar['ldm'](dados2.ldm) ? '' : 'style="display: none;"'}>
-                    Ldm: ${dados2.ldm}
-                </li>
+                ${!camposOcultar.m3(getValue(dados2, 'm3:')) ? `<li>m3: ${getValue(dados2, 'm3:')}</li>` : ''}
+                ${!camposOcultar.ldm(getValue(dados2, 'Ldm:')) ? `<li>Ldm: ${getValue(dados2, 'Ldm:')}</li>` : ''}
             </ul>
             ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
@@ -309,15 +304,4 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HT
                 <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
                 <li>País: ${paisTraduzido2}</li>
                 <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
-                <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
-                <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
-            </ul>
-        `;
-    }
-}
-
-// Carregar os dados assim que a página for carregada
-window.onload = carregarConteudo;
-</script>
-</body>
-</html>
+                <li><a href ▋
