@@ -157,7 +157,15 @@ async function carregarConteudo() {
         console.error("Error loading content:", error); // Verifique os detalhes do erro no console do navegador
     }
 }
-
+// Função para traduzir valores de mercadoria
+function traduzirMercadoria(mercadoria) {
+    const traducoes = {
+        "Paletizados": "Palletized",
+        "Não Paletizados": "Non-Palletized",
+        "Misto – Paletes + Volumes Soltos.": "Mixed – Pallets + Loose Packages."
+    };
+    return traducoes[mercadoria] || mercadoria; // Retorna a tradução ou o valor original se não houver tradução
+}
 // Função para exibir os dados na página
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
     const conteudoDiv = document.getElementById("conteudo");
