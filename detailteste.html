@@ -158,6 +158,7 @@ async function carregarConteudo() {
         console.error("Error loading content:", error); // Verifique os detalhes do erro no console do navegador
     }
 }
+
 // Função para traduzir valores de mercadoria
 function traduzirMercadoria(mercadoria) {
     const traducoes = {
@@ -167,6 +168,7 @@ function traduzirMercadoria(mercadoria) {
     };
     return traducoes[mercadoria] || mercadoria; // Retorna a tradução ou o valor original se não houver tradução
 }
+
 // Função para exibir os dados na página
 function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, imagemFt2HTML, imagemAgHTML, imagemFlHTML) {
     const conteudoDiv = document.getElementById("conteudo");
@@ -180,17 +182,36 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
     };
 
     const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
+    const status = getValue(dados4, 'Status:');
 
     // Verificação das condições para exibir m3 e ldm
     const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
     const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
 
-    if (nomeExpedidorOrigem === "EX-WORKS") {
+    if (status === "Delivery completed") {
+        // Exibir dados reduzidos para entrega concluída
+        conteudoDiv.innerHTML = `
+            <h2>${status}</h2>
+            <ul>
+                <li>${getValue(dados5, 'Descrição da entrega:')}</li>
+                <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
+                <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
+                <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
+                <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
+                ${m3HTML}
+                ${ldmHTML}
+                </ul>
+                
+                ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
+            
+        `;
+    } else if (nomeExpedidorOrigem === "EX-WORKS") {
         // Exibir dados de coletar para cliente
         conteudoDiv.innerHTML = `
             <h2>Status</h2>
             <ul>
-                <li>Status: ${getValue(dados4, 'Status:')}</li>
+                <li>Status: ${status}</li>
                 <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
             </ul>
             <h2>Merchandise details</h2>
@@ -199,7 +220,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
                 <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
                 ${m3HTML}
                 ${ldmHTML}
             </ul>
@@ -214,7 +235,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>${getValue(dados7, 'País da entrega:')}</li>
                 <li><a href="tel:${getValue(dados7, 'Telefone da entrega:')}">${getValue(dados7, 'Telefone da entrega:')}</a></li>
                 <li><a href="mailto:${getValue(dados7, 'Email da entrega:')}">${getValue(dados7, 'Email da entrega:')}</a></li>
-                <li>Obs: ${getValue(dados7, 'Observação da entrega:')}</li>
+                <li>Obs: <pre>${getValue(dados7, 'Observação da entrega:')}</pre></li>
             </ul>
         `;
     } else {
@@ -223,7 +244,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
         conteudoDiv.innerHTML = `
             <h2>Status</h2>
             <ul>
-                <li>Status: ${getValue(dados4, 'Status:')}</li>
+                <li>Status: ${status}</li>
                 <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
                 <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
             </ul>
@@ -233,7 +254,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
                 <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
                 ${m3HTML}
                 ${ldmHTML}
             </ul>
@@ -275,7 +296,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>${getValue(dados5, 'País da entrega:')}</li>
                 <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
                 <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
-                <li>Obs: ${getValue(dados5, 'Observação da entrega:')}</li>
+                <li>Obs: <pre>${getValue(dados5, 'Observação da entrega:')}</pre></li>
             </ul>
         `;
     }
