@@ -191,6 +191,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
     if (status === "Delivery completed") {
         // Exibir dados reduzidos para entrega concluída
         conteudoDiv.innerHTML = `
+            <h2>${status}</h2>
             <ul>
                 <li>Status: ${status}</li>
                 <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
