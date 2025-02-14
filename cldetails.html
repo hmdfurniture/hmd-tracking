@@ -193,15 +193,15 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
         conteudoDiv.innerHTML = `
             <h2>${status}</h2>
             <ul>
+                <li>${getValue(dados5, 'Descrição da entrega:')}</li>
                 <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
                 <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
                 <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
                 ${m3HTML}
                 ${ldmHTML}
                 ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
-                <li>${getValue(dados5, 'Descrição da entrega:')}</li>
             </ul>
         `;
     } else if (nomeExpedidorOrigem === "EX-WORKS") {
@@ -218,7 +218,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
                 <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
                 ${m3HTML}
                 ${ldmHTML}
             </ul>
@@ -252,7 +252,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
                 <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
                 <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso:')} kg</li>
+                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
                 ${m3HTML}
                 ${ldmHTML}
             </ul>
