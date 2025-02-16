@@ -2,24 +2,16 @@ Name, Last Commit Message, Last Commit Date
 20240164, Adicionando o arquivo SZADRS_Dados.txt, 2025-02-04 12:13:13
 20250184, Atualizando o arquivo FTDados.txt, 2025-02-10 12:13:37
 20250193, Adicionando o arquivo SZADRS1_Dados.txt, 2025-02-14 11:32:39
-19000164, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-21 14:26:18
 20250013, Adicionando o arquivo SZADRS1_Dados.txt, 2025-02-13 16:46:05
-20240193_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
 20250004, Atualizando o arquivo FTDados.txt, 2025-02-07 14:25:49
-19000005_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
 20250007, Adicionando o arquivo SZADRS1_Dados.txt, 2025-02-14 11:32:07
 20250190, Adicionando o arquivo image_agdados.jpg, 2025-02-06 14:26:35
 20250014, Adicionando o arquivo SZADRS_Dados.txt, 2025-02-06 14:26:29
-20250003_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
-19000006_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
 20250015, Atualizando o arquivo SZADRS1_Dados.txt, 2025-02-14 11:38:15
 20250011, Atualizando o arquivo image_agdados.jpg, 2025-02-05 09:29:54
 20240189, Adicionando o arquivo image_agdados.jpg, 2025-02-04 12:13:51
 20240179, Atualizando o arquivo image_fldados.jpg, 2025-02-04 12:13:29
 19000007, Adicionando o arquivo SZADRS_Dados.txt, 2025-02-03 14:25:56
-20240188_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
-20250186_old, Updated directory modification times report and renamed old directories, 2025-02-09 01:25:04
-19000008, Adicionando o arquivo SZADRS_Dados.txt, 2025-01-21 14:26:08
 20240166, Atualizando o arquivo FTDados.txt, 2025-02-04 12:13:18
 20240180, Adicionando o arquivo SZADRS_Dados.txt, 2025-02-05 09:29:17
 20250009, Adicionando o arquivo image_agdados.jpg, 2025-02-05 09:29:45
