@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 16
+Nome Cliente: LA MANUFACTURE - GROUPE LINDERA
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: LA MANUFACTURE - GROUPE LINDERA
+Data Expedição: 01/01/1900
+Expeditor: 
+Nr. Encomenda: 7194
+Status: 
+Mercadoria: 
+Marcas: ADP CFF18055
+
