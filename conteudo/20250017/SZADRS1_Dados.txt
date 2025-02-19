@@ -1,0 +1,1 @@
+﻿Erro: O campo ft.carga está vazio.
