@@ -1,7 +1,7 @@
 ﻿Nr. Cliente: 15
 Nome Cliente: BASIC COLLECTION KFT
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
-Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG
+Local Descarga: BASIC COLLECTION-CASTELLUM VESZPRÉM
 Data Expedição: 21/02/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7176
