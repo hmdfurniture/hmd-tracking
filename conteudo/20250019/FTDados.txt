@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 19
+Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Local Carga: 
+Local Descarga: XBS-LOG. TRANSITÁRIOS, LDA
+Data Expedição: 06/03/2025
+Expeditor: 
+Nr. Encomenda: 7159
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: LEPLAY Sofas
+
