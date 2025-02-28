@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 25
+Nome Cliente: ARJC, LDA
+Local Carga: VARIOS LOCAIS
+Local Descarga: ARJC, LDA - NAFARROS
+Data Expedição: 07/03/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7172
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Nafarros
+
