@@ -1,8 +1,0 @@
-﻿m3: 3,17
-Zona Expedição: PANAMÁ
-Volumes a expedir: 1,00
-Nr. Reserva: 0
-Peso : 230,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

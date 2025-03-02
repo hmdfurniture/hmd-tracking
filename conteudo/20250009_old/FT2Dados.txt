@@ -1,8 +1,0 @@
-﻿m3: 0,95
-Zona Expedição: Portugal
-Volumes a expedir: 1,00
-Nr. Reserva: 70620
-Peso : 160,00
-Ldm: 0,00
-Multiplas Recolhas?: Sim
-
