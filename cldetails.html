@@ -196,7 +196,10 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
     const moradaCliente = getValue(dados6, 'Morada:');
     const localCliente = getValue(dados6, 'Local:');
     const codigoPostalCliente = getValue(dados6, 'Código Postal:');
-    const paisCliente = traduzirPais(getValue(dados6, 'País'));
+    let paisCliente = getValue(dados6, 'País');
+    if (paisCliente === "Portugal") {
+        paisCliente = traduzirPais(paisCliente);
+    }
     const telefoneCliente = getValue(dados6, 'Telefone:');
     const emailCliente = getValue(dados6, 'Email:');
     const urlCliente = removerProtocolo(getValue(dados6, 'URL:'));
@@ -341,7 +344,7 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                     <li>${paisCliente}</li>
                     <li><a href="tel:${telefoneCliente}">${telefoneCliente}</a></li>
                     <li><a href="mailto:${emailCliente}">${emailCliente}</a></li>
-                                        <li>${urlCliente}</li>
+                   li>${urlCliente}</li>
                     <li>Referência do Transportador na Origem: ${getValue(dados2, 'Nr. Reserva:')}</li>
                 </ul>
 
