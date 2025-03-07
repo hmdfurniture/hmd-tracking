@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>detailteste</title>
+<title>detalhes</title>
 <!-- Ícones de Favicon -->
 <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/Favicon/favicon-32x32.png">
@@ -184,6 +184,15 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
     const nomeExpedidorOrigem = getValue(dados1, 'Nome Expedidor Origem:');
     const status = getValue(dados4, 'Status:');
 
+    const nomeCliente = getValue(dados6, 'Nome Cliente:');
+    const moradaCliente = getValue(dados6, 'Morada:');
+    const localCliente = getValue(dados6, 'Local:');
+    const codigoPostalCliente = getValue(dados6, 'Código Postal:');
+    const paisCliente = getValue(dados6, 'País:');
+    const telefoneCliente = getValue(dados6, 'Telefone:');
+    const emailCliente = getValue(dados6, 'Email:');
+    const urlCliente = removerProtocolo(getValue(dados6, 'URL:'));
+
     // Verificação das condições para exibir m3 e ldm
     const m3HTML = dados2 && !dados2.includes('m3: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">m3: ${getValue(dados2, 'm3:')}</li>` : '';
     const ldmHTML = dados2 && !dados2.includes('Ldm: 0,00') ? `<li style="display: inline-block; margin-right: 20px;">Ldm: ${getValue(dados2, 'Ldm:')}</li>` : '';
@@ -235,75 +244,103 @@ function exibirDados(dados1, dados2, dados3, dados4, dados5, dados6, dados7, ima
                 <li>${getValue(dados7, 'País da entrega:')}</li>
                 <li><a href="tel:${getValue(dados7, 'Telefone da entrega:')}">${getValue(dados7, 'Telefone da entrega:')}</a></li>
                 <li><a href="mailto:${getValue(dados7, 'Email da entrega:')}">${getValue(dados7, 'Email da entrega:')}</a></li>
-                <li>Obs: <pre>${getValue(dados7, 'Observação da entrega:')}</pre></li>
+                <li>Obs: ${getValue(dados7, 'Observação da entrega:')}</li>
             </ul>
         `;
     } else {
-        // Exibir os dados normais
-        // Montagem do conteúdo HTML com os dados
-        conteudoDiv.innerHTML = `
-            <h2>Status</h2>
-            <ul>
-                <li>Status: ${status}</li>
-                <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
-                <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
-            </ul>
-            <h2>Merchandise details</h2>
-            <ul>
-                <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
-                <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
-                <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
-                <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
-                <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
-                ${m3HTML}
-                ${ldmHTML}
-            </ul>
-            ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
+        // Verificar se o transportador na origem e no destino são os mesmos
+        const isSameCarrier = 
+            getValue(dados1, 'Nome Expedidor Origem:') === nomeCliente &&
+            getValue(dados1, 'Morada Expedidor Origem:') === moradaCliente &&
+            getValue(dados1, 'Local Expedidor Origem:') === localCliente &&
+            getValue(dados1, 'Código Postal Expedidor Origem:') === codigoPostalCliente &&
+            getValue(dados1, 'Telefone Expedidor Origem:') === telefoneCliente &&
+            getValue(dados1, 'Email Expedidor Origem:') === emailCliente;
 
-            <h2>Carrier at origin</h2>
-            ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
-            <ul>
-                <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Local Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Código Postal Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Telefone Expedidor Origem:')}</li>
-                <li>${getValue(dados1, 'Email Expedidor Origem:')}</li>
-                <li>Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
-            </ul>
+        if (isSameCarrier) {
+            // Exibir uma única seção de transportadora
+            conteudoDiv.innerHTML = `
+                <h2>Status</h2>
+                <ul>
+                    <li>Status: ${status}</li>
+                    <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+                    <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
+                </ul>
+                <h2>Merchandise details</h2>
+                <ul>
+                    <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
+                    <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
+                    <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
+                    <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
+                    <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
+                    ${m3HTML}
+                    ${ldmHTML}
+                </ul>
+                ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
-            <h2>Carrier at destination</h2>
-            ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
-            <ul>
-                <li>${getValue(dados6, 'Nome Cliente:')}</li>
-                <li>${getValue(dados6, 'Morada:')}</li>
-                <li>${getValue(dados6, 'Local:')}</li>
-                <li>${getValue(dados6, 'Código Postal:')}</li>
-                <li>${getValue(dados6, 'País:')}</li>
-                <li><a href="tel:${getValue(dados6, 'Telefone:')}">${getValue(dados6, 'Telefone:')}</a></li>
-                <li><a href="mailto:${getValue(dados6, 'Email:')}">${getValue(dados6, 'Email:')}</a></li>
-                <li>${removerProtocolo(getValue(dados6, 'URL:'))}</li>
-                <li>Carrier at origin Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
-            </ul>
+                <h2>Carrier</h2>
+                ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
+                <ul>
+                    <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Local Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Código Postal Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Telefone Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Email Expedidor Origem:')}</li>
+                    <li>Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
+                </ul>
+            `;
+        } else {
+            // Exibir as seções de transportadora na origem e no destino separadamente
+            conteudoDiv.innerHTML = `
+                <h2>Status</h2>
+                <ul>
+                    <li>Status: ${status}</li>
+                    <li>Shipment Date: ${getValue(dados4, 'Data Expedição:')}</li>
+                    <li>Expected Delivery Date: ${getValue(dados3, 'Data Entrega:')}</li>
+                </ul>
+                <h2>Merchandise details</h2>
+                <ul>
+                    <li>Identifier 1: ${getValue(dados4, 'Nr. Encomenda:')}</li>
+                    <li>Identifier 2: ${getValue(dados4, 'Marcas:')}</li>
+                    <li>Type of packaging: ${traduzirMercadoria(getValue(dados4, 'Mercadoria:'))}</li>
+                    <li>No. of packages: ${getValue(dados2, 'Volumes a expedir:')}</li>
+                    <li>Weight: ${getValue(dados2, 'Peso :')} kg</li>
+                    ${m3HTML}
+                    ${ldmHTML}
+                </ul>
+                ${imagemFt2HTML} <!-- Aqui você exibe a imagem FT2Dados -->
 
-            <h2>Delivery address</h2>
-            <ul>
-                <li>${getValue(dados5, 'Descrição da entrega:')}</li>
-                <li>${getValue(dados5, 'Nome da entrega:')}</li>
-                <li>${getValue(dados5, 'Morada da entrega:')}</li>
-                <li>${getValue(dados5, 'Local da entrega:')}</li>
-                <li>${getValue(dados5, 'Código Postal da entrega:')}</li>
-                <li>${getValue(dados5, 'País da entrega:')}</li>
-                <li><a href="tel:${getValue(dados5, 'Telefone da entrega:')}">${getValue(dados5, 'Telefone da entrega:')}</a></li>
-                <li><a href="mailto:${getValue(dados5, 'Email da entrega:')}">${getValue(dados5, 'Email da entrega:')}</a></li>
-                <li>Obs: <pre>${getValue(dados5, 'Observação da entrega:')}</pre></li>
-            </ul>
-        `;
-    }
-}
+                <h2>Carrier at origin</h2>
+                ${imagemFlHTML} <!-- Aqui você exibe a imagem FLDados -->
+                <ul>
+                    <li>${getValue(dados1, 'Nome Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Morada Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Local Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Código Postal Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Telefone Expedidor Origem:')}</li>
+                    <li>${getValue(dados1, 'Email Expedidor Origem:')}</li>
+                    <li>Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
+                </ul>
 
-// Carregar os dados assim que a página for carregada
-window.onload = carregarConteudo;
-</script>
-</body>
-</html>
+                <h2>Carrier at destination</h2>
+                ${imagemAgHTML} <!-- Aqui você exibe a imagem AGDados -->
+                <ul>
+                    <li>${nomeCliente}</li>
+                    <li>${moradaCliente}</li>
+                    <li>${localCliente}</li>
+                    <li>${codigoPostalCliente}</li>
+                    <li>${paisCliente}</li>
+                    <li><a href="tel:${telefoneCliente}">${telefoneCliente}</a></li>
+                    <li><a href="mailto:${emailCliente}">${emailCliente}</a></li>
+                    <li>${urlCliente}</li>
+                    <li>Carrier at origin Reference: ${getValue(dados2, 'Nr. Reserva:')}</li>
+                </ul>
+
+                <h2>Delivery address</h2>
+                <ul>
+                    <li>${getValue(dados5, 'Descrição da entrega:')}</li>
+                    <li>${getValue(dados5, 'Nome da entrega:')}</li>
+                    <li>${getValue(dados5, 'Morada da entrega:')}</li>
+                    <li>${getValue(dados5, 'Local da entrega:')}</li>
+                    <li>${getValue(dados5, 'Código Postal da entrega:')}</li
