@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5931
+Nome Cliente: CAYCO MÁLAGA
+Morada: C. LUIGI CHERUBINI, PARC.6, NAVE 4
+Local: CAMPANILLAS
+Código Postal: 29590 MÁLAGA
+País: Espanha
+Telefone: +34 952 17 80 67
+Email: 
+URL: www.cayco.es
+
