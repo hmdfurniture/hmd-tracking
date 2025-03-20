@@ -2,7 +2,7 @@
 Nome Cliente: BASIC COLLECTION KFT
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: BASIC COLLECTION-CASTELLUM VESZPRÉM
-Data Expedição: 21/03/2025
+Data Expedição: 28/03/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7176
 Status: Order not yet dispatched
