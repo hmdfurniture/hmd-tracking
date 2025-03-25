@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 41
+Nome Cliente: JC CONTRACT BEATA NILSEN
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 01/04/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7184
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Wilanów
+
