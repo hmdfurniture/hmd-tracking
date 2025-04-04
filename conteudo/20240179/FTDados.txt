@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 179
+Nome Cliente: ADDISON HOUSE INC
+Local Carga: JULIAO VASQUES BRANDAO LDA
+Local Descarga: ADDISON HOUSE INC
+Data Expedição: 18/12/2024
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7139
+Status: Delivery completed
+Mercadoria: Paletizados
+Marcas: PO#19854
+
