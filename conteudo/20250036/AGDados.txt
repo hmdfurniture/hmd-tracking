@@ -1,10 +1,10 @@
-﻿Nr. Cliente: 5931
-Nome Cliente: CAYCO MÁLAGA
-Morada: C. LUIGI CHERUBINI, PARC.6, NAVE 4
-Local: CAMPANILLAS
-Código Postal: 29590 MÁLAGA
+﻿Nr. Cliente: 5922
+Nome Cliente: ATTRACTIVE LOGISTICS SL
+Morada: CAMINO DEL CORRAL 1N
+Local: MADRID
+Código Postal: 28816, CAMARMA DE ESTERUELAS
 País: Espanha
-Telefone: +34 952 17 80 67
-Email: 
-URL: www.cayco.es
+Telefone: 0034 91 826 96 96
+Email: info@redandpallets.com
+URL: www.redandpallets.com
 
