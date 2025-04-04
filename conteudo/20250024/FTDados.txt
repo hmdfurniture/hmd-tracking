@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 24
+Nome Cliente: H&H PROCUREMENT LLC
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: H&H PROCUREMENT LLC WAREHOUSE
+Data Expedição: 28/02/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7177
+Status: Delivery completed
+Mercadoria: Paletizados
+Marcas: 101-16-301
+
