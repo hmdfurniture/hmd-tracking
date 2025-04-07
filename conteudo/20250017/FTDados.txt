@@ -3,7 +3,7 @@ Nome Cliente: CURATED BY MARY RYDER DESIGNS
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: CURATED BY MARY RYDER - C/O SPACE STORAGE
 Data Expedição: 08/04/2025
-Expeditor: Xbslog
+Expeditor: Dhl
 Nr. Encomenda: 7189
 Status: Order not yet dispatched
 Mercadoria: Paletizados
