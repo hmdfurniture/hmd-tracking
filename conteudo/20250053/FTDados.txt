@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 53
+Nome Cliente: ADDISON HOUSE INC
+Local Carga: 
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 11/04/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7186
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO#20322
+
