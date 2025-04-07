@@ -1,8 +1,8 @@
-﻿Nome Expedidor Origem: XBS-LOG. TRANSITÁRIOS, LDA.
-No Expedidor Origem: 5844
-Morada Expedidor Origem: ESTRADA NACIONAL N 107
-Código Postal Expedidor Origem: 4455-496 PERAFITA
-Local Expedidor Origem: TER TIR - MATOSINHOS
-Telefone Expedidor Origem: +351 220 401 110
-Email Expedidor Origem: info@xbslog.com
+﻿Nome Expedidor Origem: DHL DANZAS AIR & OCEAN
+No Expedidor Origem: 420
+Morada Expedidor Origem: 
+Código Postal Expedidor Origem: 4470-995 MAIA
+Local Expedidor Origem: .
+Telefone Expedidor Origem: 22 943 0500
+Email Expedidor Origem: rui.correia@dhl.com
 
