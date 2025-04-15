@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 54
+Nome Cliente: LA MANUFACTURE - GROUPE LINDERA
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: LA MANUFACTURE - GROUPE LINDERA
+Data Expedição: 17/04/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7194
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: ADP
+
