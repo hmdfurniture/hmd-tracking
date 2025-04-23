@@ -5,7 +5,7 @@ Local Descarga: LALOS CHAUMEIL
 Data Expedição: 04/04/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7200
-Status: Goods with the local carrier awaiting shipment
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: FONCIÈRE SEMA
 
