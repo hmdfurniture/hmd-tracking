@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5932
+Nome Cliente: EUROSPED AG
+Morada: NIDERFELDSTRASSE 5
+Local: 4133
+Código Postal: 4133 PRATTELN
+País: Suíça
+Telefone: +41 61 826 36 50
+Email: verkauf@eurosped.ch
+URL: www.eurosped.ch
+
