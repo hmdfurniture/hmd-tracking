@@ -3,9 +3,9 @@ Nome Cliente: ADDISON HOUSE INC
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: ADDISON HOUSE INC
 Data Expedição: 17/04/2025
-Expeditor: Xbslog
+Expeditor: Recolha Cliente
 Nr. Encomenda: 7186
-Status: Order not yet dispatched
+Status: Shipment in transit to the destination
 Mercadoria: Paletizados
 Marcas: PO#20322
 
