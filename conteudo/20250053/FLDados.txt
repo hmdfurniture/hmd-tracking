@@ -1,8 +1,8 @@
-﻿Nome Expedidor Origem: XBS-LOG. TRANSITÁRIOS, LDA.
-No Expedidor Origem: 5844
-Morada Expedidor Origem: ESTRADA NACIONAL N 107
-Código Postal Expedidor Origem: 4455-496 PERAFITA
-Local Expedidor Origem: TER TIR - MATOSINHOS
-Telefone Expedidor Origem: +351 220 401 110
-Email Expedidor Origem: info@xbslog.com
+﻿Nome Expedidor Origem: EX-WORKS
+No Expedidor Origem: 5915
+Morada Expedidor Origem: COLLECTION OF THE GOODS IN THE INDICATED WAREHOUSE
+Código Postal Expedidor Origem: 0000-000
+Local Expedidor Origem: .
+Telefone Expedidor Origem: 
+Email Expedidor Origem: 
 
