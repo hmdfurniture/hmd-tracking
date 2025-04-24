@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 54
 Nome Cliente: LA MANUFACTURE - GROUPE LINDERA
-Local Carga: HMD FURNITURE - SARCOL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: LA MANUFACTURE - GROUPE LINDERA
 Data Expedição: 24/04/2025
 Expeditor: Xbslog
