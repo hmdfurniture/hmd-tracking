@@ -1,8 +1,0 @@
-﻿m3: 80,00
-Zona Expedição: França
-Volumes a expedir: 210,00
-Nr. Reserva: 2801210
-Peso : 4000,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
