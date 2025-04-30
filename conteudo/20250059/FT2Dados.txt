@@ -2,7 +2,7 @@
 Zona Expedição: Hungria
 Volumes a expedir: 2,00
 Nr. Reserva: 0
-Peso : 0,00
-Ldm: 0,00
+Peso : 230,00
+Ldm: 0,80
 Multiplas Recolhas?: Não
 
