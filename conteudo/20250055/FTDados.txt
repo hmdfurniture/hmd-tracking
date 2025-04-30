@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 55
 Nome Cliente: SV HOTEL ALPHA AG
-Local Carga: HMD FURNITURE - SARCOL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: SV HOTEL ALPHA AG
 Data Expedição: 02/05/2025
 Expeditor: Xbslog
