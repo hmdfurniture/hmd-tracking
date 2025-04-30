@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 59
 Nome Cliente: THE NORTHEAST STUDIO S.L
-Local Carga: 
+Local Carga: PVM UNIPESSOAL LDA
 Local Descarga: BIBO BUDAPEST
 Data Expedição: 02/05/2025
-Expeditor: 
+Expeditor: Xbslog
 Nr. Encomenda: 7210
-Status: 
-Mercadoria: 
+Status: Order not yet dispatched
+Mercadoria: Paletizados
 Marcas: 
 
