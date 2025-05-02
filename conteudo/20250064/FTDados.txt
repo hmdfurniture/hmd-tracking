@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 64
+Nome Cliente: INTEMPORÂNEO, LDA.
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA
+Data Expedição: 02/05/2025
+Expeditor: Outro
+Nr. Encomenda: 7215
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: ENC01 1/8867_ CLARISSA MACK
+
