@@ -5,7 +5,7 @@ Local Descarga: LANE CRAWFORD
 Data Expedição: 24/04/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7179_81_85_7204
-Status: Order not yet dispatched
+Status: Shipment in transit to the destination
 Mercadoria: Misto - Paletes + Volumes Soltos.
 Marcas: 
 
