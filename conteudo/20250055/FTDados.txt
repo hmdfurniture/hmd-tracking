@@ -5,7 +5,7 @@ Local Descarga: SV HOTEL ALPHA AG
 Data Expedição: 02/05/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7171
-Status: Order not yet dispatched
+Status: Goods with the local carrier awaiting shipment
 Mercadoria: Paletizados
 Marcas: 1121-GR-002
 
