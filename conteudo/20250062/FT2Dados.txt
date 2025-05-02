@@ -1,6 +1,6 @@
 ﻿m3: 1,93
 Zona Expedição: DINAMARCA
-Volumes a expedir: 8,00
+Volumes a expedir: 11,00
 Nr. Reserva: 291802
 Peso : 192,00
 Ldm: 0,00
