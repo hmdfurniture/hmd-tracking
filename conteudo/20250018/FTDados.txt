@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 18
+Nome Cliente: ATELIER CINZA RATO LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: ATELIER CINZA RATO
+Data Expedição: 21/02/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7173
+Status: Delivery completed
+Mercadoria: Paletizados
+Marcas: CCardoso
+
