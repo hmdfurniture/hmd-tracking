@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5934
+Nome Cliente: LAGERMAX LOGISTICS AUSTRIA GMBH
+Morada: RADINGERSTRAßE 16
+Local: SALZBURG
+Código Postal: 5020 SALZBURG
+País: Áustria
+Telefone: +43 662 40902396
+Email: siegfried.thier@lagermax.com
+URL: www.lagermax.com
+
