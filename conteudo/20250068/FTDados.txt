@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 68
+Nome Cliente: STUDIO DE BLIECK
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: STUDIO DE BLIECK
+Data Expedição: 07/05/2025
+Expeditor: Dhl
+Nr. Encomenda: Sample
+Status: Shipment in transit to the destination
+Mercadoria: Não Paletizados
+Marcas: Sample
+
