@@ -1,0 +1,8 @@
+﻿m3: 0,01
+Zona Expedição: Países Baixos
+Volumes a expedir: 1,00
+Nr. Reserva: *******
+Peso : 0,10
+Ldm: 0,00
+Multiplas Recolhas?: Não
+
