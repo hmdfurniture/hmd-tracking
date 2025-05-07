@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 70
+Nome Cliente: CURATED BY MARY RYDER DESIGNS
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: CURATED BY MARY RYDER DESIGNS
+Data Expedição: 09/05/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7217_7219
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO HMD 05 & HMD 06
+
