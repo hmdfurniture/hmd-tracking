@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 420
+Nome Cliente: DHL DANZAS AIR & OCEAN
+Morada: 
+Local: .
+Código Postal: 4470-995 MAIA
+País: PORTUGAL
+Telefone: 22 943 0500
+Email: rui.correia@dhl.com
+URL: 
+
