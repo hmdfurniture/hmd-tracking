@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 72
+Nome Cliente: HMD INTERIORS
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: CONSTANTIN BATSCH
+Data Expedição: 09/05/2025
+Expeditor: Xbslog
+Nr. Encomenda: 009900
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: 
+
