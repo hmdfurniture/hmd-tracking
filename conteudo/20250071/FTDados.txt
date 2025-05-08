@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 71
+Nome Cliente: GROUPE FREMAUX DELORME - BOUTIQUES YVES  DELORME
+Local Carga: 
+Local Descarga: BOUTIQUE YD NEUILLY MICHELIS - MME DRUMLEWIEZ
+Data Expedição: 12/05/2025
+Expeditor: Dhl
+Nr. Encomenda: 7223
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: MME DRUMLEWIEZ
+
