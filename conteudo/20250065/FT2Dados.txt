@@ -1,8 +1,8 @@
 ﻿m3: 2,46
 Zona Expedição: França
-Volumes a expedir: 1,00
-Nr. Reserva: 0
-Peso : 160,00
+Volumes a expedir: 2,00
+Nr. Reserva: 292951
+Peso : 200,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
