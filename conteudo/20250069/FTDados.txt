@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 69
 Nome Cliente: VMID SRL- C O FIDELITAS FINANCE CONSULTING
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: HARSH
 Data Expedição: 13/05/2025
 Expeditor: Xbslog
