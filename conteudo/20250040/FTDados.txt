@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 40
 Nome Cliente: NEXSYS
-Local Carga: 
+Local Carga: PVM UNIPESSOAL LDA
 Local Descarga: NEXSYS
 Data Expedição: 13/05/2025
 Expeditor: Xbslog
