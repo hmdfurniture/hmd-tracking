@@ -1,0 +1,8 @@
+﻿m3: 1,10
+Zona Expedição: Espanha
+Volumes a expedir: 1,00
+Nr. Reserva: 0
+Peso : 150,00
+Ldm: 0,00
+Multiplas Recolhas?: Não
+
