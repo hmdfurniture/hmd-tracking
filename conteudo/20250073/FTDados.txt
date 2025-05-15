@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 73
 Nome Cliente: MAS BY ARQUESTA
-Local Carga: 
+Local Carga: DÉCIMAS D`EMOÇÕES UNIPESSOAL LDA
 Local Descarga: MAS BY ARQUESTA
 Data Expedição: 16/05/2025
 Expeditor: Xbslog
