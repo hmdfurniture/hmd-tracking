@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 75
+Nome Cliente: C&P GALLERY
+Local Carga: 
+Local Descarga: C&P GALLERY - TRANSPORTS ENSUQUE
+Data Expedição: 16/05/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7230
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Villa Luisa
+
