@@ -1,0 +1,8 @@
+﻿m3: 0,31
+Zona Expedição: França
+Volumes a expedir: 1,00
+Nr. Reserva: 297146
+Peso : 31,00
+Ldm: 0,00
+Multiplas Recolhas?: Não
+
