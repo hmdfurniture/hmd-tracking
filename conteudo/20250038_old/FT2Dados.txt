@@ -1,8 +1,0 @@
-﻿m3: 17,66
-Zona Expedição: Suíça
-Volumes a expedir: 8,00
-Nr. Reserva: 280886
-Peso : 1840,00
-Ldm: 4,00
-Multiplas Recolhas?: Não
-

@@ -1,8 +1,0 @@
-﻿m3: 5,19
-Zona Expedição: FRANÇA
-Volumes a expedir: 2,00
-Nr. Reserva: 282258
-Peso : 510,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

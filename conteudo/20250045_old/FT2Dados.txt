@@ -1,8 +1,0 @@
-﻿m3: 1,00
-Zona Expedição: França
-Volumes a expedir: 1,00
-Nr. Reserva: 281647
-Peso : 90,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
