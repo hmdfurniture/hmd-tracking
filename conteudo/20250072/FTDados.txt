@@ -5,7 +5,7 @@ Local Descarga: CONSTANTIN BATSCH
 Data Expedição: 09/05/2025
 Expeditor: Xbslog
 Nr. Encomenda: 009900
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Não Paletizados
 Marcas: 
 
