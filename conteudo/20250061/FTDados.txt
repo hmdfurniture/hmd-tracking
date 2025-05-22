@@ -1,8 +1,8 @@
 ﻿Nr. Cliente: 61
 Nome Cliente: BIGBRANDS B.V.
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: BIGBRANDS B.V. - DEUDEKOM BV
-Data Expedição: 20/05/2025
+Data Expedição: 23/05/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7201
 Status: Order not yet dispatched
