@@ -2,7 +2,7 @@
 Nome Cliente: ATELIER CINZA RATO LDA
 Local Carga: 
 Local Descarga: ATELIER CINZA RATO
-Data Expedição: 23/05/2025
+Data Expedição: 27/05/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7173
 Status: Order not yet dispatched
