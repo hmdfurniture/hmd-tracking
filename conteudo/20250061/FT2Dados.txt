@@ -1,7 +1,7 @@
 ﻿m3: 1,20
 Zona Expedição: Países Baixos
 Volumes a expedir: 1,00
-Nr. Reserva: 0
+Nr. Reserva: 300423
 Peso : 90,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
