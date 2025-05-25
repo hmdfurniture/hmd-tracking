@@ -1,0 +1,8 @@
+﻿m3: 6,48
+Zona Expedição: Hong Kong
+Volumes a expedir: 4,00
+Nr. Reserva: 0
+Peso : 421,00
+Ldm: 6,80
+Multiplas Recolhas?: Não
+
