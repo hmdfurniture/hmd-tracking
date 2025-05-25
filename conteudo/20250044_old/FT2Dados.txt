@@ -1,8 +1,0 @@
-﻿m3: 1,93
-Zona Expedição: Reino Unido
-Volumes a expedir: 2,00
-Nr. Reserva: 282714
-Peso : 140,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

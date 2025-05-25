@@ -1,8 +1,0 @@
-﻿m3: 1,76
-Zona Expedição: PORTUGAL
-Volumes a expedir: 1,00
-Nr. Reserva: 75299
-Peso : 85,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
