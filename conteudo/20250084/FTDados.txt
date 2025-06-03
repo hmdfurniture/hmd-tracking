@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 84
+Nome Cliente: UAB IMAGIS LT - ELEGANT HOME
+Local Carga: 
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 06/06/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7227
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
