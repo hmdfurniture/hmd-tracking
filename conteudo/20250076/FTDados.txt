@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 76
 Nome Cliente: HOMEAGE & CRÉATION
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: HOMEAGE -CHEZ LES DEMENAGEURS BRETONS
 Data Expedição: 06/06/2025
 Expeditor: Xbslog
