@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5930
+Nome Cliente: FATTON TRANSPORT CARROS
+Morada: 183 ROUTE DES NÉGOCIANTS SARDES
+Local: CARROS
+Código Postal: 06510 CARROS
+País: França
+Telefone: +33 03 80 47 29 70
+Email: dijon@fatton.com
+URL: www.fatton.com
+
