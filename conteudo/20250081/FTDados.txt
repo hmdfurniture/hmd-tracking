@@ -5,7 +5,7 @@ Local Descarga: LANE CRAWFORD
 Data Expedição: 29/05/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7206_7207
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: PO441166 & PO440497
 
