@@ -2,7 +2,7 @@
 Nome Cliente: ARJC, LDA
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: XBS-LOG. TRANSITÁRIOS, LDA
-Data Expedição: 20/06/2025
+Data Expedição: 24/06/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7226
 Status: Order not yet dispatched
