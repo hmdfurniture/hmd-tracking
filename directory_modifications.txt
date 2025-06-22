@@ -2,6 +2,7 @@ Name, Last Commit Message, Last Commit Date
 20250048, Adicionando o arquivo SZADRS_Dados.txt, 2025-05-26 11:57:02
 20250068, Adicionando o arquivo SZADRS_Dados.txt, 2025-06-13 13:02:15
 20250086, Atualizando o arquivo FTDados.txt, 2025-06-13 13:04:15
+20250090, Atualizando o arquivo FTDados.txt, 2025-06-20 19:01:39
 20250069, Atualizando o arquivo image_agdados.jpg, 2025-06-13 13:02:21
 20250073, Atualizando o arquivo image_agdados.jpg, 2025-06-13 13:02:52
 20250040, Adicionando o arquivo SZADRS_Dados.txt, 2025-06-13 13:00:58
@@ -11,6 +12,7 @@ Name, Last Commit Message, Last Commit Date
 20250071, Atualizando o arquivo FTDados.txt, 2025-06-13 13:02:41
 20250057, Atualizando o arquivo FTDados.txt, 2025-06-13 13:01:16
 20250075, Atualizando o arquivo FTDados.txt, 2025-06-13 13:03:12
+20250092, Atualizando o arquivo FT2Dados.txt, 2025-06-20 19:01:47
 20250074, Atualizando o arquivo FTDados.txt, 2025-06-13 13:03:01
 20250083, Atualizando o arquivo image_agdados.jpg, 2025-06-13 13:03:55
 20250078, Atualizando o arquivo FTDados.txt, 2025-06-13 13:03:33
