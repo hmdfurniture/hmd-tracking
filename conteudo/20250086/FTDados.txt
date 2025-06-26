@@ -2,7 +2,7 @@
 Nome Cliente: HOMEAGE & CRÉATION
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: HOMEAGE -CHEZ LES DEMENAGEURS BRETONS
-Data Expedição: 17/06/2025
+Data Expedição: 27/06/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7202_a
 Status: Order not yet dispatched
