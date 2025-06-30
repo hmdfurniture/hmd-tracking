@@ -5,7 +5,7 @@ Local Descarga: UAB IMAGIS LT - ELEGANT HOME
 Data Expedição: 13/06/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7227
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: 
 
