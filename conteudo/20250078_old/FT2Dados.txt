@@ -1,8 +1,0 @@
-﻿m3: 3,17
-Zona Expedição: Reino Unido
-Volumes a expedir: 2,00
-Nr. Reserva: 300434
-Peso : 200,00
-Ldm: 0,90
-Multiplas Recolhas?: Não
-
