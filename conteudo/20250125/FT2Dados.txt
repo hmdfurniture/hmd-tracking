@@ -1,8 +1,8 @@
-﻿m3: 1,86
+﻿m3: 1,08
 Zona Expedição: Países Baixos
-Volumes a expedir: 2,00
+Volumes a expedir: 4,00
 Nr. Reserva: 326463
-Peso : 300,00
+Peso : 250,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
