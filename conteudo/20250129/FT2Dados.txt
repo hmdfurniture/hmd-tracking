@@ -4,5 +4,5 @@ Volumes a expedir: 22,00
 Nr. Reserva: 0
 Peso : 650,00
 Ldm: 0,00
-Multiplas Recolhas?: Não
+Multiplas Recolhas?: Sim
 
