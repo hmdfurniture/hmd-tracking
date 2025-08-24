@@ -1,8 +1,0 @@
-﻿m3: 0,26
-Zona Expedição: Lituânia
-Volumes a expedir: 1,00
-Nr. Reserva: 326617
-Peso : 40,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

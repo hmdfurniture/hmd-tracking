@@ -1,8 +1,0 @@
-﻿m3: 11,25
-Zona Expedição: PORTUGAL
-Volumes a expedir: 10,00
-Nr. Reserva: 0
-Peso : 705,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
