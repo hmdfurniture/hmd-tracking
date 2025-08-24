@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 128
+Nome Cliente: UAB IMAGIS LT - ELEGANT HOME
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: UAB IMAGIS LT - ELEGANT HOME
+Data Expedição: 01/08/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7261
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
