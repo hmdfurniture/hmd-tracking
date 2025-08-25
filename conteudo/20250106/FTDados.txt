@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 106
+Nome Cliente: ARJC, LDA
+Local Carga: 
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 11/07/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7244
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Av. da Liberdade
+
