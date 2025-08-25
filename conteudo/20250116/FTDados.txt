@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 116
+Nome Cliente: JARRETT FURNITURE, LTD
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: 3MD RELOCATION SERVICES LLC - HYATT CENTRIC O HARE PROJECT
+Data Expedição: 28/07/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7234
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO1663
+
