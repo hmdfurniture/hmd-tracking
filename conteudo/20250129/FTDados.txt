@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 129
+Nome Cliente: PROSEKARNA CZ
+Local Carga: VARIOS LOCAIS
+Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG
+Data Expedição: 13/08/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7253
+Status: Order not yet dispatched
+Mercadoria: Misto - Paletes + Volumes Soltos.
+Marcas: 
+
