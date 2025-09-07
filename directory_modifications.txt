@@ -2,7 +2,6 @@ Name, Last Commit Message, Last Commit Date
 20250103, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:03:16
 20250117, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-24 13:01:00
 20250124, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:05:40
-20250125, Atualizando o arquivo FT2Dados.txt, 2025-08-15 19:01:36
 20250015, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:01:00
 20250126, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-31 13:05:52
 20250095, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:02:19
