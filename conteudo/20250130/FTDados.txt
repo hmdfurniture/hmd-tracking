@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 130
 Nome Cliente: ATELIER 72 GMBH
-Local Carga: HMD FURNITURE - SARCOL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: ATELIER 72 GMBH
 Data Expedição: 19/09/2025
 Expeditor: Xbslog
