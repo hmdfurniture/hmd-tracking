@@ -1,4 +1,4 @@
 ﻿Email para entrega: niklaus.amacker@atelier72.ch
-nr entidade: 0
-Data Entrega: 01/01/1900
+nr entidade: 5932
+Data Entrega: 26/09/2025
 
