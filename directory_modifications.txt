@@ -1,10 +1,12 @@
 Name, Last Commit Message, Last Commit Date
 20250103, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:03:16
+20250117, Adicionando o arquivo SZADRS_Dados.txt, 2025-09-14 13:04:08
 20250124, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:05:40
 20250125, Adicionando o arquivo SZADRS_Dados.txt, 2025-09-07 13:06:30
 20250015, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:01:00
 20250126, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-31 13:05:52
 20250095, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:02:19
+20250119, Adicionando o arquivo SZADRS_Dados.txt, 2025-09-14 13:04:22
 20250050, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:01:25
 20250115, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:04:15
 20250132, Adicionando o arquivo SZADRS_Dados.txt, 2025-09-11 13:07:23
@@ -12,7 +14,9 @@ Name, Last Commit Message, Last Commit Date
 20250080, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:01:37
 20250114, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:04:00
 20250086, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:01:50
+20250130, Atualizando o arquivo SZADRS1_Dados.txt, 2025-09-18 19:07:28
 20250106, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:03:45
+20250128, Adicionando o arquivo SZADRS_Dados.txt, 2025-09-14 13:05:42
 20250099, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:02:32
 20250116, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:04:32
 20250127, Adicionando o arquivo SZADRS_Dados.txt, 2025-08-25 13:06:29
