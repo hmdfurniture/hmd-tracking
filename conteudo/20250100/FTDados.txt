@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 100
+Nome Cliente: SAS CRILLON LE BRAVE
+Local Carga: 
+Local Descarga: HOTEL CRILLON LE BRAVE
+Data Expedição: 17/07/2025
+Expeditor: Dhl
+Nr. Encomenda: 995
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: Tablettes WC
+
