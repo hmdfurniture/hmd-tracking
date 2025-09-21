@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 5936
+Nome Cliente: NOATUM LOGISTICS
+Morada: RUA ENG. FERREIRA DIAS, 728 - SALA 3.02
+Local: PORTO
+Código Postal: 4100-246 PORTO
+País: Portugal
+Telefone: +351 22 090 05 80
+Email: faraujo@noatumlogistics.com
+URL: www.noatumlogistics.com
+
