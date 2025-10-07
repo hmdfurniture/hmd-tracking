@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 142
+Nome Cliente: CURATED BY MARY RYDER DESIGNS
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: CURATED BY MARY RYDER - C/O SPACE STORAGE
+Data Expedição: 10/10/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7269
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: HMD 07
+
