@@ -1,0 +1,8 @@
+﻿m3: 0,00
+Zona Expedição: Irlanda
+Volumes a expedir: 1,00
+Nr. Reserva: 354697
+Peso : 350,00
+Ldm: 0,50
+Multiplas Recolhas?: Sim
+
