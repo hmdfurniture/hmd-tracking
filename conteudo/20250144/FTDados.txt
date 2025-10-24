@@ -5,7 +5,7 @@ Local Descarga: RAUM + INHALT
 Data Expedição: 24/10/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7266
-Status: Order not yet dispatched
+Status: Goods with the local carrier awaiting shipment
 Mercadoria: Paletizados
 Marcas: Rolo
 
