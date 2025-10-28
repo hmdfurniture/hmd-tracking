@@ -5,7 +5,7 @@ Local Descarga: DEMESUD
 Data Expedição: 24/10/2025
 Expeditor: Spedycargo
 Nr. Encomenda: 7270
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Não Paletizados
 Marcas: BULGARY DUBAI
 
