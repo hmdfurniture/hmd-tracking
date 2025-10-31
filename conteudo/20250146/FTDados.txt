@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 146
+Nome Cliente: SUO STUDIO BY ALEXANDER VON ROLBIEZKI
+Local Carga: 
+Local Descarga: SUO STUDIO BY ALEXANDER VON ROLBIEZKI
+Data Expedição: 31/10/2025
+Expeditor: Dhl
+Nr. Encomenda: Samples
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: 
+
