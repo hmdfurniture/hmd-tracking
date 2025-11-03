@@ -1,7 +1,7 @@
 ﻿Nr. Cliente: 143
 Nome Cliente: JARRETT FURNITURE, LTD
 Local Carga: FABRICA MOVEIS FONTES LDA
-Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG.
+Local Descarga: JOHNSON COMMERCIAL SOLUTIONS - APIARY HOTEL
 Data Expedição: 31/10/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7274
