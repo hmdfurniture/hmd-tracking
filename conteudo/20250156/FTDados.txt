@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 156
+Nome Cliente: WK WORKS
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: WK WORKS - ST MARYS LANE
+Data Expedição: 14/11/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7264
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 1352/1241
+
