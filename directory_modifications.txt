@@ -2,6 +2,7 @@ Name, Last Commit Message, Last Commit Date
 20250050, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:01:22
 20250128, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:05:33
 20250124, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:05:02
+20250155, Atualizando o arquivo FTDados.txt, 2025-11-13 19:09:33
 20250098, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:02:13
 20250145, Atualizando o arquivo image_agdados.jpg, 2025-10-24 17:18:57
 20250129, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:05:47
@@ -17,6 +18,7 @@ Name, Last Commit Message, Last Commit Date
 20250119, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:04:17
 20250106, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:03:10
 20250147, Atualizando o arquivo FTDados.txt, 2025-10-28 13:09:12
+20250125, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-09 13:05:15
 20250101, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-28 13:02:59
 20250113, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-28 13:03:43
 20250114, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:03:25
@@ -25,13 +27,18 @@ Name, Last Commit Message, Last Commit Date
 20250126, Atualizando o arquivo FTDados.txt, 2025-10-28 13:06:03
 20250146, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-31 13:08:17
 20250144, Atualizando o arquivo image_agdados.jpg, 2025-10-28 13:08:38
+20250157, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-13 19:10:13
 20250080, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:01:37
 20250139, Atualizando o arquivo FTDados.txt, 2025-10-28 13:07:45
 20250137, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:06:35
+20250153, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-12 13:08:58
 20250154, Atualizando o arquivo FT2Dados.txt, 2025-11-07 13:08:37
 20250100, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:02:45
+20250156, Atualizando o arquivo FTDados.txt, 2025-11-14 13:10:01
 20250015, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:00:59
 20250117, Adicionando o arquivo SZADRS_Dados.txt, 2025-10-26 13:04:01
+20250158, Atualizando o arquivo FT3Dados.txt, 2025-11-14 13:10:33
 20250143, Atualizando o arquivo SZADRS_Dados.txt, 2025-11-03 13:07:08
-20250150, Atualizando o arquivo FTDados.txt, 2025-11-06 19:08:37
+20250150, Atualizando o arquivo FT3Dados.txt, 2025-11-14 13:08:25
 20250115, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-02 13:03:39
+20250142, Adicionando o arquivo SZADRS_Dados.txt, 2025-11-09 13:06:44
