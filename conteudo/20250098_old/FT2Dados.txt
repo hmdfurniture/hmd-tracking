@@ -1,8 +1,0 @@
-﻿m3: 4,92
-Zona Expedição: Países Baixos
-Volumes a expedir: 3,00
-Nr. Reserva: 313384
-Peso : 350,00
-Ldm: 0,00
-Multiplas Recolhas?: Sim
-
