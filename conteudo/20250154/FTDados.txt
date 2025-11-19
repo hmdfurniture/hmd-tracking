@@ -5,7 +5,7 @@ Local Descarga: DEMESUD
 Data Expedição: 07/11/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7270_a
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Não Paletizados
 Marcas: BULGARY DUBAI
 
