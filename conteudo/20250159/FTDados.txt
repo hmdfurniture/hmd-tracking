@@ -2,7 +2,7 @@
 Nome Cliente: PASCAL MAINGOURD
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: PASCAL MAINGOURD - HOTEL SIGNATURE SAINT GERMAIN
-Data Expedição: 21/11/2025
+Data Expedição: 25/11/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7278
 Status: Order not yet dispatched
