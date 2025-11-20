@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 160
 Nome Cliente: LANE CRAWFORD
 Local Carga: SUFFA - M.G. FERNANDES
-Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG.
-Data Expedição: 21/11/2025
+Local Descarga: LANE CRAWFORD
+Data Expedição: 28/11/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7272&7286
 Status: Order not yet dispatched
 Mercadoria: Paletizados
-Marcas: PO449160 & PO442749 (replacement)
+Marcas: PO449160
 
