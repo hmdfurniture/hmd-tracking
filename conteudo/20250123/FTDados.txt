@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 123
+Nome Cliente: MARIA RAPOSO, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Descarga: MARIA RAPOSO, LDA - SCHENKER TRANSITÁRIOS S.A.
+Data Expedição: 25/07/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7249
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 119.24
+
