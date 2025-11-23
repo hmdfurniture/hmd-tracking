@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 141
+Nome Cliente: IZZI RENOVATIONS LTD
+Local Carga: RELAXVANGUARD - ATELIER LDA
+Local Descarga: IZZI RENOVATIONS LTD
+Data Expedição: 31/10/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7254
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
