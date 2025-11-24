@@ -1,8 +1,8 @@
-﻿m3: 2,54
+﻿m3: 2,48
 Zona Expedição: Hong Kong
 Volumes a expedir: 2,00
 Nr. Reserva: 0
-Peso : 150,00
+Peso : 137,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
