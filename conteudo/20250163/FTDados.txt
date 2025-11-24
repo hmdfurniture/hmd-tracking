@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 163
+Nome Cliente: QUARTZ COTAGE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: QUARTZ COTAGE - JACOBA VAN VELDHUIZEN
+Data Expedição: 25/11/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7293
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Jacoba van Veldhuizn
+
