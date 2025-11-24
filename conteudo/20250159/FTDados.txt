@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 159
 Nome Cliente: PASCAL MAINGOURD
-Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: PASCAL MAINGOURD - HOTEL SIGNATURE SAINT GERMAIN
 Data Expedição: 25/11/2025
 Expeditor: Xbslog
