@@ -2,7 +2,7 @@
 Nome Cliente: ARJC, LDA
 Local Carga: 
 Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
-Data Expedição: 25/11/2025
+Data Expedição: 27/11/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7304
 Status: Order not yet dispatched
