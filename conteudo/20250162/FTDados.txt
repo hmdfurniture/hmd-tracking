@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 162
 Nome Cliente: INTEMPORÂNEO, LDA.
 Local Carga: HMD FURNITURE - SARCOL
-Local Descarga: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA - LEIXÕES
+Local Descarga: INTEMPORÂNEO, LDA.
 Data Expedição: 25/11/2025
 Expeditor: Outro
 Nr. Encomenda: 7290
 Status: Shipment in transit to the destination
 Mercadoria: Não Paletizados
-Marcas: ENC01 1/9250
+Marcas: ENC01 1/9250   (2/2)
 
