@@ -1,9 +1,9 @@
-﻿Descrição da entrega: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA - LEIXÕES
-Nome da entrega: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA
-Morada da entrega: PLATAFORMA LOGÍSTICA DO PORTO DE LEIXÕES
-Local da entrega: Pólo 1, Lote 10
-Código Postal da entrega: 4455-846 SANTA CRUZ DO BISPO
-País da entrega: PORTUGAL
+﻿Descrição da entrega: INTEMPORÂNEO, LDA.
+Nome da entrega: INTEMPORÂNEO, LDA.
+Morada da entrega: RUA DOS NETOS, 18
+Local da entrega: FUNCHAL
+Código Postal da entrega: 9000-084 FUNCHAL
+País da entrega: Portugal
 Nome Contacto da entrega: 
 Telefone da entrega: 
 Email da entrega: 
