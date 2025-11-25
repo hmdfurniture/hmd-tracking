@@ -5,7 +5,7 @@ Local Descarga: A&T TRANSPORT
 Data Expedição: 24/10/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7265
-Status: Goods with the local carrier awaiting shipment
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: 
 
