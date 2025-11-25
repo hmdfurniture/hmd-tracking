@@ -5,7 +5,7 @@ Local Descarga: MME VAN DEN EYNDE EMILY - ABACA TRANSPORT - LE BROC
 Data Expedição: 21/11/2025
 Expeditor: Xbslog
 Nr. Encomenda: 7279&7280_v2
-Status: Goods with the local carrier awaiting shipment
+Status: Shipment in transit to the destination
 Mercadoria: Paletizados
 Marcas: Megève
 
