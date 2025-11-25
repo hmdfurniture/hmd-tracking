@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 97
+Nome Cliente: NETLIGHTING LTD
+Local Carga: 
+Local Descarga: 
+Data Expedição: 26/06/2025
+Expeditor: Dhl
+Nr. Encomenda: Samples
+Status: Delivery completed
+Mercadoria: Paletizados
+Marcas: 
+
