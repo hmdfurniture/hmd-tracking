@@ -5,7 +5,7 @@ Local Descarga: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA - LEIXÕES
 Data Expedição: 25/11/2025
 Expeditor: Outro
 Nr. Encomenda: 7290
-Status: 
-Mercadoria: 
+Status: Shipment in transit to the destination
+Mercadoria: Não Paletizados
 Marcas: ENC01 1/9250
 
