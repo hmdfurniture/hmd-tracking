@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 170
 Nome Cliente: BO FREMAUX DELORME
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: BOUTIQUES YVES DELORME - BRUXELLES
 Data Expedição: 28/11/2025
 Expeditor: Xbslog
