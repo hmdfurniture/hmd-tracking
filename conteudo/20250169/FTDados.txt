@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 169
+Nome Cliente: REBECCA VERSTRAETE BV
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: REBECCA VERSTRAETE BV - KIELSBROEK 4
+Data Expedição: 28/11/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7297
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Sara en Benny
+
