@@ -2,7 +2,7 @@
 Nome Cliente: JARRETT FURNITURE, LTD
 Local Carga: HMD FURNITURE - SARCOL
 Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG.
-Data Expedição: 28/11/2025
+Data Expedição: 25/11/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7275
 Status: Order not yet dispatched
