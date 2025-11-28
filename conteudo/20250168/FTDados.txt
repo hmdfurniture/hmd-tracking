@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 168
+Nome Cliente: MARIA RAPOSO, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: ALGARVE EXPRESS TRANSPORT & REMOVALS
+Data Expedição: 28/11/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7295
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 157/25 Exposição loa
+
