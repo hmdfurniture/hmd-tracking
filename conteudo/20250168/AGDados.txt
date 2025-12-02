@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5844
+Nome Cliente: XBS-LOG. TRANSITÁRIOS, LDA.
+Morada: RUA JOAQUIM DIAS SALGUEIRO,622
+Local: VILA NOVA DA TELHA
+Código Postal: 4470-777 V. N. TELHA
+País: Portugal
+Telefone: +351 220 401 110
+Email: info@xbslog.com
+URL: www.xbslog.com
+
