@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 174
+Nome Cliente: THE NORTHEAST STUDIO S.L
+Local Carga: 
+Local Descarga: THURN UND TAXIS PALAIS RESTAURANT
+Data Expedição: 12/12/2025
+Expeditor: Xbslog
+Nr. Encomenda: 7285
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 2521-FDL&E
+
