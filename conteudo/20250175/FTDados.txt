@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 175
+Nome Cliente: MONOLOGUE LONDON
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: MONOLOGUE LONDON
+Data Expedição: 04/12/2025
+Expeditor: Dhl
+Nr. Encomenda: Samples
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: 
+
