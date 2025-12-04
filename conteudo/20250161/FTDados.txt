@@ -2,7 +2,7 @@
 Nome Cliente: JARRETT FURNITURE, LTD
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: JARRETT FURNITURE, LTD
-Data Expedição: 02/12/2025
+Data Expedição: 05/12/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7282
 Status: Order not yet dispatched
