@@ -1,8 +1,8 @@
-﻿m3: 1,58
-Zona Expedição: REINO UNIDO
+﻿m3: 1,62
+Zona Expedição: Estados Unidos
 Volumes a expedir: 1,00
 Nr. Reserva: 0
-Peso : 410,00
+Peso : 423,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
