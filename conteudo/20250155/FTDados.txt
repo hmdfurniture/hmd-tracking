@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 155
 Nome Cliente: JARRETT FURNITURE, LTD
 Local Carga: HMD FURNITURE - SARCOL
-Local Descarga: RECOLHA CLIENTE - EX WORKS - XBSLOG.
+Local Descarga: JARRETT FURNITURE, LTD
 Data Expedição: 05/12/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7275
 Status: Order not yet dispatched
 Mercadoria: Paletizados
-Marcas: PO 1742
+Marcas: PO 1742 - please
 
