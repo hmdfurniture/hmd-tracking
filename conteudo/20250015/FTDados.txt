@@ -5,7 +5,7 @@ Local Descarga: BASIC COLLECTION-CASTELLUM VESZPRÉM
 Data Expedição: 15/07/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7176
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: Castellum Veszprém
 
