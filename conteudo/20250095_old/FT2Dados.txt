@@ -1,8 +1,0 @@
-﻿m3: 2,16
-Zona Expedição: FRANÇA
-Volumes a expedir: 1,00
-Nr. Reserva: 313356
-Peso : 185,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

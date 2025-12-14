@@ -1,8 +1,0 @@
-﻿m3: 2,90
-Zona Expedição: Estados Unidos
-Volumes a expedir: 4,00
-Nr. Reserva: 0
-Peso : 288,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-

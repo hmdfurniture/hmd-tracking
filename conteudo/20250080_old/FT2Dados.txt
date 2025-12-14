@@ -1,8 +1,0 @@
-﻿m3: 2,14
-Zona Expedição: Polónia
-Volumes a expedir: 1,00
-Nr. Reserva: 0
-Peso : 150,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
