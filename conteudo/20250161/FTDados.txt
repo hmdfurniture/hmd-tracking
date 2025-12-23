@@ -5,7 +5,7 @@ Local Descarga: HILTON PALACIO DEL RIO - WAREHOUSE
 Data Expedição: 05/12/2025
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7282
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: PO 1703 PROJECT 1759
 
