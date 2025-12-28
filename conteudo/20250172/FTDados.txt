@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 172
+Nome Cliente: ADDISON HOUSE INC
+Local Carga: FABRICA MOVEIS FONTES LDA
+Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
+Data Expedição: 09/12/2025
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7288
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO# 21300
+
