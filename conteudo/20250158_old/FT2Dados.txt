@@ -1,8 +1,0 @@
-﻿m3: 0,77
-Zona Expedição: Itália
-Volumes a expedir: 1,00
-Nr. Reserva: 363488
-Peso : 300,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
