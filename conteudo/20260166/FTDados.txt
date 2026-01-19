@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 166
+Nome Cliente: SAS NJJ VOSGES
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: KONEKTO
+Data Expedição: 20/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 1003
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: HOTEL COULANGES
+
