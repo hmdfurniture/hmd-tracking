@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 1
+Nome Cliente: SILK & STITCHES INTERIORS
+Local Carga: 
+Local Descarga: *
+Data Expedição: 23/01/2026
+Expeditor: Recolha Cliente
+Nr. Encomenda: 7287
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
