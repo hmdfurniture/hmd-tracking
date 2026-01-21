@@ -1,7 +1,7 @@
 ﻿Nr. Cliente: 1
 Nome Cliente: SILK & STITCHES INTERIORS
-Local Carga: 
-Local Descarga: *
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SILK & STITCHES INTERIORS
 Data Expedição: 23/01/2026
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7287
