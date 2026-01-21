@@ -1,5 +1,5 @@
 ﻿m3: 2,64
-Zona Expedição: 
+Zona Expedição: EMIRADOS ARABES UNIDOS
 Volumes a expedir: 2,00
 Nr. Reserva: 111254
 Peso : 180,00
