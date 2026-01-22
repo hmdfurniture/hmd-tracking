@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 2
+Nome Cliente: FONTENAY SAS
+Local Carga: 
+Local Descarga: FONTENAY SAS - AVENUE MARCEAU
+Data Expedição: 30/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7294
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
