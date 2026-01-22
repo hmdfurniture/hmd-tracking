@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 6
+Nome Cliente: SAL STORE E COMUNICAÇÃO UNIP LDA
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: SAL STORE E COMUNICAÇÃO UNIP LDA
+Data Expedição: 30/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7299
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Bobo
+
