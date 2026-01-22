@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 152
+Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Local Carga: 
+Local Descarga: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Data Expedição: 27/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7284
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
