@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 5
+Nome Cliente: REBECCA VERSTRAETE BV
+Local Carga: VARIOS LOCAIS
+Local Descarga: REBECCA VERSTRAETE BV
+Data Expedição: 30/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7298
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: ref. Knokke
+
