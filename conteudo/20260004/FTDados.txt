@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 4
+Nome Cliente: BASE GEOMÉTRICA, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: VILLA VASCO DA GAMA CASCAIS
+Data Expedição: 23/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7301
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
