@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 8
+Nome Cliente: MONOLOGUE LONDON
+Local Carga: 
+Local Descarga: MONOLOGUE LONDON
+Data Expedição: 30/01/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7312
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: SO-03234
+
