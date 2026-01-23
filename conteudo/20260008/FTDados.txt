@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 8
 Nome Cliente: MONOLOGUE LONDON
-Local Carga: 
+Local Carga: DÉCIMAS D`EMOÇÕES UNIPESSOAL LDA
 Local Descarga: MONOLOGUE LONDON
 Data Expedição: 30/01/2026
 Expeditor: Xbslog
