@@ -5,7 +5,7 @@ Local Descarga: RECOLHA CLIENTE - EX WORKS - SARCOL
 Data Expedição: 22/01/2026
 Expeditor: Recolha Cliente
 Nr. Encomenda: 7288
-Status: Goods with the local carrier awaiting shipment
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: PO# 21300
 
