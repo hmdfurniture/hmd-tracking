@@ -2,7 +2,7 @@
 Nome Cliente: FRANK STUEVE INTERIORS
 Local Carga: JULIAO VASQUES BRANDAO LDA
 Local Descarga: MAX MAROTZKE GMBH
-Data Expedição: 30/01/2026
+Data Expedição: 03/02/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7313
 Status: Order not yet dispatched
