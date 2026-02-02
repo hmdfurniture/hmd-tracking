@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 2
 Nome Cliente: FONTENAY SAS
-Local Carga: HMD FURNITURE - SARCOL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: FONTENAY SAS - AVENUE MARCEAU
 Data Expedição: 03/02/2026
 Expeditor: Xbslog
