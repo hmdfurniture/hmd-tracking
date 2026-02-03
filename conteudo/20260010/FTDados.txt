@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 10
+Nome Cliente: ATELIER BRUNO JURICIC D.O.O.
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: XBS-LOG. TRANSITÁRIOS, LDA.
+Data Expedição: 03/02/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7256_a
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: 
+
