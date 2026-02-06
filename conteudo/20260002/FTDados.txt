@@ -2,7 +2,7 @@
 Nome Cliente: FONTENAY SAS
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: FONTENAY SAS - AVENUE MARCEAU
-Data Expedição: 03/02/2026
+Data Expedição: 06/02/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7294
 Status: Order not yet dispatched
