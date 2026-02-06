@@ -2,7 +2,7 @@
 Nome Cliente: SNC BLACKDOOR REAL ESTATE
 Local Carga: JULIAO VASQUES BRANDAO LDA
 Local Descarga: SNC BLACKDOOR REAL ESTATE - DEMARCHIVES 92
-Data Expedição: 03/02/2026
+Data Expedição: 10/02/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7310
 Status: Order not yet dispatched
