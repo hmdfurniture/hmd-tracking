@@ -2,7 +2,7 @@
 Nome Cliente: WALDNERS
 Local Carga: 
 Local Descarga: TEXAS OFFICE INSTALLATION
-Data Expedição: 03/02/2026
+Data Expedição: 06/02/2026
 Expeditor: Outro
 Nr. Encomenda: 7309
 Status: Order not yet dispatched
