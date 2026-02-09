@@ -5,7 +5,7 @@ Local Descarga: KONEKTO
 Data Expedição: 20/01/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7250_a
-Status: Shipment in transit to the destination
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: HOTEL COULANGES
 
