@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 11
+Nome Cliente: HOLLAND&YOUNG EVENT DESIGN
+Local Carga: TABULA .J.A.SIMÃO,LDA
+Local Descarga: PLANZER TRANSPORT AG
+Data Expedição: 13/02/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7311
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: La Pain du Quartier
+
