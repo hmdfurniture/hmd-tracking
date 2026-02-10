@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 12
+Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Data Expedição: 13/02/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7284
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Order A / 00033 - HOTEL BILDERBERG BELLEVUE DRESDEN
+
