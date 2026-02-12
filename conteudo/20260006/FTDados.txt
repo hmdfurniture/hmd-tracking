@@ -1,8 +1,8 @@
 ﻿Nr. Cliente: 6
 Nome Cliente: SAL STORE E COMUNICAÇÃO UNIP LDA
-Local Carga: HMD FURNITURE - SARCOL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: SAL STORE E COMUNICAÇÃO UNIP LDA
-Data Expedição: 09/02/2026
+Data Expedição: 13/02/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7299
 Status: Order not yet dispatched
