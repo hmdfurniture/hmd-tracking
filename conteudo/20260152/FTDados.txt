@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 152
 Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
-Local Carga: 
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
 Data Expedição: 13/02/2026
 Expeditor: Xbslog
