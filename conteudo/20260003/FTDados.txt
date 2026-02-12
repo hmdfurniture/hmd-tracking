@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 3
 Nome Cliente: FRANK STUEVE INTERIORS
-Local Carga: JULIAO VASQUES BRANDAO LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: MAX MAROTZKE GMBH
 Data Expedição: 13/02/2026
 Expeditor: Xbslog
