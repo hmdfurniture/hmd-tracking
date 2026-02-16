@@ -1,6 +1,6 @@
 ﻿Nr. Cliente: 9
 Nome Cliente: WALDNERS
-Local Carga: 
+Local Carga: HMD FURNITURE - SARCOL
 Local Descarga: TEXAS OFFICE INSTALLATION
 Data Expedição: 13/02/2026
 Expeditor: Outro
