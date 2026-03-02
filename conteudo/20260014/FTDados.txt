@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 14
+Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: GRAND HYATT BERLIN.
+Data Expedição: 03/03/2026
+Expeditor: Xbslog
+Nr. Encomenda: S000014
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
