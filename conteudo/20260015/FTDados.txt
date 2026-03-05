@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 15
+Nome Cliente: LA MANUFACTURE - GROUPE LINDERA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: LA MANUFACTURE - GROUPE LINDERA
+Data Expedição: 06/03/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00007
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: ADP
+
