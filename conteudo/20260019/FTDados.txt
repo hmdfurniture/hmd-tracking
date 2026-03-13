@@ -2,7 +2,7 @@
 Nome Cliente: DIVINE CASHMERE LIMITED
 Local Carga: RELAXVANGUARD - ATELIER LDA
 Local Descarga: DIVINE CASHMERE LIMITED
-Data Expedição: 13/03/2026
+Data Expedição: 17/03/2026
 Expeditor: Xbslog
 Nr. Encomenda: 0015
 Status: Order not yet dispatched
