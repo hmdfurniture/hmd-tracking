@@ -1,0 +1,10 @@
+﻿Nr. Cliente: 5942
+Nome Cliente: ITLX FRANCE
+Morada: 4 RUE DENIS PAPIN
+Local: BP 513 – ZI MITRY COMPANS
+Código Postal: 77290 MITRY-MORY
+País: França
+Telefone: 
+Email: 
+URL: 
+
