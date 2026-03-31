@@ -5,7 +5,7 @@ Local Descarga: PLANZER TRANSPORT AG
 Data Expedição: 20/02/2026
 Expeditor: Xbslog
 Nr. Encomenda: 7311
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: La Pain du Quartier
 
