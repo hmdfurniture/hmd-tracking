@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 20
+Nome Cliente: ARJC, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: ARJC, LDA   -  LELEPHANT
+Data Expedição: 17/03/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7305
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Casa do Monte
+
