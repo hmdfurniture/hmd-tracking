@@ -2,7 +2,7 @@
 Nome Cliente: STAFFAN TOLLGARD DESIGN GROUP
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: STAFFAN TOLLGARD DESIGN GROUP - SPRINGBOX LONDON
-Data Expedição: 20/04/2026
+Data Expedição: 21/04/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00016
 Status: Order not yet dispatched
