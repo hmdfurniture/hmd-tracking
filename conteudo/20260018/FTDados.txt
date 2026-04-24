@@ -7,5 +7,5 @@ Expeditor: Xbslog
 Nr. Encomenda: 00021
 Status: Order not yet dispatched
 Mercadoria: Paletizados
-Marcas: 
+Marcas: PO-01741 - Monologue / Vabel - SO-03324 / Flat Type 13
 
