@@ -1,8 +1,0 @@
-﻿m3: 2,10
-Zona Expedição: Suíça
-Volumes a expedir: 1,00
-Nr. Reserva: 396013
-Peso : 250,00
-Ldm: 0,50
-Multiplas Recolhas?: Não
-
