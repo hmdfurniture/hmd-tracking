@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 22
-Nome Cliente: PASCAL MAINGOURD
-Local Carga: RELAXVANGUARD - ATELIER LDA
-Local Descarga: HOTEL LE PETIT CHOMEL
-Data Expedição: 27/03/2026
+Nome Cliente: FARBEN CONSULTING, SA
+Local Carga: VARIOS LOCAIS
+Local Descarga: FARBEN CONSULTING, SA
+Data Expedição: 11/05/2026
 Expeditor: Xbslog
-Nr. Encomenda: 00017
+Nr. Encomenda: 00025
 Status: Order not yet dispatched
 Mercadoria: Paletizados
-Marcas: LE PETIT CHOMEL
+Marcas: 
 
