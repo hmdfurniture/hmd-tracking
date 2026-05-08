@@ -1,7 +1,7 @@
 ﻿m3: 4,38
 Zona Expedição: Irlanda
 Volumes a expedir: 0,00
-Nr. Reserva: 0
+Nr. Reserva: 423574
 Peso : 300,00
 Ldm: 0,00
 Multiplas Recolhas?: Sim
