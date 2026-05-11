@@ -1,8 +1,8 @@
-﻿m3: 0,00
+﻿m3: 3,28
 Zona Expedição: Portugal
-Volumes a expedir: 0,00
+Volumes a expedir: 3,00
 Nr. Reserva: 0
-Peso : 0,00
+Peso : 360,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
