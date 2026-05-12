@@ -1,8 +1,8 @@
-﻿m3: 1,50
-Zona Expedição: REINO UNIDO
-Volumes a expedir: 1,00
-Nr. Reserva: 417155
-Peso : 245,00
+﻿m3: 1,86
+Zona Expedição: Reino Unido
+Volumes a expedir: 2,00
+Nr. Reserva: 0
+Peso : 190,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
 
