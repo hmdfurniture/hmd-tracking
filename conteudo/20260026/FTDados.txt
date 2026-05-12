@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 26
-Nome Cliente: STAFFAN TOLLGARD DESIGN GROUP
+Nome Cliente: MONOLOGUE LONDON
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
-Local Descarga: STAFFAN TOLLGARD DESIGN GROUP - SPRINGBOX LONDON
-Data Expedição: 21/04/2026
+Local Descarga: MONOLOGUE LONDON - JEWEL ENTERPRISES
+Data Expedição: 15/05/2026
 Expeditor: Xbslog
-Nr. Encomenda: 00016
+Nr. Encomenda: 00028_00033
 Status: Order not yet dispatched
 Mercadoria: Paletizados
-Marcas: PO-8301276
+Marcas: PO# PO-01796 & PO-01802 ! Ref# : SO-03393 & SO-03363
 
