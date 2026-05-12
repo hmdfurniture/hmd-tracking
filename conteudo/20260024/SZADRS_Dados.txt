@@ -1,11 +1,11 @@
-﻿Descrição da entrega: ARJC, LDA   -  LELEPHANT
-Nome da entrega: ARJC, LDA
-Morada da entrega: RUA IVENS, 38
-Local da entrega: LISBOA
-Código Postal da entrega: 1200-227 LISBOA
-País da entrega: PORTUGAL
-Nome Contacto da entrega: CATARINA MELANCIA
-Telefone da entrega: +351 918 518 606
-Email da entrega: catarina@lelephant.pt
+﻿Descrição da entrega: SIMONSEN & CZECHURA A/S
+Nome da entrega: RUE VERTE
+Morada da entrega: TRANSFORMERVEJ 8
+Local da entrega: SØBORG
+Código Postal da entrega: 2860  SØBORG DENMARK
+País da entrega: DINAMARCA
+Nome Contacto da entrega: Lars Prag
+Telefone da entrega: +45 21 80 66 11
+Email da entrega: lars@sc-copenhagen.com
 Observação da entrega: 
 
