@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 27
+Nome Cliente: MONOLOGUE LONDON
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: MONOLOGUE LONDON - JEWEL ENTERPRISES
+Data Expedição: 15/05/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00033
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Purchase Order# PO-01802 | Ref# : SO-03363 | Sales Person : Anthony
+
