@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5918
+Nome Cliente: WIDEM LOGISTICS NV
+Morada: LAR P4
+Local: MENEN
+Código Postal: 8930 MENEN
+País: Bélgica
+Telefone: +32 56 43 95 21
+Email: tode@widem.eu
+URL: www.widem.eu
+
