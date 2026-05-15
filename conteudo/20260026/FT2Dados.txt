@@ -1,7 +1,7 @@
 ﻿m3: 1,86
 Zona Expedição: Reino Unido
 Volumes a expedir: 2,00
-Nr. Reserva: 0
+Nr. Reserva: 425950
 Peso : 190,00
 Ldm: 0,00
 Multiplas Recolhas?: Não
