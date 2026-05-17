@@ -1,8 +1,0 @@
-﻿m3: 0,70
-Zona Expedição: Espanha
-Volumes a expedir: 1,00
-Nr. Reserva: 419212
-Peso : 60,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
