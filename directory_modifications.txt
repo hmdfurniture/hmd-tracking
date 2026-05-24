@@ -7,5 +7,5 @@ Name, Last Commit Message, Last Commit Date
 20260026, Atualizando o arquivo image_agdados.jpg, 2026-05-15 13:02:14
 20260020, Adicionando o arquivo SZADRS_Dados.txt, 2026-05-03 13:03:43
 20260021, Atualizando o arquivo FT2Dados.txt, 2026-05-08 13:00:52
-20260024, Atualizando o arquivo FTDados.txt, 2026-05-14 19:01:55
+20260024, Atualizando o arquivo image_agdados.jpg, 2026-05-22 17:21:38
 20260023, Atualizando o arquivo SZADRS_Dados.txt, 2026-05-08 10:24:52
