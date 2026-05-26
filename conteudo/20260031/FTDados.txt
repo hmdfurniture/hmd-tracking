@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 31
+Nome Cliente: WALDNERS
+Local Carga: HMD FURNITURE - SARCOL
+Local Descarga: WALDNERS - ALL MODULAR SOCAL
+Data Expedição: 26/05/2026
+Expeditor: Wlp
+Nr. Encomenda: A/00060
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Purchase Order - W390774-13-650 Project - 17199
+
