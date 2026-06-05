@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 24
-Nome Cliente: RUE VERTE
-Local Carga: PVM UNIPESSOAL LDA
-Local Descarga: SIMONSEN & CZECHURA A/S
-Data Expedição: 22/05/2026
+Nome Cliente: ARJC, LDA
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: ARJC, LDA   -  LELEPHANT
+Data Expedição: 06/04/2026
 Expeditor: Xbslog
-Nr. Encomenda: 00032
-Status: Goods with the local carrier awaiting shipment
+Nr. Encomenda: 00001
+Status: Delivery completed
 Mercadoria: Paletizados
-Marcas: 
+Marcas: Casa do Monte
 
