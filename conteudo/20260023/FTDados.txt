@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 23
 Nome Cliente: BO FREMAUX DELORME
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
-Local Descarga: BO FREMAUX DELORME - RESIDENTIE KOUTERDREEF
-Data Expedição: 08/05/2026
+Local Descarga: BOUTIQUES YVES DELORME - RESIDENTIE KOUTERDREEF
+Data Expedição: 27/03/2026
 Expeditor: Xbslog
-Nr. Encomenda: 00034
-Status: Order not yet dispatched
+Nr. Encomenda: 00018
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: 
 
