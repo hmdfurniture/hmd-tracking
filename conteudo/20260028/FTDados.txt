@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 28
+Nome Cliente: ATELIER CINZA RATO LDA
+Local Carga: VARIOS LOCAIS
+Local Descarga: ATELIER CINZA RATO LDA
+Data Expedição: 17/06/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00042
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
