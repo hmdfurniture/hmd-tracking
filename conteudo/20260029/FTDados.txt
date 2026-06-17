@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 29
+Nome Cliente: HOMEAGE & CRÉATION
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: CHAMPAGNE DÉMÉNAGEMENT
+Data Expedição: 19/06/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00040
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: G27-TAITTINGER SAINT NICAISE
+
