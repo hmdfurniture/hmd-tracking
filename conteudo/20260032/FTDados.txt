@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 32
+Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SNC BLACKDOOR REAL ESTATE - DEMARCHIVES 92
+Data Expedição: 26/05/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00068
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: Banquete Saint Dominique
+
