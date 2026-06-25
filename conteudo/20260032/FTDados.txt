@@ -1,11 +1,11 @@
 ﻿Nr. Cliente: 32
-Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Nome Cliente: EMILY NEUGARTEN INTERIOR DESIGN
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
-Local Descarga: SNC BLACKDOOR REAL ESTATE - DEMARCHIVES 92
-Data Expedição: 26/05/2026
+Local Descarga: MONACO LOGISTIQUE - ZONE J
+Data Expedição: 26/06/2026
 Expeditor: Xbslog
-Nr. Encomenda: 00068
+Nr. Encomenda: 00046
 Status: Order not yet dispatched
-Mercadoria: Não Paletizados
-Marcas: Banquete Saint Dominique
+Mercadoria: Paletizados
+Marcas: 
 
