@@ -1,8 +1,0 @@
-﻿m3: 3,30
-Zona Expedição: Reino Unido
-Volumes a expedir: 2,00
-Nr. Reserva: 432165
-Peso : 380,00
-Ldm: 0,00
-Multiplas Recolhas?: Não
-
