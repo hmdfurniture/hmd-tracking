@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 33
+Nome Cliente: FIELD DAY STUDIO LTD
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: HG CONSTRUCTION (FAO FIELD DAY STUDIO)
+Data Expedição: 03/07/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00035
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Monatray- Bobo Lamp
+
