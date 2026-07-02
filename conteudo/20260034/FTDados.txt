@@ -1,7 +1,7 @@
 ﻿Nr. Cliente: 34
 Nome Cliente: WESTWOOD GROUP KFT
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
-Local Descarga: SKY-LOG KFT
+Local Descarga: WESTWOOD GROUP KFT, SKY-LOG KFT
 Data Expedição: 03/07/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00036
