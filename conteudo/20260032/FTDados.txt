@@ -5,7 +5,7 @@ Local Descarga: MONACO LOGISTIQUE - ZONE J
 Data Expedição: 26/06/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00046
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: 
 
