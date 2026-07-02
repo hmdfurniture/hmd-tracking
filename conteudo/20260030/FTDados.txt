@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 30
+Nome Cliente: GALLERY DESIGN
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: GALLERY DESIGN
+Data Expedição: 07/07/2026
+Expeditor: Recolha Cliente
+Nr. Encomenda: 00024
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: MIF-PO-001165
+
