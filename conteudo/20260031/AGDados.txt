@@ -1,1 +1,10 @@
-﻿
+﻿Nr. Cliente: 5943
+Nome Cliente: LOMBARD SHIPPING LTD.
+Morada: 6 DAMASTOWN AVE
+Local: DAMASTOWN INDUSTRIAL PARK
+Código Postal: D15 X7KK DUBLIN
+País: Irlanda
+Telefone: 
+Email: 
+URL: 
+
