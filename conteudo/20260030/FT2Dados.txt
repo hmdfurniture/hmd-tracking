@@ -1,0 +1,8 @@
+﻿m3: 15,00
+Zona Expedição: Arábia Saudita
+Volumes a expedir: 17,00
+Nr. Reserva: 0
+Peso : 1320,00
+Ldm: 0,00
+Multiplas Recolhas?: Não
+
