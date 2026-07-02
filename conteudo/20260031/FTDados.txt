@@ -5,7 +5,7 @@ Local Descarga: A&T TRANSPORT
 Data Expedição: 26/06/2026
 Expeditor: Xbslog
 Nr. Encomenda: 000026
-Status: 
+Status: Shipment in transit to the destination
 Mercadoria: Paletizados
 Marcas: 
 
