@@ -3,9 +3,9 @@ Nome Cliente: ATELIER CINZA RATO LDA
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA
 Local Descarga: ATELIER CINZA RATO LDA
 Data Expedição: 22/06/2026
-Expeditor: Xbslog
+Expeditor: Recolha Cliente
 Nr. Encomenda: 00042
-Status: Order not yet dispatched
+Status: Delivery completed
 Mercadoria: Paletizados
 Marcas: 
 
