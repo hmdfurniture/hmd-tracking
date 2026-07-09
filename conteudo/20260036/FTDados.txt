@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 36
+Nome Cliente: INTEMPORÂNEO, LDA.
+Local Carga: FABRICA MOVEIS FONTES LDA
+Local Descarga: MARFRETE - TRANSITÁRIOS E NAVEGAÇÃO LDA - LEIXÕES
+Data Expedição: 06/07/2026
+Expeditor: Outro
+Nr. Encomenda: 00045
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: ENC01 1/9725 - Anastasiia
+
