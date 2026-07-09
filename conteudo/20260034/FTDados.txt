@@ -5,7 +5,7 @@ Local Descarga: WESTWOOD GROUP KFT, SKY-LOG KFT
 Data Expedição: 03/07/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00036
-Status: Order not yet dispatched
+Status: Goods in transit to the agent
 Mercadoria: Paletizados
 Marcas: 
 
