@@ -1,8 +1,8 @@
 ﻿Nr. Cliente: 35
 Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
 Local Carga: VARIOS LOCAIS
-Local Descarga: GRAND HYATT BERLIN
-Data Expedição: 07/07/2026
+Local Descarga: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Data Expedição: 10/07/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00043
 Status: Order not yet dispatched
