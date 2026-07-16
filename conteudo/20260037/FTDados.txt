@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 37
+Nome Cliente: SZ INTERIOR SABINE ZELLITCH
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SZ INTERIOR SABINE ZELLITCH - DES ARCHIVES 92
+Data Expedição: 17/07/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00059
+Status: Order not yet dispatched
+Mercadoria: Misto - Paletes + Volumes Soltos.
+Marcas: 
+
