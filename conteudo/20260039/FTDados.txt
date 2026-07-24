@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 39
+Nome Cliente: MONOLOGUE LONDON
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: JEWEL ENTERPRISES
+Data Expedição: 24/07/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00050
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO-01925 | SO-03543
+
