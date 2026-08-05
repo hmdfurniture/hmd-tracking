@@ -1,7 +1,7 @@
 ﻿Nr. Cliente: 44
 Nome Cliente: EMILY NEUGARTEN INTERIOR DESIGN
 Local Carga: VARIOS LOCAIS
-Local Descarga: MME VAN DEN EYNDE EMILY - ABACA TRANSPORT - LE BROC
+Local Descarga: MONACO LOGISTIQUE POUR EMILY NEUGARTEN
 Data Expedição: 07/08/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00051
