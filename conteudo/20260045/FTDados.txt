@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 45
+Nome Cliente: MONOLOGUE LONDON
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: JEWEL ENTERPRISES
+Data Expedição: 07/08/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00052
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO-01915 REF: Henrietta Hogan
+
