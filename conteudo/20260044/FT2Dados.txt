@@ -1,7 +1,7 @@
 ﻿m3: 0,00
 Zona Expedição: MONACO
 Volumes a expedir: 2,00
-Nr. Reserva: 0
+Nr. Reserva: 451563
 Peso : 220,00
 Ldm: 0,80
 Multiplas Recolhas?: Sim
