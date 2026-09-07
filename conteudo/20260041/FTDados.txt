@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 41
+Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SNC BLACKDOOR REAL ESTATE - SAINT DOMINIQUE
+Data Expedição: 31/07/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00068
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: NE A/00068 | P00665 (SAM BANQUET SEAT CUSHION)
+
