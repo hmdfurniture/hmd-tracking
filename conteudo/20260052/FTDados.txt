@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 52
+Nome Cliente: IMHIGU KFT
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SYC SRL
+Data Expedição: 02/10/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00060
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: PO241246
+
