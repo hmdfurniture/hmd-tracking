@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 53
+Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SNC BLACKDOOR REAL ESTATE - LE PLAY
+Data Expedição: 16/10/2026
+Expeditor: Xbslog
+Nr. Encomenda: 1000
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
