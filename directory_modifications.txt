@@ -10,5 +10,4 @@ Name, Last Commit Message, Last Commit Date
 20260041, Atualizando o arquivo SZADRS_Dados.txt, 2026-10-01 13:01:22
 20260048, Adicionando o arquivo SZADRS_Dados.txt, 2026-10-04 13:02:31
 20260045, Adicionando o arquivo SZADRS_Dados.txt, 2026-10-04 13:02:17
-20260051, Atualizando o arquivo FT3Dados.txt, 2026-09-25 13:03:18
 20260054, Atualizando o arquivo FT2Dados.txt, 2026-10-16 13:04:21
