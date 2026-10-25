@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 49
+Nome Cliente: SAS LA VERANDA - HOTEL LA SIVOLIÈRE
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: DAMEVIN SARL
+Data Expedição: 14/08/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00054
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: SIV / DYNAMO
+
