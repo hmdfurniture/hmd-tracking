@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 48
+Nome Cliente: ARTCO
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: ARTCO - LA BRUYÈRE
+Data Expedição: 21/08/2026
+Expeditor: Xbslog
+Nr. Encomenda: 7314_a
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: Project KF (Replacement Top)
+
