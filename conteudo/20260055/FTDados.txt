@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 55
+Nome Cliente: Probst + Eggimann AG
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: RITSCHARD SA
+Data Expedição: 30/10/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00063
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: AP House Dubai
+
