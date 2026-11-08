@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 51
+Nome Cliente: MOBEL-WERKSTATTE GERT SCHUMANN GMBH
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: HOTEL BILDERBERG BELLEVUE
+Data Expedição: 25/09/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00065
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Bestellung Bellevue Dresden
+
