@@ -1,0 +1,8 @@
+﻿m3: 4,03
+Zona Expedição: Reino Unido
+Volumes a expedir: 2,00
+Nr. Reserva: 0
+Peso : 250,00
+Ldm: 0,80
+Multiplas Recolhas?: Não
+
