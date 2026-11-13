@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 60
+Nome Cliente: THE ORIGIN DESIGN COMPANY, LTD
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: CORPORATE MESSENGERS WORLDWIDE LTD - T/A MERIDIAN EXPRESS
+Data Expedição: 13/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00058
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: Nihinlola Shonibare
+
