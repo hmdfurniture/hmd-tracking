@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 43
+Nome Cliente: IMHIGU KFT
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SYC SRL
+Data Expedição: 25/09/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00060
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: SO260037-Dizengoff 99-Additions-PO260110-HMD
+
