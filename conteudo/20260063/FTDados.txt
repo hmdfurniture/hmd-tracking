@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 63
+Nome Cliente: INOVA CONTRACTS LTD
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: SHOWFLAT E402
+Data Expedição: 20/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00090
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: E405-Table
+
