@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 62
+Nome Cliente: EMILY NEUGARTEN INTERIOR DESIGN
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: EMILY NEUGARTEN INTERIOR DESIGN
+Data Expedição: 20/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00051_a
+Status: Order not yet dispatched
+Mercadoria: Não Paletizados
+Marcas: KIT
+
