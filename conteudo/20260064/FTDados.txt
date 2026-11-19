@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 64
+Nome Cliente: GROUPE FREMAUX DELORME - BOUTIQUES YVES  DELORME
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: BOUTIQUE YVES DELORME - PARIS-SERBIE
+Data Expedição: 20/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00076
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
