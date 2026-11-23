@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 65
+Nome Cliente: SNC BLACKDOOR REAL ESTATE
+Local Carga: 
+Local Descarga: SNC BLACKDOOR REAL ESTATE - DEMARCHIVES 92
+Data Expedição: 27/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: ORDERS
+Status: Order not yet dispatched
+Mercadoria: Paletizados
+Marcas: 
+
