@@ -1,0 +1,11 @@
+﻿Nr. Cliente: 69
+Nome Cliente: BLANCO ROTO SL
+Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
+Local Descarga: HOTEL MIM BAQUEIRA
+Data Expedição: 27/11/2026
+Expeditor: Xbslog
+Nr. Encomenda: 00071
+Status: 
+Mercadoria: Paletizados
+Marcas: 
+
