@@ -5,7 +5,7 @@ Local Descarga: HOTEL MIM BAQUEIRA
 Data Expedição: 27/11/2026
 Expeditor: Xbslog
 Nr. Encomenda: 00071
-Status: 
+Status: Order not yet dispatched
 Mercadoria: Paletizados
 Marcas: 
 
