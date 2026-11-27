@@ -2,7 +2,7 @@
 Nome Cliente: JASPERJASPER
 Local Carga: XBS-LOG. TRANSITÁRIOS, LDA.
 Local Descarga: JASPERJASPER
-Data Expedição: 27/11/2026
+Data Expedição: 11/12/2026
 Expeditor: Xbslog
 Nr. Encomenda: 0062_0078
 Status: Order not yet dispatched
